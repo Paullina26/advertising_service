@@ -1,4 +1,4 @@
-import Navigation from 'components/Navigation';
+import Navigation from 'components/Navigation/Navigation';
 import styled from 'styled-components';
 
 export const Container = styled.div`

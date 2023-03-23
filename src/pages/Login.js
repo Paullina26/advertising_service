@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import Input from '../components/Form/Input';
 
 export const Container = styled.div`
   text-align: center;
@@ -22,9 +23,11 @@ export const FormTittle = styled.div`
 `;
 
 const Login = () => {
-  const [meil, setMeil] = useState('');
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
 
-  console.log(meil);
+  console.log(mail);
+  console.log(password);
 
   return (
     <Container>
@@ -32,20 +35,26 @@ const Login = () => {
         <p>Logowanie</p>
       </FormTittle>
 
-      <div>
-        <form>
-          <label htmlFor='e-mail'>
-            e-mail:
-            <input id='e-mail' type='text' value={meil} onChange={e => setMeil(e.target.value)} />
-          </label>
-          <label htmlFor=''>
-            Hasło:
-            <input type='password' />
-          </label>
-        </form>
-      </div>
-
-      <button>Zaloguj</button>
+      <form>
+        <Input
+          label='E-mail:'
+          id='e-mail'
+          type='text'
+          value={mail}
+          onChange={e => setMail(e.target.value)}
+          autoComplete='email'
+        />
+        <Input
+          label='Hasło:'
+          id='password'
+          type='password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          autoComplete='current-password'
+        />
+        <input type='submit' value='Zaloguj' />
+        <Input type='submit' value='Zaloguj' />
+      </form>
       <div>
         <button>Rejestracja</button>
       </div>

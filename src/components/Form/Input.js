@@ -13,8 +13,9 @@ const InputStyled = styled.input`
   margin: 10px auto;
   width: 80%;
   height: 30px;
+  background-color: ${({ theme }) => theme.BackgroundInput};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};
-  border: 1px solid ${({ theme }) => theme.BackgroundNavigation};
+  border: 2px solid ${({ theme }) => theme.Border};
 `;
 
 const Input = ({ label, id, type, value, onChange, autoComplete }) => {

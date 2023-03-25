@@ -1,9 +1,14 @@
 export const colors = {
   Font: '#2c2c2c',
-  Background: '#e5e5e5',
-  BackgroundNavigation: '#A3B18A',
-  BackgroundElement: '#DAD7CD',
 
+  Background: '#f9f9f9',
+  BackgroundNavigation: '#dfe7df',
+  BackgroundElement: '#DAD7CD',
+  BackgroundForm: '#dfe7df',
+  BackgroundInput: '#f7f7f7',
+  BackgroundButton: '#e5e5e5',
+
+  Border: '#A3B18A',
   BorderShadow: '#7b7b7b',
 
   GlassBackground: 'rgba(10, 10, 10, 0.5)',

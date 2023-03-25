@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Input from '../components/Form/Input';
+import Submit from 'components/Form/Submit';
 
 export const Container = styled.div`
   text-align: center;
   margin: 0 auto;
   padding: 10px;
-  background-color: ${({ theme }) => theme.Background};
+  background-color: ${({ theme }) => theme.BackgroundForm};
   width: 30vw;
   height: 40vh;
   border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.BackgroundNavigation};
+  border: 2px solid ${({ theme }) => theme.Border};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};
 `;
 
@@ -52,8 +53,7 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
           autoComplete='current-password'
         />
-        <input type='submit' value='Zaloguj' />
-        <Input type='submit' value='Zaloguj' />
+        <Submit id='Login' type='submit' value='Zaloguj' />
       </form>
       <div>
         <button>Rejestracja</button>

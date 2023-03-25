@@ -10,7 +10,8 @@ const InputStyled = styled.input`
   font-size: 20px;
   border: 0px;
   text-align: center;
-  margin: 10px auto;
+  margin: 0px auto;
+  margin-bottom: 15px;
   width: 80%;
   height: 30px;
   background-color: ${({ theme }) => theme.BackgroundInput};
@@ -18,7 +19,7 @@ const InputStyled = styled.input`
   border: 2px solid ${({ theme }) => theme.Border};
 `;
 
-const Input = ({ label, id, type, value, onChange, autoComplete }) => {
+const Input = ({ label, id, type, value, onChange, autoComplete, placeholder }) => {
   return (
     <LabelStyled htmlFor={id}>
       {label}
@@ -28,6 +29,7 @@ const Input = ({ label, id, type, value, onChange, autoComplete }) => {
         value={value}
         onChange={onChange}
         autoComplete={autoComplete}
+        placeholder={placeholder}
       />
     </LabelStyled>
   );

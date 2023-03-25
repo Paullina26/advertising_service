@@ -7,8 +7,14 @@ const Login = () => {
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log(mail);
-  console.log(password);
+  // console.log(mail);
+  // console.log(password);
+
+  const handleSubmit = event => {
+    console.log(mail);
+    console.log(password);
+    event.preventDefault();
+  };
 
   return (
     <Container>
@@ -24,6 +30,7 @@ const Login = () => {
           value={mail}
           onChange={e => setMail(e.target.value)}
           autoComplete='email'
+          placeholder='E-mail'
         />
         <Input
           label='Hasło:'
@@ -32,8 +39,9 @@ const Login = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
           autoComplete='current-password'
+          placeholder='Hasło'
         />
-        <Submit id='Login' type='submit' value='Zaloguj' />
+        <Submit id='Login' type='submit' value='Zaloguj' onClick={handleSubmit} />
       </form>
       <div>
         <button>Rejestracja</button>

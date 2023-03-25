@@ -15,6 +15,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Signika', sans-serif;
     position: relative;
+    background-color: ${({ theme }) => theme.Background};
+    color: ${({ theme }) => theme.Font};
   }
 
   a, button {

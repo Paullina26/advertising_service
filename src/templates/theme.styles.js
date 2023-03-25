@@ -1,23 +1,21 @@
 export const colors = {
-  LogoFont: '#DDB703',
-  LogoBorderBottom: '#DDB703',
-  LoadingFont: '#ddb9038e',
+  Font: '#2c2c2c',
+  FontLight: '#ffffff',
 
-  BasicFont: '#D9D9D9',
+  Background: '#f9f9f9',
+  BackgroundNavigation: '#ecefe5',
+  BackgroundForm: '#ecefe5',
+  BackgroundInput: '#f7f7f7',
+  BackgroundButton: '#e5e5e5',
+  BackgroundSubmit: '#707b5f',
+
+  Border: '#A3B18A',
+  BorderShadow: '#7b7b7b',
 
   GlassBackground: 'rgba(10, 10, 10, 0.5)',
   GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',
   GlassShadow: 'rgba(2, 4, 24, 1)',
   GlassBorder: 'rgba(255, 255, 255, 0.09)',
-
-  NavLinkFont: '#D9D9D9',
-  NavFontActive: 'rgb(221, 183, 3)',
-  NavHover: '#DDB703',
-
-  ButtonBorder: '#f3cc0684',
-  ButtonBorderShadow: '#aa8f0742',
-  ButtonBorderHover: '#DDB703',
-  ButtonBorderShadowHover: '#ddb9037e',
 };
 
 export const device = {

@@ -3,17 +3,21 @@ import Input from '../components/Form/Input';
 import Submit from 'components/Form/Submit';
 import { Container, FormTittle } from 'styles/Form.style';
 
-const Login = () => {
+const Registration = () => {
   const [mail, setMail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState('');
 
   console.log(mail);
   console.log(password);
+  console.log(passwordCheck);
+  console.log(name);
 
   return (
     <Container>
       <FormTittle>
-        <p>Logowanie</p>
+        <p>Rejestracja</p>
       </FormTittle>
 
       <form>
@@ -25,21 +29,37 @@ const Login = () => {
           onChange={e => setMail(e.target.value)}
           autoComplete='email'
         />
+
+        <Input
+          label='Nazwa użytkownika:'
+          id='name'
+          type='text'
+          value={name}
+          onChange={e => setName(e.target.value)}
+          autoComplete='username'
+        />
+
         <Input
           label='Hasło:'
           id='password'
           type='password'
           value={password}
           onChange={e => setPassword(e.target.value)}
-          autoComplete='current-password'
+          autoComplete='new-password'
         />
-        <Submit id='Login' type='submit' value='Zaloguj' />
+
+        <Input
+          label='Powtórz Hasło:'
+          id='passwordCheck'
+          type='password'
+          value={passwordCheck}
+          onChange={e => setPasswordCheck(e.target.value)}
+          autoComplete='new-password'
+        />
+        <Submit id='Registration' type='submit' value='Zarejestruj' />
       </form>
-      <div>
-        <button>Rejestracja</button>
-      </div>
     </Container>
   );
 };
 
-export default Login;
+export default Registration;

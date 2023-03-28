@@ -5,7 +5,7 @@ export const HomePage = () => {
   return (
     <>
       <p>Home</p>
-      {/* <Login /> */}
+      <Login />
       <Registration />
     </>
   );

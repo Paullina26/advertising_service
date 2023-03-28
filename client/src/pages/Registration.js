@@ -15,10 +15,10 @@ const Registration = () => {
   // console.log(name);
 
   const handleSubmit = event => {
-    if ((mail, name, password, passwordCheck === '')) {
-      console.log('wypełnij formularz');
-    } else {
+    if (password === passwordCheck) {
       console.log(mail, name, password, passwordCheck);
+    } else {
+      console.log('hasła są różne');
     }
     event.preventDefault();
   };
@@ -29,15 +29,17 @@ const Registration = () => {
         <p>Rejestracja</p>
       </FormTittle>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           label='E-mail:'
           id='e-mail'
-          type='text'
+          type='email'
           value={mail}
           onChange={e => setMail(e.target.value)}
           autoComplete='email'
           placeholder='E-mail'
+          minlength='4'
+          required
         />
 
         <Input
@@ -48,6 +50,9 @@ const Registration = () => {
           onChange={e => setName(e.target.value)}
           autoComplete='username'
           placeholder='Nazwa użytkownika'
+          minlength='4'
+          pattern='[a-zA-Z0-9]+'
+          required
         />
 
         <Input
@@ -58,6 +63,8 @@ const Registration = () => {
           onChange={e => setPassword(e.target.value)}
           autoComplete='new-password'
           placeholder='Hasło'
+          minlength='4'
+          required
         />
 
         <Input
@@ -68,8 +75,10 @@ const Registration = () => {
           onChange={e => setPasswordCheck(e.target.value)}
           autoComplete='new-password'
           placeholder='Powtórz Hasło'
+          minlength='4'
+          required
         />
-        <Submit id='Registration' type='submit' value='Zarejestruj' onClick={handleSubmit} />
+        <Submit id='Registration' type='submit' value='Zarejestruj' />
       </form>
     </Container>
   );

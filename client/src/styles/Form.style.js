@@ -6,7 +6,6 @@ export const Container = styled.div`
   padding: 10px;
   background-color: ${({ theme }) => theme.BackgroundForm};
   width: 30vw;
-  min-height: 40vh;
   border-radius: 10px;
   border: 2px solid ${({ theme }) => theme.Border};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};

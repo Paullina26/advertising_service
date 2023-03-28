@@ -11,9 +11,9 @@ const Login = () => {
   // console.log(password);
 
   const handleSubmit = event => {
+    event.preventDefault();
     console.log(mail);
     console.log(password);
-    event.preventDefault();
   };
 
   return (
@@ -22,15 +22,18 @@ const Login = () => {
         <p>Logowanie</p>
       </FormTittle>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           label='E-mail:'
           id='e-mail'
-          type='text'
+          type='email'
           value={mail}
           onChange={e => setMail(e.target.value)}
           autoComplete='email'
           placeholder='E-mail'
+          minlength='4'
+          pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+          required
         />
         <Input
           label='Hasło:'
@@ -40,8 +43,10 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
           autoComplete='current-password'
           placeholder='Hasło'
+          minlength='4'
+          required
         />
-        <Submit id='Login' type='submit' value='Zaloguj' onClick={handleSubmit} />
+        <Submit id='Login' type='submit' value='Zaloguj' />
       </form>
       <div>
         <button>Rejestracja</button>

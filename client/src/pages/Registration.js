@@ -1,0 +1,103 @@
+import { useState } from 'react';
+import Input from '../components/Form/Input';
+import Submit from 'components/Form/Submit';
+import { Container, FormTittle } from 'styles/Form.style';
+import { Error } from 'components/Form/Error.style';
+
+const Registration = () => {
+  const [mail, setMail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(null);
+
+  const StatusMessage = {
+    passwordWrong: 'Hasła nie pasują do siebie',
+    registrationOk: 'Rejestracja przebiegła pomyślenie',
+  };
+
+  const titleElement = {
+    email: 'E-Mail:',
+    name: 'Nazwa Użytkownika:',
+    password: 'Hasło:',
+    confirmPassword: 'Powtórz Hasło:',
+    submitRegistration: 'Rejestracja',
+  };
+
+  const handleSubmit = event => {
+    if (password === confirmPassword) {
+      console.log(mail, name, password, confirmPassword);
+      setError(StatusMessage.registrationOk);
+      setMail('');
+      setName('');
+      setPassword('');
+      setConfirmPassword('');
+    } else {
+      setError(StatusMessage.passwordWrong);
+    }
+    event.preventDefault();
+  };
+
+  return (
+    <Container>
+      <FormTittle>
+        <p>Rejestracja</p>
+      </FormTittle>
+
+      <form onSubmit={handleSubmit}>
+        <Input
+          label={titleElement.email}
+          id='e-mail'
+          type='email'
+          value={mail}
+          onChange={e => setMail(e.target.value)}
+          autoComplete='email'
+          placeholder={titleElement.email}
+          minlength='4'
+          required
+        />
+
+        <Input
+          label={titleElement.name}
+          id='name'
+          type='text'
+          value={name}
+          onChange={e => setName(e.target.value)}
+          autoComplete='username'
+          placeholder={titleElement.name}
+          minlength='4'
+          pattern='[a-zA-Z0-9]+'
+          required
+        />
+
+        <Input
+          label={titleElement.password}
+          id='password'
+          type='password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          autoComplete='new-password'
+          placeholder={titleElement.password}
+          minlength='4'
+          required
+        />
+
+        <Input
+          label={titleElement.confirmPassword}
+          id='confirmPassword'
+          type='password'
+          value={confirmPassword}
+          onChange={e => setConfirmPassword(e.target.value)}
+          autoComplete='new-password'
+          placeholder={titleElement.confirmPassword}
+          minlength='4'
+          required
+        />
+        {error && <Error>{error}</Error>}
+        <Submit id='Registration' type='submit' value={titleElement.submitRegistration} />
+      </form>
+    </Container>
+  );
+};
+
+export default Registration;

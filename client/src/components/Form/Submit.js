@@ -22,8 +22,8 @@ const InputStyled = styled.input`
   }
 `;
 
-const Submit = ({ id, type, value }) => {
-  return <InputStyled id={id} type={type} value={value} />;
+const Submit = ({ id, type, value, onClick }) => {
+  return <InputStyled id={id} type={type} value={value} onClick={onClick} />;
 };
 
 export default Submit;

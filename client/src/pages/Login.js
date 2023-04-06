@@ -20,7 +20,23 @@ const Login = () => {
     loginOk: 'Rejestracja przebiegła pomyślenie',
   };
 
+  const sendLoginDataToServer = () => {
+    fetch('http://localhost:8080/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: mail,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const handleSubmit = event => {
+    sendLoginDataToServer();
     setError(StatusMessage.loginOk);
     event.preventDefault();
   };

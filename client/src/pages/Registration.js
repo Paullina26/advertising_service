@@ -32,7 +32,12 @@ const Registration = () => {
         // usernick: 'name',
         password: password,
       }),
-    });
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = event => {

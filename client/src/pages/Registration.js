@@ -24,9 +24,21 @@ const Registration = () => {
     submitRegistration: 'Rejestracja',
   };
 
+  const sendRegistrationDataToServer = () => {
+    fetch('http://localhost:8080/api/auth/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        username: mail,
+        // usernick: 'name',
+        password: password,
+      }),
+    });
+  };
+
   const handleSubmit = event => {
     if (password === confirmPassword) {
       console.log(mail, name, password, confirmPassword);
+      sendRegistrationDataToServer();
       setError(StatusMessage.registrationOk);
       setMail('');
       setName('');

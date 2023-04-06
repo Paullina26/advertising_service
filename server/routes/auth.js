@@ -80,8 +80,10 @@ router.post('/logout', (req, res, next) => {
 })
 
 router.post('/register', async (req, res) => {
+  console.log(req.body)
   try {
     const { username, password } = req.body
+    console.log(username, password)
     const findUser = await UserModel.findOne({ username })
 
     if (findUser)

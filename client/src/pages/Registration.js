@@ -27,12 +27,21 @@ const Registration = () => {
   const sendRegistrationDataToServer = () => {
     fetch('http://localhost:8080/api/auth/register', {
       method: 'POST',
+      headers: {
+        Accept: 'application.json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         username: mail,
         // usernick: 'name',
         password: password,
       }),
-    });
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = event => {
@@ -59,7 +68,7 @@ const Registration = () => {
       <form onSubmit={handleSubmit}>
         <Input
           label={titleElement.email}
-          id='e-mail'
+          id='e-mail_Registration'
           type='email'
           value={mail}
           onChange={e => setMail(e.target.value)}
@@ -71,7 +80,7 @@ const Registration = () => {
 
         <Input
           label={titleElement.name}
-          id='name'
+          id='name_Registration'
           type='text'
           value={name}
           onChange={e => setName(e.target.value)}
@@ -84,7 +93,7 @@ const Registration = () => {
 
         <Input
           label={titleElement.password}
-          id='password'
+          id='password_Registration'
           type='password'
           value={password}
           onChange={e => setPassword(e.target.value)}
@@ -96,7 +105,7 @@ const Registration = () => {
 
         <Input
           label={titleElement.confirmPassword}
-          id='confirmPassword'
+          id='confirmPassword_Registration'
           type='password'
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}

@@ -17,10 +17,30 @@ const Login = () => {
 
   const StatusMessage = {
     passwordWrong: 'Nie poprawny E-mail lub Hasło',
-    loginOk: 'Rejestracja przebiegła pomyślenie',
+    loginOk: 'Logowanie przebiegło pomyślenie',
+  };
+
+  const sendLoginDataToServer = () => {
+    fetch('http://localhost:8080/api/auth/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application.json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: mail,
+        password: password,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = event => {
+    sendLoginDataToServer();
     setError(StatusMessage.loginOk);
     event.preventDefault();
   };
@@ -34,7 +54,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <Input
           label={titleElement.email}
-          id='e-mail'
+          id='e-mail_Login'
           type='email'
           value={mail}
           onChange={e => setMail(e.target.value)}
@@ -46,7 +66,7 @@ const Login = () => {
         />
         <Input
           label={titleElement.password}
-          id='password'
+          id='password_Login'
           type='password'
           value={password}
           onChange={e => setPassword(e.target.value)}

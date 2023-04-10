@@ -4,6 +4,7 @@ import { colors } from 'templates/theme.styles';
 import { GlobalStyle } from 'styles/GlobalStyle.style';
 import Layout from 'templates/Layout';
 import HomePage from 'pages/Home';
+import UserPanel from 'pages/UserPanel';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <GlobalStyle />
         <Layout>
           <Routes>
-            <Route path='/' element={<HomePage />} />
+            {/* <Route path='/' element={<HomePage />} /> */}
+            <Route path='/' element={<UserPanel />} />
           </Routes>
         </Layout>
       </ThemeProvider>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import MainMenu from './MainMenu';
 
 export const ContainerNav = styled.div`
   margin: 0 auto;
@@ -14,14 +15,7 @@ const Navigation = () => {
   return (
     <ContainerNav>
       <div>
-        <p>Zakładki Navigacji</p>
-      </div>
-      <div>
-        <p>Logowanie</p>
-        <p>Rejestracja</p>
-      </div>
-      <div>
-        <p>zakładka użytkowanika po zalogowaniu</p>
+        <MainMenu></MainMenu>
       </div>
     </ContainerNav>
   );

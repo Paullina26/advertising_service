@@ -5,6 +5,8 @@ import { GlobalStyle } from 'styles/GlobalStyle.style';
 import Layout from 'templates/Layout';
 import HomePage from 'pages/Home';
 import UserPanel from 'pages/UserPanel';
+import Registration from 'pages/Registration';
+import Login from 'pages/Login';
 
 function App() {
   return (
@@ -13,8 +15,10 @@ function App() {
         <GlobalStyle />
         <Layout>
           <Routes>
-            {/* <Route path='/' element={<HomePage />} /> */}
-            <Route path='/' element={<UserPanel />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/registration' element={<Registration />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/userPanel' element={<UserPanel />} />
           </Routes>
         </Layout>
       </ThemeProvider>

@@ -7,6 +7,7 @@ import HomePage from 'pages/Home';
 import UserPanel from 'pages/UserPanel';
 import Registration from 'pages/Registration';
 import Login from 'pages/Login';
+import GlobalProvider from 'utils/GlobalContext';
 
 function App() {
   return (
@@ -14,12 +15,14 @@ function App() {
       <ThemeProvider theme={colors}>
         <GlobalStyle />
         <Layout>
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/registration' element={<Registration />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/userPanel' element={<UserPanel />} />
-          </Routes>
+          <GlobalProvider>
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/registration' element={<Registration />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/userPanel' element={<UserPanel />} />
+            </Routes>
+          </GlobalProvider>
         </Layout>
       </ThemeProvider>
     </Router>

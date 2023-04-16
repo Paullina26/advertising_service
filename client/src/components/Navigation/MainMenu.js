@@ -5,7 +5,7 @@ const navItems = [
   { to: '/', name: 'Home' },
   { to: '/registration', name: 'Rejestracja' },
   { to: '/login', name: 'Logowanie' },
-  { to: '/userPanel', name: 'Panel Użytkownika' },
+  { to: '/userPanel', name: 'Twoje Konto' },
 ];
 
 export const StyledLink = styled(NavLink)`

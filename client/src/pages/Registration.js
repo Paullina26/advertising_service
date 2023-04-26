@@ -33,8 +33,8 @@ const Registration = () => {
       },
       body: JSON.stringify({
         username: mail,
-        // usernick: 'name',
-        password: password,
+        name,
+        password,
       }),
     })
       .then(response => response.json())

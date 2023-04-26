@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const navItems = [
   { to: '/', name: 'Home' },
-  { to: '/registration', name: 'Rejestracja' },
+  // { to: '/registration', name: 'Rejestracja' },
   { to: '/login', name: 'Logowanie' },
   { to: '/userPanel', name: 'Twoje Konto' },
 ];

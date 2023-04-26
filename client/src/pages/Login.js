@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import Input from '../components/Form/Input';
-import Submit from 'components/Form/Submit';
+import { useContext } from 'react';
 import { Container, FormTittle } from 'styles/Form.style';
 import { Error } from 'components/Form/Error.style';
+import { GlobalContext } from 'utils/GlobalContext';
+import Input from '../components/Form/Input';
+import Submit from 'components/Form/Submit';
 
 const Login = () => {
+  const context = useContext(GlobalContext);
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);

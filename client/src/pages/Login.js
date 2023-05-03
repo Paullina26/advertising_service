@@ -36,7 +36,12 @@ const Login = () => {
       }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        localStorage.setItem('TOKEN', data.token, {
+          path: '/',
+        });
+        console.log(data);
+      })
       .catch(err => {
         console.log(err);
       });

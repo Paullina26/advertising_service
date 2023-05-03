@@ -17,7 +17,7 @@ function App() {
         <Layout>
           <GlobalProvider>
             <Routes>
-              <Route path='/' element={<HomePage />} />
+              <Route exact path='/' element={<HomePage />} />
               <Route path='/registration' element={<Registration />} />
               <Route path='/login' element={<Login />} />
               <Route path='/userPanel' element={<UserPanel />} />

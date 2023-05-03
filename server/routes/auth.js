@@ -16,9 +16,8 @@
  */
 
 import express from 'express'
-import passport from 'passport'
-import LocalStrategy from 'passport-local'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 import { UserModel } from '../models/user.js'
 import config from '../config.js'
@@ -26,57 +25,48 @@ import { SettingsModel } from '../models/settings.js'
 
 const router = express.Router()
 
-passport.use(
-  new LocalStrategy(async function verify(username, password, cb) {
-    try {
-      const data = await UserModel.findOne({ username })
-      console.log(data)
-      if (!data) return cb(null, false, { message: `nie ma Cię w bazie` })
-
-      bcrypt.compare(password, data.password, (err, result) => {
-        if (result) {
-          return cb(null, data)
-        } else {
-          return cb(null, false, {
-            message: 'Incorrect username or password.',
-          })
-        }
-      })
-    } catch (err) {
-      if (err) {
-        console.log(err)
-        return cb(err)
-      }
-    }
-  })
-)
-
-passport.serializeUser(function (user, done) {
-  done(null, user.id)
-})
-
-passport.deserializeUser(function (id, done) {
-  UserModel.findById(id, function (err, user) {
-    done(err, user)
-  })
-})
-
 router.get('/user', async (req, res) => {
-  if (req.user) res.json({ user: req.user })
+  const token = await req.headers.authorization.split(' ')[1]
+
+  const { username, id, name } = jwt.verify(token, 'abfewvsdvarebr')
+
+  if (username && id) res.json({ username, id, name })
   else res.status(401).json({ message: 'no logged user' })
 })
 
-router.post('/login', passport.authenticate('local', {}), (req, res) => {
-  res.json({ message: 'success' })
-})
+router.post('/login', async (req, res) => {
+  const { username, password } = req.body
 
-router.post('/logout', (req, res, next) => {
-  req.logout(function (err) {
+  try {
+    const data = await UserModel.findOne({ username })
+    if (!data) return res.status(404).send({ message: 'Email not found' })
+
+    bcrypt.compare(password, data.password, (err, result) => {
+      if (result) {
+        var token = jwt.sign(
+          { id: data._id, username: data.username, name: data.name },
+          'abfewvsdvarebr'
+        )
+
+        res.status(200).send({
+          message: 'Login Successful',
+          email: result.email,
+          token,
+        })
+      } else {
+        return res.status(400).send({
+          message: 'Incorrect username or password.',
+        })
+      }
+    })
+  } catch (err) {
     if (err) {
-      return next(err)
+      console.log(err)
+      res.status(500).send({
+        message: 'Something went wrong',
+      })
     }
-    res.json({ message: 'logout success' })
-  })
+  }
 })
 
 router.post('/register', async (req, res) => {

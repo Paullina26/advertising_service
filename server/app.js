@@ -7,7 +7,6 @@ import mongoose from 'mongoose'
 import swaggerUi from 'swagger-ui-express'
 import swaggerJSDoc from 'swagger-jsdoc'
 import cors from 'cors'
-import passport from 'passport'
 import session from 'express-session'
 import MongoStore from 'connect-mongo'
 
@@ -30,6 +29,11 @@ const __dirname = path.dirname(__filename)
 const app = express()
 const specs = swaggerJSDoc(swaggerConfig)
 
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+)
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -41,15 +45,12 @@ app.use(
   session({
     secret: 'top top',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: config.db,
     }),
   })
 )
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(passport.authenticate('session'))
 
 app.use('/api/auth', authRouter)
 app.use('/api/settings', settingsRouter)

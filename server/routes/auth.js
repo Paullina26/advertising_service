@@ -82,7 +82,7 @@ router.post('/logout', (req, res, next) => {
 router.post('/register', async (req, res) => {
   console.log(req.body)
   try {
-    const { username, password } = req.body
+    const { username, password, name } = req.body
     console.log(username, password)
     const findUser = await UserModel.findOne({ username })
 
@@ -99,6 +99,7 @@ router.post('/register', async (req, res) => {
     const newUser = new UserModel({
       username,
       password: hash,
+      name,
     })
 
     const errors = newUser.validateSync()

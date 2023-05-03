@@ -4,19 +4,19 @@ import { createContext } from 'react';
 export const GlobalContext = createContext({
   isLoading: false,
   setIsLoading: () => {},
-  isLogged: false,
-  setIsLogged: () => {},
+  isLogin: false,
+  setIsLogin: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const values = {
     isLoading,
     setIsLoading,
-    isLogged,
-    setIsLogged,
+    isLogin,
+    setIsLogin,
   };
 
   return (

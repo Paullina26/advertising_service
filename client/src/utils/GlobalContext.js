@@ -22,9 +22,11 @@ const GlobalProvider = ({ children }) => {
     setIsLogin,
   };
 
-  const token = localStorage.getItem('TOKEN');
-
   useEffect(() => {
+    const token = localStorage.getItem('TOKEN');
+    console.log({ token });
+    if (!token || isLogin) return;
+
     fetch('http://localhost:8080/api/auth/user', {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -32,7 +34,12 @@ const GlobalProvider = ({ children }) => {
       },
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log({ data });
+        if (data.name) {
+          setIsLogin(true);
+        }
+      })
       .catch(err => {
         console.log(err);
       });

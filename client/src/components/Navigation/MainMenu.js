@@ -1,12 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
-const navItems = [
-  { to: '/', name: 'Home' },
-  { to: '/registration', name: 'Rejestracja' },
-  { to: '/login', name: 'Logowanie' },
-  { to: '/userPanel', name: 'Twoje Konto' },
-];
+import { useContext } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
 
 export const StyledLink = styled(NavLink)`
   width: 100%;
@@ -28,11 +23,23 @@ export const StyledLink = styled(NavLink)`
 `;
 
 export const MainMenu = ({ open }) => {
-  const navItemRender = navItems.map(item => (
-    <StyledLink key={item.name} to={item.to}>
-      {item.name}
-    </StyledLink>
-  ));
+  const { isLogin } = useContext(GlobalContext);
+
+  const navItems = [
+    { to: '/', name: 'Home', isVisible: true },
+    { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
+    { to: '/login', name: 'Logowanie', isVisible: !isLogin },
+    { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },
+  ];
+
+  const navItemRender = navItems.map(item => {
+    if (!item.isVisible) return null;
+    return (
+      <StyledLink key={item.name} to={item.to}>
+        {item.name}
+      </StyledLink>
+    );
+  });
 
   return (
     <div open={open}>
@@ -40,9 +47,5 @@ export const MainMenu = ({ open }) => {
     </div>
   );
 };
-
-// Menu.propTypes = {
-//   open: bool.isRequired,
-// };
 
 export default MainMenu;

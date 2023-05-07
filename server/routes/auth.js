@@ -26,7 +26,7 @@ import { SettingsModel } from '../models/settings.js'
 const router = express.Router()
 
 router.get('/user', async (req, res) => {
-  if (!req.headers.authorization)
+  if (!req.headers?.authorization)
     return res.status(401).json({ message: 'no logged user' })
   console.log(1, req.headers)
   const token = await req.headers.authorization.split(' ')[1]
@@ -39,6 +39,7 @@ router.get('/user', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
+  console.log({ username, password })
 
   try {
     const data = await UserModel.findOne({ username })

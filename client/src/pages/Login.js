@@ -5,9 +5,11 @@ import { Error } from 'components/Form/Error.style';
 import { GlobalContext } from 'utils/GlobalContext';
 import Input from '../components/Form/Input';
 import Submit from 'components/Form/Submit';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const context = useContext(GlobalContext);
+  const navigate = useNavigate();
+  const { setIsLogin } = useContext(GlobalContext);
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -36,7 +38,12 @@ const Login = () => {
       }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        localStorage.setItem('TOKEN', data.token);
+        console.log(data);
+        setIsLogin(true);
+        return navigate('/');
+      })
       .catch(err => {
         console.log(err);
       });

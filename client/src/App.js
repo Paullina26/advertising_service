@@ -1,12 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { colors } from 'templates/theme.styles';
 import { GlobalStyle } from 'styles/GlobalStyle.style';
 import Layout from 'templates/Layout';
-import HomePage from 'pages/Home';
-import UserPanel from 'pages/UserPanel';
-import Registration from 'pages/Registration';
-import Login from 'pages/Login';
+import RoutesComponent from 'routes';
+
 import GlobalProvider from 'utils/GlobalContext';
 
 function App() {
@@ -14,16 +12,11 @@ function App() {
     <Router>
       <ThemeProvider theme={colors}>
         <GlobalStyle />
-        <Layout>
-          <GlobalProvider>
-            <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='/registration' element={<Registration />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/userPanel' element={<UserPanel />} />
-            </Routes>
-          </GlobalProvider>
-        </Layout>
+        <GlobalProvider>
+          <Layout>
+            <RoutesComponent />
+          </Layout>
+        </GlobalProvider>
       </ThemeProvider>
     </Router>
   );

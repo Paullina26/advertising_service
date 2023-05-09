@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import MainMenu from './MainMenu';
+import Button from 'components/buttons/Button';
 
 export const ContainerNav = styled.div`
   margin: 0 auto;
@@ -16,6 +17,8 @@ const Navigation = () => {
     <ContainerNav>
       <div>
         <MainMenu></MainMenu>
+        <Button className='Logout' name='Wyloguj' />
+        {/* <button>Wyloguj</button> */}
       </div>
     </ContainerNav>
   );

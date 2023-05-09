@@ -4,7 +4,6 @@ import { colors } from 'templates/theme.styles';
 import { GlobalStyle } from 'styles/GlobalStyle.style';
 import Layout from 'templates/Layout';
 import RoutesComponent from 'routes';
-
 import GlobalProvider from 'utils/GlobalContext';
 
 function App() {

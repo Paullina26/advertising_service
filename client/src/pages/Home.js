@@ -4,7 +4,7 @@ import Registration from './Registration';
 export const HomePage = () => {
   return (
     <>
-      <p>Home</p>
+      <p>Główna</p>
     </>
   );
 };

@@ -15,9 +15,9 @@ const InputStyled = styled.input`
   margin-top: 5px;
   width: 80%;
   height: 30px;
-  background-color: ${({ theme }) => theme.BackgroundInput};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};
-  border: 2px solid ${({ theme }) => theme.Border};
+  background-color: ${({ theme }) => theme.colors.BackgroundInput};
+  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  border: 2px solid ${({ theme }) => theme.colors.Border};
 `;
 
 const Input = ({

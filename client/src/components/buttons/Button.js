@@ -1,32 +1,25 @@
 import styled from 'styled-components';
 
-export const Buttonn = styled.button`
-  /* display: block; */
+export const Button = styled.button`
+  display: block;
+
   border-radius: 15px;
   font-size: 20px;
   padding: 2px 15px;
   border: 0px;
-  /* text-align: center; */
-  /* margin: 20px auto; */
-  /* width: 30%; */
-  height: 30px;
   margin-top: 20px;
-  color: ${({ theme }) => theme.FontLight};
-  background-color: ${({ theme }) => theme.BackgroundSubmit};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};
-  border: 2px solid ${({ theme }) => theme.Border};
+  color: ${({ theme, logout }) => (logout ? theme.colors.Font : theme.colors.FontLight)};
+  background-color: ${({ theme, logout }) =>
+    logout ? theme.colors.BackgroundButtonLogout : theme.colors.BackgroundSubmit};
+  border: 2px solid
+    ${({ theme, logout }) => (logout ? theme.colors.BorderLogout : theme.colors.Border)};
+  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+
   cursor: pointer;
   :hover {
-    color: ${({ theme }) => theme.Font};
-    background-color: ${({ theme }) => theme.BackgroundInput};
-  }
-  .Logout {
-    background-color: red;
+    color: ${({ theme, logout }) => (logout ? theme.colors.FontLight : theme.colors.Font)};
+    background-color: ${({ theme, logout }) =>
+      logout ? theme.colors.BackgroundSubmit : theme.colors.BackgroundButton};
+    border: 2px solid ${({ theme, logout }) => (logout ? theme.colors.Border : theme.colors.Border)};
   }
 `;
-
-const Button = (className, value) => {
-  return <Buttonn className={className}>$value</Buttonn>;
-};
-
-export default Button;

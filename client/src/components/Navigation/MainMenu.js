@@ -8,17 +8,17 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   text-decoration: none;
   position: relative;
-  color: ${({ theme }) => theme.Font};
+  color: ${({ theme }) => theme.colors.Font};
   margin: 15px auto 15px 20px;
   font-size: 20px;
 
   &:hover {
-    color: ${({ theme }) => theme.BackgroundSubmit};
+    color: ${({ theme }) => theme.colors.BackgroundSubmit};
     transition: color 0.3s 0.3s linear;
   }
 
   &.active {
-    color: ${({ theme }) => theme.BackgroundSubmit};
+    color: ${({ theme }) => theme.colors.BackgroundSubmit};
   }
 `;
 
@@ -26,7 +26,7 @@ export const MainMenu = ({ open }) => {
   const { isLogin } = useContext(GlobalContext);
 
   const navItems = [
-    { to: '/', name: 'Home', isVisible: true },
+    { to: '/', name: 'Główna', isVisible: true },
     { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
     { to: '/login', name: 'Logowanie', isVisible: !isLogin },
     { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },

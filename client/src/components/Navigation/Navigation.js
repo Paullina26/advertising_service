@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import MainMenu from './MainMenu';
 import { Button } from 'components/buttons/Button';
+import { useContext } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
 
 export const ContainerNav = styled.div`
   margin: 0 auto;
@@ -13,11 +15,23 @@ export const ContainerNav = styled.div`
 `;
 
 const Navigation = () => {
+  const { isLogin, setIsLogin } = useContext(GlobalContext);
+
+  const handleLogout = () => {
+    console.log('wyloguj');
+    localStorage.clear();
+    setIsLogin(false);
+  };
+
   return (
     <ContainerNav>
       <div>
         <MainMenu />
-        <Button logout>Wyloguj</Button>
+        {isLogin && (
+          <Button logout onClick={handleLogout}>
+            Wyloguj
+          </Button>
+        )}
       </div>
     </ContainerNav>
   );

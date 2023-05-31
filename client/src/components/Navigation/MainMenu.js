@@ -26,7 +26,7 @@ export const MainMenu = ({ open }) => {
   const { isLogin } = useContext(GlobalContext);
 
   const navItems = [
-    { to: '/', name: 'Główna', isVisible: true },
+    { to: '/', name: 'Start', isVisible: true },
     { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
     { to: '/login', name: 'Logowanie', isVisible: !isLogin },
     { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },

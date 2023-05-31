@@ -3,13 +3,19 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 
+export const WrapperNavigation = styled.div`
+  width: 50%;
+  height: 100%;
+`;
+
 export const StyledLink = styled(NavLink)`
   width: 100%;
+  height: 100%;
   font-weight: 500;
   text-decoration: none;
   position: relative;
   color: ${({ theme }) => theme.colors.Font};
-  margin: 15px auto 15px 20px;
+  margin: auto 15px;
   font-size: 20px;
 
   &:hover {
@@ -28,8 +34,8 @@ export const MainMenu = ({ open }) => {
   const navItems = [
     { to: '/', name: 'Start', isVisible: true },
     { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
-    { to: '/login', name: 'Logowanie', isVisible: !isLogin },
-    { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },
+    // { to: '/login', name: 'Logowanie', isVisible: !isLogin },
+    // { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },
   ];
 
   const navItemRender = navItems.map(item => {
@@ -41,11 +47,7 @@ export const MainMenu = ({ open }) => {
     );
   });
 
-  return (
-    <div open={open}>
-      <div>{navItemRender}</div>
-    </div>
-  );
+  return <WrapperNavigation open={open}>{navItemRender}</WrapperNavigation>;
 };
 
 export default MainMenu;

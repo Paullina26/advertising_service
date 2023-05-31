@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  display: block;
-
+  /* display: block; */
   border-radius: 15px;
   font-size: 20px;
-  padding: 2px 15px;
+  padding: 5px 15px;
   border: 0px;
   margin-top: 20px;
   color: ${({ theme, logout }) => (logout ? theme.colors.Font : theme.colors.FontLight)};

@@ -4,11 +4,9 @@ const InputStyled = styled.input`
   display: block;
   border-radius: 15px;
   font-size: 20px;
-  padding: 2px 15px;
+  padding: 5px 20px;
   border: 0px;
-  text-align: center;
   margin: 20px auto;
-  height: 30px;
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.FontLight};
   background-color: ${({ theme }) => theme.colors.BackgroundSubmit};

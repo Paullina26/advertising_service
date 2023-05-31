@@ -10,12 +10,15 @@ export const theme = {
     BackgroundInput: '#f7f7f7',
     // BackgroundInput: '#e0e0c9',
 
-    BackgroundButton: '#e5e5e5',
+    BackgroundButton: '#e0e2df',
     BackgroundSubmit: '#707b5f',
     BackgroundButtonLogout: '#c9bb1a',
+    BackgroundUserPanelBtn: '#36743a',
 
     Border: '#A3B18A',
     BorderLogout: '#edda0b',
+    BorderUserPanel: '#36743a',
+
     // Border: '#e0e0c9',
     // Border: '#a09d64',
     // Border: '#5c7537',

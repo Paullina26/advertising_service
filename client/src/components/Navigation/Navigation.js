@@ -3,6 +3,7 @@ import MainMenu from './MainMenu';
 import { Button } from 'components/buttons/Button';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
+import { useNavigate } from 'react-router-dom';
 
 export const ContainerNav = styled.div`
   margin: 0 auto;
@@ -16,11 +17,12 @@ export const ContainerNav = styled.div`
 
 const Navigation = () => {
   const { isLogin, setIsLogin } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    console.log('wyloguj');
     localStorage.clear();
-    setIsLogin(false);
+    setIsLogin(false); 
+    navigate('/');
   };
 
   return (

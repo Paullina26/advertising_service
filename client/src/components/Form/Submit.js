@@ -8,17 +8,16 @@ const InputStyled = styled.input`
   border: 0px;
   text-align: center;
   margin: 20px auto;
-  /* width: 30%; */
   height: 30px;
   margin-top: 20px;
-  color: ${({ theme }) => theme.FontLight};
-  background-color: ${({ theme }) => theme.BackgroundSubmit};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.BorderShadow};
-  border: 2px solid ${({ theme }) => theme.Border};
+  color: ${({ theme }) => theme.colors.FontLight};
+  background-color: ${({ theme }) => theme.colors.BackgroundSubmit};
+  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  border: 2px solid ${({ theme }) => theme.colors.Border};
   cursor: pointer;
   :hover {
-    color: ${({ theme }) => theme.Font};
-    background-color: ${({ theme }) => theme.BackgroundInput};
+    color: ${({ theme }) => theme.colors.Font};
+    background-color: ${({ theme }) => theme.colors.BackgroundInput};
   }
 `;
 

@@ -5,6 +5,7 @@ import UserPanel from 'pages/UserPanel';
 import Registration from 'pages/Registration';
 import Login from 'pages/Login';
 import { GlobalContext } from 'utils/GlobalContext';
+import Signup from 'pages/Signup';
 
 const RoutesComponent = () => {
   const { isLogin } = useContext(GlobalContext);
@@ -15,6 +16,7 @@ const RoutesComponent = () => {
         <>
           <Route path='/registration' element={<Registration />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
         </>
       )}
       {isLogin && (

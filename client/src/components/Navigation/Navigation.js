@@ -4,7 +4,7 @@ import { Button } from 'components/buttons/Button';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
-import { UserPanelButton } from 'components/buttons/UserPanel';
+import { UserPanelButton } from 'components/buttons/UserPanelBtn';
 
 export const ContainerNav = styled.div`
   display: flex;
@@ -33,11 +33,9 @@ const Navigation = () => {
   const handleUserPanel = () => {
     console.log('Panel użytkownika');
     if (isLogin === true) {
-      console.log('zalogowany');
       navigate('/userPanel');
     } else if (isLogin === false) {
-      console.log('logowanie');
-      navigate('/login');
+      navigate('/signup');
     }
   };
 

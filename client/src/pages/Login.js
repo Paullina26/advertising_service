@@ -88,9 +88,6 @@ const Login = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={titleElement.submitLogin} />
       </form>
-      <div>
-        <button>Rejestracja</button>
-      </div>
     </Container>
   );
 };

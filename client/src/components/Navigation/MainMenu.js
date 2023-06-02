@@ -33,7 +33,7 @@ export const MainMenu = ({ open }) => {
 
   const navItems = [
     { to: '/', name: 'Start', isVisible: true },
-    { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
+    // { to: '/registration', name: 'Rejestracja', isVisible: !isLogin },
     // { to: '/login', name: 'Logowanie', isVisible: !isLogin },
     // { to: '/userPanel', name: 'Twoje Konto', isVisible: isLogin },
   ];

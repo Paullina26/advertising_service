@@ -11,11 +11,11 @@ export const theme = {
     // BackgroundInput: '#e0e0c9',
 
     BackgroundButton: '#e0e2df',
-    BackgroundSubmit: '#707b5f',
-    BackgroundButtonLogout: '#c9bb1a',
+    BackgroundSubmit: '#36743a',
+    BackgroundButtonLogout: '#d3c314',
     BackgroundUserPanelBtn: '#36743a',
 
-    Border: '#A3B18A',
+    Border: '#84a786',
     BorderLogout: '#edda0b',
     BorderUserPanel: '#36743a',
 

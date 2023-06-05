@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from 'pages/Home';
 import UserPanel from 'pages/UserPanel';
-import Registration from 'pages/Registration';
-import Login from 'pages/Login';
+import Registration from 'components/Form/Registration';
+import Login from 'components/Form/Login';
 import { GlobalContext } from 'utils/GlobalContext';
 import Signup from 'pages/Signup';
 

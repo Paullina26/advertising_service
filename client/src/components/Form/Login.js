@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Container, FormTittle } from 'styles/Form.style';
 import { Error } from 'components/Form/Error.style';
 import { GlobalContext } from 'utils/GlobalContext';
-import Input from '../components/Form/Input';
+import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 
@@ -88,9 +88,6 @@ const Login = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={titleElement.submitLogin} />
       </form>
-      <div>
-        <button>Rejestracja</button>
-      </div>
     </Container>
   );
 };

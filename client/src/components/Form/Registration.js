@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Input from '../components/Form/Input';
+import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { Container, FormTittle } from 'styles/Form.style';
 import { Error } from 'components/Form/Error.style';

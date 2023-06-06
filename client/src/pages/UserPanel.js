@@ -5,7 +5,7 @@ import { GlobalContext } from 'utils/GlobalContext';
 
 const UserPanel = () => {
   const context = useContext(GlobalContext);
-  console.log(context);
+
   const checkIsLogin = () => {
     if (context.isLogin === true) {
       console.log('zalogowny');
@@ -13,9 +13,8 @@ const UserPanel = () => {
       console.log('nie zalogowany');
     }
   };
-
   checkIsLogin();
-  
+
   return (
     <>
       <LayoutUserPanel>

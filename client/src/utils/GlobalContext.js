@@ -24,7 +24,6 @@ const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('TOKEN');
-    console.log({ token });
     if (!token || isLogin) return;
 
     fetch('http://localhost:8080/api/auth/user', {
@@ -35,7 +34,7 @@ const GlobalProvider = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log({ data });
+        // console.log({ data });
         if (data.name) {
           setIsLogin(true);
         }

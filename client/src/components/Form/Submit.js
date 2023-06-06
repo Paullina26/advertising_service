@@ -14,7 +14,7 @@ const InputStyled = styled.input`
   border: 2px solid ${({ theme }) => theme.colors.Border};
   cursor: pointer;
   :hover {
-    color: ${({ theme }) => theme.colors.Font};
+    color: ${({ theme }) => theme.colors.FontSubmitHover};
     background-color: ${({ theme }) => theme.colors.BackgroundInput};
   }
 `;

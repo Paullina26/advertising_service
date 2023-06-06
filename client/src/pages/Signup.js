@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Button } from 'components/buttons/Button';
 
 export const WrapperSignup = styled.div`
-  background-color: #766c6c;
+  /* background-color: #766c6c; */
   padding: 15px;
   text-align: center;
 `;

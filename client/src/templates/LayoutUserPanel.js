@@ -8,11 +8,11 @@ export const Container = styled.div`
 
 const LayoutUserPanel = props => {
   return (
-    <div>
+    <>
       {/* <Navigation /> */}
       <div>Nawigacja</div>
       <Container>{props.children}</Container>
-    </div>
+    </>
   );
 };
 

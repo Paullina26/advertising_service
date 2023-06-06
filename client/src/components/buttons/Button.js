@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  /* display: block; */
-  border-radius: 15px;
+  border-radius: 5px;
   font-size: 20px;
   padding: 5px 15px;
-  border: 0px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-right: 0px;
   color: ${({ theme, logout }) => (logout ? theme.colors.Font : theme.colors.FontLight)};
   background-color: ${({ theme, logout }) =>
     logout ? theme.colors.BackgroundButtonLogout : theme.colors.BackgroundSubmit};
@@ -16,7 +15,8 @@ export const Button = styled.button`
 
   cursor: pointer;
   :hover {
-    color: ${({ theme, logout }) => (logout ? theme.colors.FontLight : theme.colors.Font)};
+    color: ${({ theme, logout }) =>
+      logout ? theme.colors.FontLight : theme.colors.FontSubmitHover};
     background-color: ${({ theme, logout }) =>
       logout ? theme.colors.BackgroundSubmit : theme.colors.BackgroundButton};
     border: 2px solid ${({ theme, logout }) => (logout ? theme.colors.Border : theme.colors.Border)};

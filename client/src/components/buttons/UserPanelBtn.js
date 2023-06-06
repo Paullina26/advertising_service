@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const UserPanelButton = styled.button`
-  display: block;
   border-radius: 5px;
   font-size: 20px;
   padding: 5px 15px;
   border: 0px;
-  margin-right: 0;
+  margin-right: 10px;
   color: ${({ theme }) => theme.colors.FontLight};
   background-color: ${({ theme }) => theme.colors.BackgroundUserPanelBtn};
   border: 2px solid ${({ theme }) => theme.colors.BorderUserPanel};
@@ -14,7 +13,7 @@ export const UserPanelButton = styled.button`
 
   cursor: pointer;
   :hover {
-    color: ${({ theme }) => theme.colors.BorderUserPanel};
+    color: ${({ theme }) => theme.colors.FontSubmitHover};
     background-color: ${({ theme }) => theme.colors.BackgroundButton};
     border: 2px solid ${({ theme }) => theme.colors.BorderUserPanel};
   }

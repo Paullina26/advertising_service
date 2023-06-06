@@ -3,14 +3,13 @@ export const theme = {
     Font: '#2c2c2c',
     FontLight: '#ffffff',
     FontError: '#5c0120',
+    FontSubmitHover: '#36743a',
 
     Background: '#f9f9f9',
     BackgroundNavigation: '#ecefe5',
     BackgroundForm: '#ecefe5',
     BackgroundInput: '#f7f7f7',
-    // BackgroundInput: '#e0e0c9',
-
-    BackgroundButton: '#e0e2df',
+    BackgroundButton: '#f7f7f7',
     BackgroundSubmit: '#36743a',
     BackgroundButtonLogout: '#d3c314',
     BackgroundUserPanelBtn: '#36743a',
@@ -24,7 +23,6 @@ export const theme = {
     // Border: '#5c7537',
 
     BorderShadow: '#7b7b7b',
-
     GlassBackground: 'rgba(10, 10, 10, 0.5)',
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',
     GlassShadow: 'rgba(2, 4, 24, 1)',

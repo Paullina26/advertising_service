@@ -20,7 +20,7 @@ export const StyledLink = styled(NavLink)`
 
   &:hover {
     color: ${({ theme }) => theme.colors.BackgroundSubmit};
-    transition: color 0.3s 0.3s linear;
+    transition: color 0.1s 0.1s linear;
   }
 
   &.active {

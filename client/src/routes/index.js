@@ -6,6 +6,9 @@ import Registration from 'components/Form/Registration';
 import Login from 'components/Form/Login';
 import { GlobalContext } from 'utils/GlobalContext';
 import Signup from 'pages/Signup';
+import AddAnnouncement from 'pages/UserPanel/AddAnnouncement';
+import UserAnnouncement from 'pages/UserPanel/UserAnnouncement';
+import Settings from 'pages/UserPanel/Setting';
 
 const RoutesComponent = () => {
   const { isLogin } = useContext(GlobalContext);
@@ -22,6 +25,9 @@ const RoutesComponent = () => {
       {isLogin && (
         <>
           <Route path='/userPanel' element={<UserPanel />} />
+          <Route path='/userPanel/addAnnouncement' element={<AddAnnouncement />} />
+          <Route path='/userPanel/userAnnouncement' element={<UserAnnouncement />} />
+          <Route path='/userPanel/settings' element={<Settings />} />
         </>
       )}
       <Route path='*' Component={() => <div>404</div>} />

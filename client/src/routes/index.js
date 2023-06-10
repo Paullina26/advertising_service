@@ -24,10 +24,11 @@ const RoutesComponent = () => {
       )}
       {isLogin && (
         <>
-          <Route path='/userPanel' element={<UserPanel />} />
-          <Route path='/userPanel/addAnnouncement' element={<AddAnnouncement />} />
-          <Route path='/userPanel/userAnnouncement' element={<UserAnnouncement />} />
-          <Route path='/userPanel/settings' element={<Settings />} />
+          <Route path='/userPanel' element={<UserPanel />}>
+            <Route path='addAnnouncement' element={<AddAnnouncement />} />
+            <Route path='userAnnouncement' element={<UserAnnouncement />} />
+            <Route path='settings' element={<Settings />} />
+          </Route>
         </>
       )}
       <Route path='*' Component={() => <div>404</div>} />

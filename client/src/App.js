@@ -14,7 +14,6 @@ function App() {
         <GlobalStyle />
         <GlobalProvider>
           <Layout>
-            <LayoutUserPanel />
             <RoutesComponent />
           </Layout>
         </GlobalProvider>

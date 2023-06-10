@@ -5,6 +5,7 @@ import { GlobalStyle } from 'styles/GlobalStyle.style';
 import Layout from 'templates/Layout';
 import RoutesComponent from 'routes';
 import GlobalProvider from 'utils/GlobalContext';
+import LayoutUserPanel from 'templates/LayoutUserPanel';
 
 function App() {
   return (

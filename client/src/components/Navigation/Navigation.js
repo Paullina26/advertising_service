@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import MainMenu from './MainMenu';
-import { Button } from 'components/buttons/Button';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { UserPanelButton } from 'components/buttons/UserPanelBtn';
-import { Container } from 'templates/Layout';
 
 export const ContainerNav = styled.div`
   width: 100vw;

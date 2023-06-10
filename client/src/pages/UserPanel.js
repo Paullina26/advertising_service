@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import LayoutUserPanel from 'templates/LayoutUserPanel';
 import { GlobalContext } from 'utils/GlobalContext';
 
@@ -18,8 +18,7 @@ const UserPanel = () => {
   return (
     <>
       <LayoutUserPanel>
-        <Routes>{/* <Route path='/userPanel/settings' element={}/> */}</Routes>
-        <p>User Panel</p>
+        <Outlet />
       </LayoutUserPanel>
     </>
   );

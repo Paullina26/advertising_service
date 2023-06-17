@@ -6,18 +6,18 @@ const LabelStyled = styled.label`
 
 const InputStyled = styled.input`
   display: block;
-  border-radius: 15px;
-  font-size: 20px;
+  border-radius: 5px;
+  font-size: 15px;
   border: 0px;
   text-align: center;
   margin: 0px auto;
   margin-bottom: 15px;
   margin-top: 5px;
-  width: 80%;
-  height: 30px;
+  width: 100%;
+  height: 35px;
+  padding: 5px;
   background-color: ${({ theme }) => theme.colors.BackgroundInput};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
-  border: 2px solid ${({ theme }) => theme.colors.Border};
+  border: 1px solid ${({ theme }) => theme.colors.Border};
 `;
 
 const Input = ({
@@ -31,6 +31,10 @@ const Input = ({
   minlength,
   pattern,
   required,
+  className,
+  maxLength,
+  rows,
+  cols,
 }) => {
   return (
     <LabelStyled htmlFor={id}>
@@ -45,6 +49,10 @@ const Input = ({
         minlength={minlength}
         pattern={pattern}
         required={required}
+        className={className}
+        maxLength={maxLength}
+        rows={rows}
+        cols={cols}
       />
     </LabelStyled>
   );

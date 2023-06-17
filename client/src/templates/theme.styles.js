@@ -8,13 +8,13 @@ export const theme = {
     Background: '#f9f9f9',
     BackgroundNavigation: '#ecefe5',
     BackgroundForm: '#ecefe5',
-    BackgroundInput: '#f7f7f7',
+    BackgroundInput: '#ffffff',
     BackgroundButton: '#f7f7f7',
     BackgroundSubmit: '#36743a',
     BackgroundButtonLogout: '#d3c314',
     BackgroundUserPanelBtn: '#36743a',
 
-    Border: '#84a786',
+    Border: '#c9c9c9',
     BorderLogout: '#edda0b',
     BorderUserPanel: '#36743a',
 
@@ -22,7 +22,10 @@ export const theme = {
     // Border: '#a09d64',
     // Border: '#5c7537',
 
-    BorderShadow: '#7b7b7b',
+    // BorderShadow: '#7b7b7b',
+    BorderShadow: '#36743a75',
+    BorderShadowLight: '#36743ac9',
+
     GlassBackground: 'rgba(10, 10, 10, 0.5)',
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',
     GlassShadow: 'rgba(2, 4, 24, 1)',

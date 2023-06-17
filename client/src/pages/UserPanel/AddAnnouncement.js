@@ -1,4 +1,4 @@
-import { Container, FormTittle } from 'styles/Form.style';
+import { FormTittle } from 'styles/Form.style';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Input from 'components/Form/Input';
@@ -6,9 +6,34 @@ import Submit from 'components/Form/Submit';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-// export const PhoneInput = styled(PhoneInput)`
-//   background-color: black;
-// `;
+export const Container = styled.div`
+  text-align: center;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: ${({ theme }) => theme.colors.BackgroundForm};
+  min-width: 340px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  .titleAnnouncementStyle {
+    width: 300px;
+    text-align: start;
+  }
+  .containerClassPhone {
+    margin: auto;
+    width: 300px;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .descriptionAnnouncementStyle {
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.colors.BackgroundInput};
+    border: 1px solid ${({ theme }) => theme.colors.Border};
+  }
+`;
 
 const AddAnnouncement = () => {
   const [titleAnnouncement, setTitleAnnouncement] = useState('');
@@ -17,9 +42,9 @@ const AddAnnouncement = () => {
   const [error, setError] = useState(null);
 
   const titleElement = {
-    title: 'Tytuł ogłoszenia',
-    description: 'Opis',
-    numberPhone: 'Numer Telefonu',
+    title: 'Tytuł ogłoszenia:',
+    description: 'Opis:',
+    numberPhone: 'Numer Telefonu:',
     submit: 'Dodaj',
   };
 
@@ -45,30 +70,39 @@ const AddAnnouncement = () => {
           placeholder={titleElement.title}
           minlength='4'
           required
+          className='titleAnnouncementStyle'
         />
+        <p>{titleElement.numberPhone}</p>
         <PhoneInput
           country={'pl'}
           label={titleElement.numberPhone}
           id='numberPhone_announcement'
-          // type='tel'
           value={numberPhone}
           onChange={e => setNumberPhone(e)}
-          placeholder={titleElement.numberPhone}
+          specialLabel={titleElement.numberPhone}
           required
-          // containerClass='dupa'
-          // containerStyle={{
-          //   backgroundColor: 'red',
-          // }}
+          containerClass='containerClassPhone'
+          // inputClass='inputClassPhone'
+          // buttonClass='buttonClassPhone'
+          // dropdownClass='dropdownClassPhone'
+          // searchClass='searchClassPhone'
+          // inputStyle='inputStylePhone'
+          // buttonStyle='buttonStylePhone'
+          // dropdownStyle='dropdownStylePhone'
+          // searchStyle='searchStylePhone'
         />
-        <Input
-          label={titleElement.description}
-          id='description_announcement'
-          type='text'
-          value={descriptionAnnouncement}
-          onChange={e => setDescriptionAnnouncement(e.target.value)}
+
+        <p>{titleElement.description}</p>
+        <textarea
           placeholder={titleElement.description}
-          minlength='4'
-          required
+          value={descriptionAnnouncement}
+          name='descriptionAnnouncement'
+          id='description_announcement'
+          onChange={e => setDescriptionAnnouncement(e.target.value)}
+          cols='30'
+          rows='10'
+          maxLength='100'
+          className='descriptionAnnouncementStyle'
         />
         <Submit id='AddAnnouncement' type='submit' value={titleElement.submit} />
       </form>

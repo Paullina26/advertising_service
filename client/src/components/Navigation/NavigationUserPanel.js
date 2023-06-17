@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 export const Conteainer = styled.div`
-  width: 20vw;
+  width: 100vw;
   background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
-  border-radius: 0px 10px 10px 0px;
-  border: 1px solid ${({ theme }) => theme.colors.Border};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  /* border-radius: 0px 10px 10px 0px; */
+  /* border: 1px solid ${({ theme }) => theme.colors.Border}; */
+  box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
   margin-left: 0;
   margin-top: 30px;
   padding: 10px;
@@ -17,7 +17,7 @@ export const Conteainer = styled.div`
 `;
 
 export const StyledLink = styled(NavLink)`
-  display: block;
+  /* display: block; */
   padding: 10px 0px;
   width: 100%;
   height: 100%;

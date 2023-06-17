@@ -14,8 +14,9 @@ export const ContainerNav = styled.div`
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid ${({ theme }) => theme.colors.Border};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  /* border: 1px solid ${({ theme }) => theme.colors.Border}; */
+  /* box-shadow: 0px 2px 20px inset ${({ theme }) => theme.colors.BorderShadow}; */
+  box-shadow: 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
 `;
 
 export const ContainerBtn = styled.div`

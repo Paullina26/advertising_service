@@ -32,12 +32,14 @@ const AddAnnouncement = () => {
   const [titleAnnouncement, setTitleAnnouncement] = useState('');
   const [descriptionAnnouncement, setDescriptionAnnouncement] = useState('');
   const [numberPhone, setNumberPhone] = useState('');
+  const [city, setCity] = useState('');
   const [error, setError] = useState(null);
 
   const titleElement = {
     title: 'Tytuł ogłoszenia:',
     description: 'Opis:',
     numberPhone: 'Numer Telefonu:',
+    city: 'Miasto:',
     submit: 'Dodaj',
   };
 
@@ -76,7 +78,17 @@ const AddAnnouncement = () => {
           required
           containerClass='containerClassPhone'
         />
-
+        <Input
+          label={titleElement.city}
+          id='city_announcement'
+          type='text'
+          value={city}
+          onChange={e => setCity(e.target.value)}
+          placeholder={titleElement.city}
+          minlength='4'
+          required
+          className='titleAnnouncementStyle'
+        />
         <Textarea
           placeholder={titleElement.description}
           label={titleElement.description}

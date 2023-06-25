@@ -43,10 +43,22 @@ const AddAnnouncement = () => {
     submit: 'Dodaj',
   };
 
+  const valueCleaning = () => {
+    setTitleAnnouncement('');
+    setDescriptionAnnouncement('');
+    setNumberPhone('');
+    setCity('');
+  };
+
   const handleSubmit = event => {
     // sendLoginDataToServer();
     // setError(StatusMessage.loginOk);
     console.log('dodano');
+    console.log(titleAnnouncement);
+    console.log(descriptionAnnouncement);
+    console.log(numberPhone);
+    console.log(city);
+    valueCleaning();
     event.preventDefault();
   };
 

@@ -26,7 +26,7 @@ const RoutesComponent = () => {
         <>
           <Route path='/userPanel' element={<UserPanel />}>
             <Route path='addAnnouncement' element={<AddAnnouncement />} />
-            <Route path='userAnnouncement' element={<UserAnnouncement />} />
+            <Route path='userAnnouncement' element={<UserAnnouncement />} /> 
             <Route path='settings' element={<Settings />} />
           </Route>
         </>

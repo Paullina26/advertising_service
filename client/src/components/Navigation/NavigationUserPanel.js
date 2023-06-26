@@ -10,8 +10,9 @@ export const Conteainer = styled.div`
   /* border-radius: 0px 10px 10px 0px; */
   /* border: 1px solid ${({ theme }) => theme.colors.Border}; */
   box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
-  margin-left: 0;
-  margin-top: 30px;
+  /* margin-left: 0; */
+  /* margin-top: 30px; */
+  margin-top: 0;
   padding: 10px;
   font-size: 20px;
 `;

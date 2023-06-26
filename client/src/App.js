@@ -6,6 +6,7 @@ import Layout from 'templates/Layout';
 import RoutesComponent from 'routes';
 import GlobalProvider from 'utils/GlobalContext';
 import LayoutUserPanel from 'templates/LayoutUserPanel';
+import Banner from 'components/Advertisement/Banner';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <GlobalStyle />
         <GlobalProvider>
           <Layout>
+            <Banner />
             <RoutesComponent />
           </Layout>
         </GlobalProvider>

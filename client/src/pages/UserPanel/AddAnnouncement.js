@@ -5,6 +5,7 @@ import Input from 'components/Form/Input';
 import Submit from 'components/Form/Submit';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import Textarea from 'components/Form/Textarea';
 
 export const Container = styled.div`
   text-align: center;
@@ -25,33 +26,39 @@ export const Container = styled.div`
     padding: 0;
     margin-bottom: 15px;
   }
-  .descriptionAnnouncementStyle {
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 5px;
-    width: 100%;
-    background-color: ${({ theme }) => theme.colors.BackgroundInput};
-    border: 1px solid ${({ theme }) => theme.colors.Border};
-  }
 `;
 
 const AddAnnouncement = () => {
   const [titleAnnouncement, setTitleAnnouncement] = useState('');
   const [descriptionAnnouncement, setDescriptionAnnouncement] = useState('');
   const [numberPhone, setNumberPhone] = useState('');
+  const [city, setCity] = useState('');
   const [error, setError] = useState(null);
 
   const titleElement = {
     title: 'Tytuł ogłoszenia:',
     description: 'Opis:',
     numberPhone: 'Numer Telefonu:',
+    city: 'Miasto:',
     submit: 'Dodaj',
+  };
+
+  const valueCleaning = () => {
+    setTitleAnnouncement('');
+    setDescriptionAnnouncement('');
+    setNumberPhone('');
+    setCity('');
   };
 
   const handleSubmit = event => {
     // sendLoginDataToServer();
     // setError(StatusMessage.loginOk);
     console.log('dodano');
+    console.log(titleAnnouncement);
+    console.log(descriptionAnnouncement);
+    console.log(numberPhone);
+    console.log(city);
+    valueCleaning();
     event.preventDefault();
   };
 
@@ -82,19 +89,21 @@ const AddAnnouncement = () => {
           specialLabel={titleElement.numberPhone}
           required
           containerClass='containerClassPhone'
-          // inputClass='inputClassPhone'
-          // buttonClass='buttonClassPhone'
-          // dropdownClass='dropdownClassPhone'
-          // searchClass='searchClassPhone'
-          // inputStyle='inputStylePhone'
-          // buttonStyle='buttonStylePhone'
-          // dropdownStyle='dropdownStylePhone'
-          // searchStyle='searchStylePhone'
         />
-
-        <p>{titleElement.description}</p>
-        <textarea
+        <Input
+          label={titleElement.city}
+          id='city_announcement'
+          type='text'
+          value={city}
+          onChange={e => setCity(e.target.value)}
+          placeholder={titleElement.city}
+          minlength='4'
+          required
+          className='titleAnnouncementStyle'
+        />
+        <Textarea
           placeholder={titleElement.description}
+          label={titleElement.description}
           value={descriptionAnnouncement}
           name='descriptionAnnouncement'
           id='description_announcement'
@@ -102,7 +111,6 @@ const AddAnnouncement = () => {
           cols='30'
           rows='10'
           maxLength='100'
-          className='descriptionAnnouncementStyle'
         />
         <Submit id='AddAnnouncement' type='submit' value={titleElement.submit} />
       </form>

@@ -6,6 +6,7 @@ import Submit from 'components/Form/Submit';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Textarea from 'components/Form/Textarea';
+import Select from 'components/Form/Select';
 
 export const Container = styled.div`
   text-align: center;
@@ -32,7 +33,8 @@ const AddAnnouncement = () => {
   const [titleAnnouncement, setTitleAnnouncement] = useState('');
   const [descriptionAnnouncement, setDescriptionAnnouncement] = useState('');
   const [numberPhone, setNumberPhone] = useState('');
-  const [city, setCity] = useState('');
+  const [cityAnnouncement, setCityAnnouncement] = useState('');
+  const [typeAnnouncement, setTypeAnnouncement] = useState('');
   const [error, setError] = useState(null);
 
   const titleElement = {
@@ -40,14 +42,22 @@ const AddAnnouncement = () => {
     description: 'Opis:',
     numberPhone: 'Numer Telefonu:',
     city: 'Miasto:',
+    type: 'Wybierz:',
     submit: 'Dodaj',
   };
+
+  // const selectOptionTypeAnnouncement = {
+  //   sell: { id: 'sellAnnouncement', name: 'Sprzedam' },
+  //   buy: { id: 'buyAnnouncement', name: 'Kupię' },
+  // };
+
+  // const selectOptionTypeAnnouncement = { [value: 'Sprzedam', value: 'Kupię' ]};
 
   const valueCleaning = () => {
     setTitleAnnouncement('');
     setDescriptionAnnouncement('');
     setNumberPhone('');
-    setCity('');
+    setCityAnnouncement('');
   };
 
   const handleSubmit = event => {
@@ -57,7 +67,7 @@ const AddAnnouncement = () => {
     console.log(titleAnnouncement);
     console.log(descriptionAnnouncement);
     console.log(numberPhone);
-    console.log(city);
+    console.log(cityAnnouncement);
     valueCleaning();
     event.preventDefault();
   };
@@ -79,6 +89,17 @@ const AddAnnouncement = () => {
           required
           className='titleAnnouncementStyle'
         />
+        <Select
+          label={titleElement.type}
+          id='type_announcement'
+          value={typeAnnouncement}
+          onChange={e => setTypeAnnouncement(e.target.value)}
+          placeholder={titleElement.type}
+          required
+          className='titleAnnouncementStyle'
+          // valueOption={selectOptionTypeAnnouncement}
+          valueOption={['Sprzedam', 'Kupię']}
+        />
         <p>{titleElement.numberPhone}</p>
         <PhoneInput
           country={'pl'}
@@ -94,8 +115,8 @@ const AddAnnouncement = () => {
           label={titleElement.city}
           id='city_announcement'
           type='text'
-          value={city}
-          onChange={e => setCity(e.target.value)}
+          value={cityAnnouncement}
+          onChange={e => setCityAnnouncement(e.target.value)}
           placeholder={titleElement.city}
           minlength='4'
           required

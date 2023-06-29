@@ -30,7 +30,7 @@ const Select = ({
   pattern,
   required,
   className,
-  valueOption,
+  options,
 }) => {
   return (
     <>
@@ -46,8 +46,11 @@ const Select = ({
           required={required}
           className={className}
         >
-          <option value={valueOption}>{valueOption}</option>
-          {/* <option value='Kupie1'>Kupie1</option> */}
+          {options.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </InputStyled>
       </LabelStyled>
     </>

@@ -6,7 +6,7 @@ import { AdvertisementModel } from '../models/advertisement.js'
 
 const router = express.Router()
 
-router.get('/all-my', async (req, res) => {
+router.get('/all-user', async (req, res) => {
   if (!req.headers?.authorization)
     return res.status(401).json({ message: 'no logged user' })
 
@@ -21,6 +21,13 @@ router.get('/all-my', async (req, res) => {
   else res.json(advertisements)
 })
 
+router.get('/all', async (req, res) => {
+  const advertisements = await AdvertisementModel.find().exec()
+
+  if (advertisements.length === 0) res.json('No results')
+  else res.json(advertisements)
+})
+
 router.post('/add', async (req, res) => {
   const token = await req.headers.authorization.split(' ')[1]
   const { id } = jwt.verify(token, 'abfewvsdvarebr')
@@ -28,6 +35,7 @@ router.post('/add', async (req, res) => {
   const newAdvertisement = new AdvertisementModel({
     ...req.body,
     userId: id ?? null,
+    createDate: new Date(),
   })
 
   const advertisementData = await newAdvertisement.save()

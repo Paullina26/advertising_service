@@ -1,6 +1,6 @@
 import Navigation from 'components/Navigation/Navigation';
 import styled from 'styled-components';
-import Banner from 'components/Advertisement/Banner';
+import Banner from 'components/Banners/Banner';
 
 export const Container = styled.div`
   width: 100vw;

@@ -6,7 +6,7 @@ import Layout from 'templates/Layout';
 import RoutesComponent from 'routes';
 import GlobalProvider from 'utils/GlobalContext';
 import LayoutUserPanel from 'templates/LayoutUserPanel';
-import Banner from 'components/Advertisement/Banner';
+import Banner from 'components/Banners/Banner';
 
 function App() {
   return (

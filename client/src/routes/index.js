@@ -6,7 +6,7 @@ import Registration from 'components/Form/Registration';
 import Login from 'components/Form/Login';
 import { GlobalContext } from 'utils/GlobalContext';
 import Signup from 'pages/Signup';
-import AddAnnouncement from 'pages/UserPanel/AddAnnouncement';
+import AddAnnouncement from 'pages/UserPanel/AddAdvertisement';
 import UserAnnouncement from 'pages/UserPanel/UserAnnouncement';
 import Settings from 'pages/UserPanel/Setting';
 
@@ -26,7 +26,7 @@ const RoutesComponent = () => {
         <>
           <Route path='/userPanel' element={<UserPanel />}>
             <Route path='addAnnouncement' element={<AddAnnouncement />} />
-            <Route path='userAnnouncement' element={<UserAnnouncement />} /> 
+            <Route path='userAnnouncement' element={<UserAnnouncement />} />
             <Route path='settings' element={<Settings />} />
           </Route>
         </>

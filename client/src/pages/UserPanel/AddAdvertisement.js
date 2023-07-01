@@ -29,14 +29,15 @@ export const Container = styled.div`
   }
 `;
 
-const AddAnnouncement = () => {
-  const [titleAnnouncement, setTitleAnnouncement] = useState('');
-  const [descriptionAnnouncement, setDescriptionAnnouncement] = useState('');
+const AddAdvertisement = () => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [numberPhone, setNumberPhone] = useState('');
-  const [cityAnnouncement, setCityAnnouncement] = useState('');
-  const [provinceAnnouncement, setProvinceAnnouncement] = useState('');
-  const [typeAnnouncement, setTypeAnnouncement] = useState('');
-  const [priceAnnouncement, setPriceAnnouncement] = useState('');
+  const [city, setCity] = useState('');
+  const [province, setProvince] = useState('');
+  const [type, setType] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
   const [error, setError] = useState(null);
 
   const nameElement = {
@@ -47,15 +48,16 @@ const AddAnnouncement = () => {
     province: 'Województwo:',
     type: 'Kupno/Sprzedaż:',
     price: 'Cena:',
+    category: 'Kategoria:',
     submit: 'Dodaj',
   };
 
-  const selectOptionTypeAnnouncement = [
+  const selectOptionType = [
     { value: 'sellAnnouncement', label: 'Sprzedam' },
     { value: 'buyAnnouncement', label: 'Kupię' },
   ];
 
-  const selectOptionProvinceAnnouncement = [
+  const selectOptionProvince = [
     { value: 'province1', label: 'Dolnośląskie' },
     { value: 'province2', label: 'Kujawsko-Pomorskie' },
     { value: 'province3', label: 'Lubelskie' },
@@ -74,27 +76,34 @@ const AddAnnouncement = () => {
     { value: 'province16', label: 'Zachodniopomorskie' },
   ];
 
+  const selectOptionCategory = [
+    { value: 'vegetables', label: 'Warzywa' },
+    { value: 'fruit', label: 'Owoce' },
+  ];
+
   const valueCleaning = () => {
-    setTitleAnnouncement('');
-    setDescriptionAnnouncement('');
-    setNumberPhone('');
-    setCityAnnouncement('');
-    setPriceAnnouncement('');
-    setTypeAnnouncement('');
-    setProvinceAnnouncement('');
+    setTitle('');
+    setDescription('');
+    setNumberPhone('+48');
+    setCity('');
+    setPrice('');
+    setType({ value: 'sellAnnouncement', label: 'Sprzedam' });
+    setProvince({ value: 'province1', label: 'Dolnośląskie' });
+    setCategory({ value: 'vegetables', label: 'Warzywa' });
   };
 
   const handleSubmit = event => {
     // sendLoginDataToServer();
     // setError(StatusMessage.loginOk);
     console.log('dodano');
-    console.log(titleAnnouncement);
-    console.log(descriptionAnnouncement);
+    console.log(title);
+    console.log(description);
     console.log(numberPhone);
-    console.log(cityAnnouncement);
-    console.log(provinceAnnouncement);
-    console.log(typeAnnouncement);
-    console.log(priceAnnouncement);
+    console.log(city);
+    console.log(province);
+    console.log(type);
+    console.log(price);
+    console.log(category);
     valueCleaning();
     event.preventDefault();
   };
@@ -109,8 +118,8 @@ const AddAnnouncement = () => {
           label={nameElement.title}
           id='title_announcement'
           type='text'
-          value={titleAnnouncement}
-          onChange={e => setTitleAnnouncement(e.target.value)}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
           placeholder={nameElement.title}
           minlength='4'
           required
@@ -119,12 +128,22 @@ const AddAnnouncement = () => {
         <Select
           label={nameElement.type}
           id='type_announcement'
-          value={typeAnnouncement}
-          onChange={e => setTypeAnnouncement(e.target.value)}
+          value={type}
+          onChange={e => setType(e.target.value)}
           placeholder={nameElement.type}
           required
           className='titleAnnouncementStyle'
-          options={selectOptionTypeAnnouncement}
+          options={selectOptionType}
+        />
+        <Select
+          label={nameElement.category}
+          id='category_announcement'
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+          placeholder={nameElement.category}
+          required
+          className='titleAnnouncementStyle'
+          options={selectOptionCategory}
         />
         <p>{nameElement.numberPhone}</p>
         <PhoneInput
@@ -140,19 +159,19 @@ const AddAnnouncement = () => {
         <Select
           label={nameElement.province}
           id='province_announcement'
-          value={typeAnnouncement}
-          onChange={e => setProvinceAnnouncement(e.target.value)}
+          value={province}
+          onChange={e => setProvince(e.target.value)}
           placeholder={nameElement.province}
           required
           className='titleAnnouncementStyle'
-          options={selectOptionProvinceAnnouncement}
+          options={selectOptionProvince}
         />
         <Input
           label={nameElement.city}
           id='city_announcement'
           type='text'
-          value={cityAnnouncement}
-          onChange={e => setCityAnnouncement(e.target.value)}
+          value={city}
+          onChange={e => setCity(e.target.value)}
           placeholder={nameElement.city}
           minlength='4'
           required
@@ -162,8 +181,8 @@ const AddAnnouncement = () => {
           label={nameElement.price}
           id='price_announcement'
           type='text'
-          value={priceAnnouncement}
-          onChange={e => setPriceAnnouncement(e.target.value)}
+          value={price}
+          onChange={e => setPrice(e.target.value)}
           placeholder={nameElement.price}
           minlength='4'
           required
@@ -172,10 +191,10 @@ const AddAnnouncement = () => {
         <Textarea
           placeholder={nameElement.description}
           label={nameElement.description}
-          value={descriptionAnnouncement}
-          name='descriptionAnnouncement'
+          value={description}
+          name='description'
           id='description_announcement'
-          onChange={e => setDescriptionAnnouncement(e.target.value)}
+          onChange={e => setDescription(e.target.value)}
           cols='30'
           rows='10'
           maxLength='100'
@@ -186,4 +205,4 @@ const AddAnnouncement = () => {
   );
 };
 
-export default AddAnnouncement;
+export default AddAdvertisement;

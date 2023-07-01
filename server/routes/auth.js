@@ -21,16 +21,14 @@ import jwt from 'jsonwebtoken'
 
 import { UserModel } from '../models/user.js'
 import config from '../config.js'
-import { SettingsModel } from '../models/settings.js'
 
 const router = express.Router()
 
 router.get('/user', async (req, res) => {
   if (!req.headers?.authorization)
     return res.status(401).json({ message: 'no logged user' })
-  console.log(1, req.headers)
+
   const token = await req.headers.authorization.split(' ')[1]
-  console.log(2, token)
   const { username, id, name } = jwt.verify(token, 'abfewvsdvarebr')
 
   if (username && id) res.json({ username, id, name })
@@ -39,7 +37,6 @@ router.get('/user', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
-  console.log({ username, password })
 
   try {
     const data = await UserModel.findOne({ username })
@@ -102,11 +99,6 @@ router.post('/register', async (req, res) => {
     const userData = await newUser.save()
     if (!userData)
       return res.status(400).json('Something wrong with saving user')
-
-    const defaultSettings = new SettingsModel({
-      userId: userData._id,
-    })
-    defaultSettings.save()
 
     res.json({ message: 'success' })
   } catch (e) {

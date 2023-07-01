@@ -14,8 +14,7 @@ import config from './config.js'
 import { swaggerConfig } from './swagger.config.js'
 
 import authRouter from './routes/auth.js'
-import settingsRouter from './routes/settings.js'
-import wordsRouter from './routes/words.js'
+import advertisementRouter from './routes/advertisement.js'
 
 dbConnect().catch((err) => console.log(err))
 
@@ -53,7 +52,6 @@ app.use(
 )
 
 app.use('/api/auth', authRouter)
-app.use('/api/settings', settingsRouter)
-app.use('/api/words', wordsRouter)
+app.use('/api/advertisement', advertisementRouter)
 
 export default app

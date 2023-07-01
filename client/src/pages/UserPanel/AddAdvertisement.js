@@ -32,13 +32,13 @@ export const Container = styled.div`
 const AddAdvertisement = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [numberPhone, setNumberPhone] = useState('');
+  const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
   const [province, setProvince] = useState('');
   const [type, setType] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-  const [error, setError] = useState(null);
+  const [errorPhone, setErrorPhone] = useState(true);
 
   const nameElement = {
     title: 'Tytuł ogłoszenia:',
@@ -84,7 +84,7 @@ const AddAdvertisement = () => {
   const valueCleaning = () => {
     setTitle('');
     setDescription('');
-    setNumberPhone('+48');
+    setPhone('+48');
     setCity('');
     setPrice('');
     setType({ value: 'sellAnnouncement', label: 'Sprzedam' });
@@ -95,17 +95,27 @@ const AddAdvertisement = () => {
   const handleSubmit = event => {
     // sendLoginDataToServer();
     // setError(StatusMessage.loginOk);
+    event.preventDefault();
+
     console.log('dodano');
     console.log(title);
     console.log(description);
-    console.log(numberPhone);
+    console.log(phone);
     console.log(city);
     console.log(province);
     console.log(type);
     console.log(price);
     console.log(category);
+    if (phone.length < 5) {
+      return setErrorPhone(false);
+    }
     valueCleaning();
-    event.preventDefault();
+  };
+
+  const handlePhone = event => {
+    if (event.length > 5) setErrorPhone(true);
+    else setErrorPhone(false);
+    setPhone(event);
   };
 
   return (
@@ -150,11 +160,16 @@ const AddAdvertisement = () => {
           country={'pl'}
           label={nameElement.numberPhone}
           id='numberPhone_announcement'
-          value={numberPhone}
-          onChange={e => setNumberPhone(e)}
+          value={phone}
+          onChange={e => handlePhone(e)}
           specialLabel={nameElement.numberPhone}
-          required
+          inputProps={{
+            name: 'phone',
+            required: true,
+            autoFocus: true,
+          }}
           containerClass='containerClassPhone'
+          isValid={errorPhone}
         />
         <Select
           label={nameElement.province}

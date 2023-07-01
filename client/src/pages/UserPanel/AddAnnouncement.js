@@ -55,6 +55,25 @@ const AddAnnouncement = () => {
     { value: 'buyAnnouncement', label: 'Kupię' },
   ];
 
+  const selectOptionProvinceAnnouncement = [
+    { value: 'province1', label: 'Dolnośląskie' },
+    { value: 'province2', label: 'Kujawsko-Pomorskie' },
+    { value: 'province3', label: 'Lubelskie' },
+    { value: 'province4', label: 'Lubuskie' },
+    { value: 'province5', label: 'Łódzkie' },
+    { value: 'province6', label: 'Małopolskie' },
+    { value: 'province7', label: 'Mazowieckie' },
+    { value: 'province8', label: 'Opolskie' },
+    { value: 'province9', label: 'Podkarpackie' },
+    { value: 'province10', label: 'Podlaskie' },
+    { value: 'province11', label: 'Pomorskie' },
+    { value: 'province12', label: 'Śląskie' },
+    { value: 'province13', label: 'Świętokrzyskie' },
+    { value: 'province14', label: 'Warmińsko-Mazurskie' },
+    { value: 'province15', label: 'Wielkopolskie' },
+    { value: 'province16', label: 'Zachodniopomorskie' },
+  ];
+
   const valueCleaning = () => {
     setTitleAnnouncement('');
     setDescriptionAnnouncement('');
@@ -105,7 +124,6 @@ const AddAnnouncement = () => {
           placeholder={nameElement.type}
           required
           className='titleAnnouncementStyle'
-          // valueOption={selectOptionTypeAnnouncement}
           options={selectOptionTypeAnnouncement}
         />
         <p>{nameElement.numberPhone}</p>
@@ -119,16 +137,15 @@ const AddAnnouncement = () => {
           required
           containerClass='containerClassPhone'
         />
-        <Input
+        <Select
           label={nameElement.province}
-          id='city_announcement'
-          type='text'
-          value={provinceAnnouncement}
+          id='province_announcement'
+          value={typeAnnouncement}
           onChange={e => setProvinceAnnouncement(e.target.value)}
           placeholder={nameElement.province}
-          minlength='4'
           required
           className='titleAnnouncementStyle'
+          options={selectOptionProvinceAnnouncement}
         />
         <Input
           label={nameElement.city}

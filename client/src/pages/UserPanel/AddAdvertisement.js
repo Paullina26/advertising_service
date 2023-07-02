@@ -7,6 +7,12 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Textarea from 'components/Form/Textarea';
 import Select from 'components/Form/Select';
+import {
+  nameElement,
+  selectOptionCategory,
+  selectOptionProvince,
+  selectOptionType,
+} from 'api/data';
 
 export const Container = styled.div`
   text-align: center;
@@ -39,47 +45,6 @@ const AddAdvertisement = () => {
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [errorPhone, setErrorPhone] = useState(true);
-
-  const nameElement = {
-    title: 'Tytuł ogłoszenia:',
-    description: 'Opis:',
-    numberPhone: 'Numer Telefonu:',
-    city: 'Miasto:',
-    province: 'Województwo:',
-    type: 'Kupno/Sprzedaż:',
-    price: 'Cena:',
-    category: 'Kategoria:',
-    submit: 'Dodaj',
-  };
-
-  const selectOptionType = [
-    { value: 'sellAnnouncement', label: 'Sprzedam' },
-    { value: 'buyAnnouncement', label: 'Kupię' },
-  ];
-
-  const selectOptionProvince = [
-    { value: 'province1', label: 'Dolnośląskie' },
-    { value: 'province2', label: 'Kujawsko-Pomorskie' },
-    { value: 'province3', label: 'Lubelskie' },
-    { value: 'province4', label: 'Lubuskie' },
-    { value: 'province5', label: 'Łódzkie' },
-    { value: 'province6', label: 'Małopolskie' },
-    { value: 'province7', label: 'Mazowieckie' },
-    { value: 'province8', label: 'Opolskie' },
-    { value: 'province9', label: 'Podkarpackie' },
-    { value: 'province10', label: 'Podlaskie' },
-    { value: 'province11', label: 'Pomorskie' },
-    { value: 'province12', label: 'Śląskie' },
-    { value: 'province13', label: 'Świętokrzyskie' },
-    { value: 'province14', label: 'Warmińsko-Mazurskie' },
-    { value: 'province15', label: 'Wielkopolskie' },
-    { value: 'province16', label: 'Zachodniopomorskie' },
-  ];
-
-  const selectOptionCategory = [
-    { value: 'vegetables', label: 'Warzywa' },
-    { value: 'fruit', label: 'Owoce' },
-  ];
 
   const valueCleaning = () => {
     setTitle('');
@@ -125,12 +90,12 @@ const AddAdvertisement = () => {
       </FormTittle>
       <form onSubmit={handleSubmit}>
         <Input
-          label={nameElement.title}
+          label={nameElement.titleAdvertisement}
           id='title_announcement'
           type='text'
           value={title}
           onChange={e => setTitle(e.target.value)}
-          placeholder={nameElement.title}
+          placeholder={nameElement.titleAdvertisement}
           minlength='4'
           required
           className='titleAnnouncementStyle'
@@ -214,7 +179,7 @@ const AddAdvertisement = () => {
           rows='10'
           maxLength='100'
         />
-        <Submit id='AddAnnouncement' type='submit' value={nameElement.submit} />
+        <Submit id='AddAnnouncement' type='submit' value={nameElement.submitAddAdvertisement} />
       </form>
     </Container>
   );

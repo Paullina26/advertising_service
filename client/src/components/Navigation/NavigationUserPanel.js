@@ -7,11 +7,7 @@ import { NavLink } from 'react-router-dom';
 export const Conteainer = styled.div`
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
-  /* border-radius: 0px 10px 10px 0px; */
-  /* border: 1px solid ${({ theme }) => theme.colors.Border}; */
   box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
-  /* margin-left: 0; */
-  /* margin-top: 30px; */
   margin-top: 0;
   padding: 10px;
   font-size: 20px;
@@ -42,7 +38,7 @@ export const StyledLink = styled(NavLink)`
 const NavigationUserPanel = () => {
   const { isLogin, setIsLogin } = useContext(GlobalContext);
   const navigate = useNavigate();
-  const navItems = [
+  const navItemsUserPanel = [
     {
       to: '/userPanel/addAnnouncement',
       name: 'Dodaj ogłoszenie',
@@ -58,7 +54,7 @@ const NavigationUserPanel = () => {
     },
   ];
 
-  const navItemRender = navItems.map(item => {
+  const navItemRender = navItemsUserPanel.map(item => {
     // if (!item.isVisible) return null;
     return (
       <StyledLink key={item.name} to={item.to}>

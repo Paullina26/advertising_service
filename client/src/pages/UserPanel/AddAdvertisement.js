@@ -7,6 +7,12 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Textarea from 'components/Form/Textarea';
 import Select from 'components/Form/Select';
+import {
+  nameElement,
+  selectOptionCategory,
+  selectOptionProvince,
+  selectOptionType,
+} from 'data/data';
 
 export const Container = styled.div`
   text-align: center;
@@ -32,59 +38,18 @@ export const Container = styled.div`
 const AddAdvertisement = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [numberPhone, setNumberPhone] = useState('');
+  const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
   const [province, setProvince] = useState('');
   const [type, setType] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-  const [error, setError] = useState(null);
-
-  const nameElement = {
-    title: 'Tytuł ogłoszenia:',
-    description: 'Opis:',
-    numberPhone: 'Numer Telefonu:',
-    city: 'Miasto:',
-    province: 'Województwo:',
-    type: 'Kupno/Sprzedaż:',
-    price: 'Cena:',
-    category: 'Kategoria:',
-    submit: 'Dodaj',
-  };
-
-  const selectOptionType = [
-    { value: 'sellAnnouncement', label: 'Sprzedam' },
-    { value: 'buyAnnouncement', label: 'Kupię' },
-  ];
-
-  const selectOptionProvince = [
-    { value: 'province1', label: 'Dolnośląskie' },
-    { value: 'province2', label: 'Kujawsko-Pomorskie' },
-    { value: 'province3', label: 'Lubelskie' },
-    { value: 'province4', label: 'Lubuskie' },
-    { value: 'province5', label: 'Łódzkie' },
-    { value: 'province6', label: 'Małopolskie' },
-    { value: 'province7', label: 'Mazowieckie' },
-    { value: 'province8', label: 'Opolskie' },
-    { value: 'province9', label: 'Podkarpackie' },
-    { value: 'province10', label: 'Podlaskie' },
-    { value: 'province11', label: 'Pomorskie' },
-    { value: 'province12', label: 'Śląskie' },
-    { value: 'province13', label: 'Świętokrzyskie' },
-    { value: 'province14', label: 'Warmińsko-Mazurskie' },
-    { value: 'province15', label: 'Wielkopolskie' },
-    { value: 'province16', label: 'Zachodniopomorskie' },
-  ];
-
-  const selectOptionCategory = [
-    { value: 'vegetables', label: 'Warzywa' },
-    { value: 'fruit', label: 'Owoce' },
-  ];
+  const [errorPhone, setErrorPhone] = useState(true);
 
   const valueCleaning = () => {
     setTitle('');
     setDescription('');
-    setNumberPhone('+48');
+    setPhone('+48');
     setCity('');
     setPrice('');
     setType({ value: 'sellAnnouncement', label: 'Sprzedam' });
@@ -95,17 +60,27 @@ const AddAdvertisement = () => {
   const handleSubmit = event => {
     // sendLoginDataToServer();
     // setError(StatusMessage.loginOk);
+    event.preventDefault();
+
     console.log('dodano');
     console.log(title);
     console.log(description);
-    console.log(numberPhone);
+    console.log(phone);
     console.log(city);
     console.log(province);
     console.log(type);
     console.log(price);
     console.log(category);
+    if (phone.length < 5) {
+      return setErrorPhone(false);
+    }
     valueCleaning();
-    event.preventDefault();
+  };
+
+  const handlePhone = event => {
+    if (event.length > 5) setErrorPhone(true);
+    else setErrorPhone(false);
+    setPhone(event);
   };
 
   return (
@@ -115,12 +90,12 @@ const AddAdvertisement = () => {
       </FormTittle>
       <form onSubmit={handleSubmit}>
         <Input
-          label={nameElement.title}
+          label={nameElement.titleAdvertisement}
           id='title_announcement'
           type='text'
           value={title}
           onChange={e => setTitle(e.target.value)}
-          placeholder={nameElement.title}
+          placeholder={nameElement.titleAdvertisement}
           minlength='4'
           required
           className='titleAnnouncementStyle'
@@ -150,11 +125,16 @@ const AddAdvertisement = () => {
           country={'pl'}
           label={nameElement.numberPhone}
           id='numberPhone_announcement'
-          value={numberPhone}
-          onChange={e => setNumberPhone(e)}
+          value={phone}
+          onChange={e => handlePhone(e)}
           specialLabel={nameElement.numberPhone}
-          required
+          inputProps={{
+            name: 'phone',
+            required: true,
+            autoFocus: true,
+          }}
           containerClass='containerClassPhone'
+          isValid={errorPhone}
         />
         <Select
           label={nameElement.province}
@@ -199,7 +179,7 @@ const AddAdvertisement = () => {
           rows='10'
           maxLength='100'
         />
-        <Submit id='AddAnnouncement' type='submit' value={nameElement.submit} />
+        <Submit id='AddAnnouncement' type='submit' value={nameElement.submitAddAdvertisement} />
       </form>
     </Container>
   );

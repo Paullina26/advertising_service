@@ -12,7 +12,7 @@ import {
   selectOptionCategory,
   selectOptionProvince,
   selectOptionType,
-} from 'api/data';
+} from 'data/data';
 
 export const Container = styled.div`
   text-align: center;

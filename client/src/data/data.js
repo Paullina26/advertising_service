@@ -1,4 +1,3 @@
-
 export const nameElement = {
   titleAdvertisement: 'Tytuł ogłoszenia:',
   description: 'Opis:',
@@ -9,6 +8,19 @@ export const nameElement = {
   price: 'Cena:',
   category: 'Kategoria:',
   submitAddAdvertisement: 'Dodaj',
+  email: 'E-Mail:',
+  password: 'Hasło:',
+  submitLogin: 'Zaloguj',
+  confirmPassword: 'Powtórz Hasło:',
+  submitRegistration: 'Rejestracja',
+  nameUser: 'Nazwa Użytkownika:',
+};
+
+export const StatusMessage = {
+  passwordWrong: 'Nie poprawny E-mail lub Hasło',
+  loginOk: 'Logowanie przebiegło pomyślenie',
+  registrationOk: 'Rejestracja przebiegła pomyślenie',
+  passwordWrongRegistration: 'Hasła nie pasują do siebie',
 };
 
 export const selectOptionType = [

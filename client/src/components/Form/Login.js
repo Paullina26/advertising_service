@@ -6,6 +6,7 @@ import { GlobalContext } from 'utils/GlobalContext';
 import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
+import { nameElement, StatusMessage } from 'data/data';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,17 +14,6 @@ const Login = () => {
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-
-  const titleElement = {
-    email: 'E-Mail:',
-    password: 'Hasło:',
-    submitLogin: 'Zaloguj',
-  };
-
-  const StatusMessage = {
-    passwordWrong: 'Nie poprawny E-mail lub Hasło',
-    loginOk: 'Logowanie przebiegło pomyślenie',
-  };
 
   const sendLoginDataToServer = () => {
     fetch('http://localhost:8080/api/auth/login', {
@@ -63,30 +53,30 @@ const Login = () => {
 
       <form onSubmit={handleSubmit}>
         <Input
-          label={titleElement.email}
+          label={nameElement.email}
           id='e-mail_Login'
           type='email'
           value={mail}
           onChange={e => setMail(e.target.value)}
           autoComplete='email'
-          placeholder={titleElement.email}
+          placeholder={nameElement.email}
           minlength='4'
           pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
           required
         />
         <Input
-          label={titleElement.password}
+          label={nameElement.password}
           id='password_Login'
           type='password'
           value={password}
           onChange={e => setPassword(e.target.value)}
           autoComplete='current-password'
-          placeholder={titleElement.password}
+          placeholder={nameElement.password}
           minlength='4'
           required
         />
         {error && <Error>{error}</Error>}
-        <Submit id='Login' type='submit' value={titleElement.submitLogin} />
+        <Submit id='Login' type='submit' value={nameElement.submitLogin} />
       </form>
     </Container>
   );

@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 100vw;
   height: 150px;
   text-align: center;
+  margin-top: 55px;
   img {
     position: relative;
     width: auto;

@@ -2,10 +2,14 @@ import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { Container, StyledLink } from 'styles/Navigation.style';
+import { useLocation } from 'react-router-dom';
 
 const NavigationUserPanel = () => {
+  const location = useLocation();
+  console.log(location);
   const { isLogin, setIsLogin } = useContext(GlobalContext);
   const navigate = useNavigate();
+
   const navItemsUserPanel = [
     {
       to: '/userPanel/addAnnouncement',
@@ -15,15 +19,28 @@ const NavigationUserPanel = () => {
       to: '/userPanel/userAnnouncement',
       name: 'Twoje ogłoszenia',
     },
-
     {
-      to: '/userPanel/settings',
+      to: '/userPanel',
       name: 'Ustawienia',
     },
   ];
 
-  const navItemRender = navItemsUserPanel.map(item => {
-    // if (!item.isVisible) return null;
+  const navItemsHomePage = [
+    {
+      to: '/addAnnouncement',
+      name: 'Dodaj ogłoszenie',
+    },
+    {
+      to: '/',
+      name: 'Ogłoszenia',
+    },
+  ];
+
+  const navItemRender = (
+    navItemsUserPanel.some(navItem => navItem.to === location.pathname)
+      ? navItemsUserPanel
+      : navItemsHomePage
+  ).map(item => {
     return (
       <StyledLink key={item.name} to={item.to}>
         {item.name}

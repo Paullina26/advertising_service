@@ -1,7 +1,7 @@
 import Navigation from 'components/Navigation/Navigation';
 import styled from 'styled-components';
 import Banner from 'components/Banners/Banner';
-import NavigationUserPanel from 'components/Navigation/NavigationUserPanel';
+import NavigationPanel from 'components/Navigation/NavigationPanel';
 
 export const Container = styled.div`
   width: 100vw;
@@ -13,7 +13,7 @@ const Layout = props => {
     <>
       <Navigation />
       <Banner />
-      <NavigationUserPanel />
+      <NavigationPanel />
       <Container>{props.children}</Container>
     </>
   );

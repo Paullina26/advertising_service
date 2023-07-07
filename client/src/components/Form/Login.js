@@ -27,11 +27,21 @@ const Login = () => {
         password: password,
       }),
     })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response.status);
+        if (response.status === 404) {
+          console.log('pokaz komunikat');
+          // https://www.npmjs.com/package/react-toastify
+          //nie mam takigo użytkownika
+          throw new Error('No user');
+        } else {
+          return response.json();
+        }
+      })
       .then(data => {
         localStorage.setItem('TOKEN', data.token);
-        console.log(data);
         setIsLogin(true);
+        setError(StatusMessage.loginOk);
         return navigate('/');
       })
       .catch(err => {
@@ -41,7 +51,6 @@ const Login = () => {
 
   const handleSubmit = event => {
     sendLoginDataToServer();
-    setError(StatusMessage.loginOk);
     event.preventDefault();
   };
 

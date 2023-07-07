@@ -27,8 +27,11 @@ const router = express.Router()
 router.get('/user', async (req, res) => {
   if (!req.headers?.authorization)
     return res.status(401).json({ message: 'no logged user' })
-  console.log(req.headers.authorization)
+
   const token = await req.headers.authorization.split(' ')[1]
+  if (token === 'undefined')
+    return res.status(401).json({ message: 'no logged user' })
+
   const { username, id, name } = jwt.verify(token, 'abfewvsdvarebr')
 
   if (username && id) res.json({ username, id, name })

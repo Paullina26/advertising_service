@@ -14,7 +14,9 @@ const RoutesComponent = () => {
   const { isLogin } = useContext(GlobalContext);
   return (
     <Routes>
-      <Route exact path='/' element={<HomePage />} />
+      <Route exact path='/' element={<HomePage />}/>
+      <Route path='addAnnouncement' element={<AddAnnouncement />} />
+
       {!isLogin && (
         <>
           <Route path='/registration' element={<Registration />} />
@@ -27,7 +29,7 @@ const RoutesComponent = () => {
           <Route path='/userPanel' element={<UserPanel />}>
             <Route path='addAnnouncement' element={<AddAnnouncement />} />
             <Route path='userAnnouncement' element={<UserAnnouncement />} />
-            <Route path='settings' element={<Settings />} />
+            <Route path='/userPanel' element={<Settings />} />
           </Route>
         </>
       )}

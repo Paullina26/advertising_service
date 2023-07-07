@@ -15,7 +15,7 @@ function App() {
         <GlobalStyle />
         <GlobalProvider>
           <Layout>
-            <Banner />
+            {/* <Banner /> */}
             <RoutesComponent />
           </Layout>
         </GlobalProvider>

@@ -11,7 +11,6 @@ export const GlobalContext = createContext({
 
 const GlobalProvider = ({ children }) => {
   const location = useLocation();
-  console.log(location);
   const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
 
@@ -34,7 +33,6 @@ const GlobalProvider = ({ children }) => {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log({ data });
         if (data.name) {
           setIsLogin(true);
         }

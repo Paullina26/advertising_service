@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import NavigationUserPanel from 'components/Navigation/NavigationUserPanel';
 
 export const Container = styled.div`
   width: 95vw;
@@ -10,7 +9,6 @@ export const Container = styled.div`
 const LayoutUserPanel = props => {
   return (
     <>
-      <NavigationUserPanel />
       <Container>{props.children}</Container>
     </>
   );

@@ -12,7 +12,7 @@ const NavigationUserPanel = () => {
 
   const navItemsUserPanel = [
     {
-      to: '/userPanel/addAnnouncement',
+      to: '/userPanel/addAdvertisement',
       name: 'Dodaj ogłoszenie',
     },
     {
@@ -27,7 +27,7 @@ const NavigationUserPanel = () => {
 
   const navItemsHomePage = [
     {
-      to: '/addAnnouncement',
+      to: '/addAdvertisement',
       name: 'Dodaj ogłoszenie',
     },
     {

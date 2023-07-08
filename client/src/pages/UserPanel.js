@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BrowserRouter as Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import LayoutUserPanel from 'templates/LayoutUserPanel';
 import { GlobalContext } from 'utils/GlobalContext';
 

@@ -57,8 +57,31 @@ const AddAdvertisement = () => {
     setCategory({ value: 'vegetables', label: 'Warzywa' });
   };
 
+  const sendFormAdvertisementDataToServer = () => {
+    fetch('http://localhost:8080/api/advertisement/add', {
+      method: 'POST',
+      headers: {
+        Accept: 'application.json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        // username: mail,
+        // password: password,
+      }),
+    })
+      .then(response => {
+        console.log(response.status);
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   const handleSubmit = event => {
-    // sendLoginDataToServer();
+    // sendFormAdvertisementDataToServer();
     // setError(StatusMessage.loginOk);
     event.preventDefault();
 

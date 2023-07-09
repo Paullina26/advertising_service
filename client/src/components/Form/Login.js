@@ -7,6 +7,7 @@ import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
+import { API_BASE_URL, API, headers } from 'api/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,12 +17,9 @@ const Login = () => {
   const [error, setError] = useState(null);
 
   const sendLoginDataToServer = () => {
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch(`${API_BASE_URL}${API.login}`, {
       method: 'POST',
-      headers: {
-        Accept: 'application.json',
-        'Content-Type': 'application/json',
-      },
+      headers,
       body: JSON.stringify({
         username: mail,
         password: password,

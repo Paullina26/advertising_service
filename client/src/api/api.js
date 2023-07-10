@@ -7,5 +7,7 @@ export const headers = {
 
 export const API = {
   login: `${API_BASE_URL}auth/login`,
-  addAdvertisement: `${API_BASE_URL}advertisement/add`,
+  postAdvertisement: `${API_BASE_URL}advertisement/add`,
+  // getAdvertisement: `${API_BASE_URL}advertisement/add/all`,
+  //  ogłoszenia danego usera przekazać token do zapytania /all-user
 };

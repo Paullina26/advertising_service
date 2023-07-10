@@ -13,7 +13,6 @@ import {
   selectOptionProvince,
   selectOptionType,
 } from 'data/data';
-
 import { headers, API } from 'api/api';
 
 export const Container = styled.div`
@@ -61,8 +60,7 @@ const AddAdvertisement = () => {
 
   const sendFormAdvertisementDataToServer = () => {
     const token = localStorage.TOKEN;
-    // console.log(localStorage.TOKEN);
-    fetch(API.addAdvertisement, {
+    fetch(API.postAdvertisement, {
       method: 'POST',
       headers: {
         ...headers,
@@ -81,6 +79,9 @@ const AddAdvertisement = () => {
     })
       .then(response => {
         console.log(response.status);
+        if (response.status === 200) {
+          console.log('OGŁOSZENIE DODANE');
+        }
       })
       .then(data => {
         console.log(data);
@@ -94,16 +95,8 @@ const AddAdvertisement = () => {
     sendFormAdvertisementDataToServer();
     // setError(StatusMessage.loginOk);
     event.preventDefault();
+    // console.log(title, description, phone, city, province, type, price, category);
 
-    console.log('dodano');
-    console.log(title);
-    console.log(description);
-    console.log(phone);
-    console.log(city);
-    console.log(province);
-    console.log(type);
-    console.log(price);
-    console.log(category);
     if (phone.length < 5) {
       return setErrorPhone(false);
     }

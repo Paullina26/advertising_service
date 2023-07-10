@@ -5,9 +5,8 @@ export const Container = styled.div`
   margin: 30px auto;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.BackgroundForm};
-  width: 30vw;
+  width: 40vw;
   border-radius: 10px;
-  border: 2px solid ${({ theme }) => theme.colors.Border};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
 `;
 

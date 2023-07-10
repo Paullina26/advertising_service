@@ -14,6 +14,8 @@ import {
   selectOptionType,
 } from 'data/data';
 
+import { headers, API } from 'api/api';
+
 export const Container = styled.div`
   text-align: center;
   margin: 30px auto;
@@ -58,15 +60,23 @@ const AddAdvertisement = () => {
   };
 
   const sendFormAdvertisementDataToServer = () => {
-    fetch('http://localhost:8080/api/advertisement/add', {
+    const token = localStorage.TOKEN;
+    // console.log(localStorage.TOKEN);
+    fetch(API.addAdvertisement, {
       method: 'POST',
       headers: {
-        Accept: 'application.json',
-        'Content-Type': 'application/json',
+        ...headers,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        // username: mail,
-        // password: password,
+        title: title,
+        description: description,
+        phone: phone,
+        city: city,
+        province: province.value,
+        type: type.value,
+        price: price,
+        category: category.value,
       }),
     })
       .then(response => {
@@ -81,7 +91,7 @@ const AddAdvertisement = () => {
   };
 
   const handleSubmit = event => {
-    // sendFormAdvertisementDataToServer();
+    sendFormAdvertisementDataToServer();
     // setError(StatusMessage.loginOk);
     event.preventDefault();
 

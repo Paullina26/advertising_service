@@ -6,7 +6,6 @@ export const headers = {
 };
 
 export const API = {
-  login: 'auth/login',
-  addAdvertisement: 'advertisement/add',
+  login: `${API_BASE_URL}auth/login`,
+  addAdvertisement: `${API_BASE_URL}advertisement/add`,
 };
-

@@ -7,7 +7,7 @@ import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
-import { API_BASE_URL, API, headers } from 'api/api';
+import { API, headers } from 'api/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const Login = () => {
   const [error, setError] = useState(null);
 
   const sendLoginDataToServer = () => {
-    fetch(`${API_BASE_URL}${API.login}`, {
+    fetch(API.login, {
       method: 'POST',
       headers,
       body: JSON.stringify({
@@ -28,7 +28,7 @@ const Login = () => {
       .then(response => {
         console.log(response.status);
         if (response.status === 404) {
-          console.log('pokaz komunikat');
+          console.log('pokaz komunikat błędu');
           // https://www.npmjs.com/package/react-toastify
           //nie mam takigo użytkownika
           throw new Error('No user');

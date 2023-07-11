@@ -5,9 +5,12 @@ export const theme = {
     FontError: '#5c0120',
     FontSubmitHover: '#36743a',
 
-    Background: '#f9f9f9',
+    Background: '#ffffff',
     BackgroundNavigation: '#ecefe5',
-    BackgroundForm: '#ecefe5',
+    BackgroundForm: '#fcfff6',
+    // BackgroundForm: '#fdfffa',
+    // BackgroundForm: '#fafafa',
+
     BackgroundInput: '#ffffff',
     BackgroundButton: '#f7f7f7',
     BackgroundSubmit: '#36743a',
@@ -16,15 +19,17 @@ export const theme = {
 
     Border: '#c9c9c9',
     BorderLogout: '#edda0b',
-    BorderUserPanel: '#36743a',
+    BorderUserPanel: '#1f3f21',
 
     // Border: '#e0e0c9',
     // Border: '#a09d64',
     // Border: '#5c7537',
 
     // BorderShadow: '#7b7b7b',
-    BorderShadow: '#36743a75',
-    BorderShadowLight: '#36743ac9',
+    BorderShadow: '#447a4896',
+    BorderShadowLight: '#254b27c8',
+    BorderShadowSell: '#254b27c8',
+    BorderShadowBuy: '#254b27c8',
 
     GlassBackground: 'rgba(10, 10, 10, 0.5)',
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',

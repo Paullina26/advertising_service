@@ -41,10 +41,10 @@ const AddAdvertisement = () => {
   const [description, setDescription] = useState('');
   const [phone, setPhone] = useState('');
   const [city, setCity] = useState('');
-  const [province, setProvince] = useState('');
-  const [type, setType] = useState('');
+  const [province, setProvince] = useState('province1');
+  const [type, setType] = useState('sellAnnouncement');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('vegetables');
   const [errorPhone, setErrorPhone] = useState(true);
 
   const valueCleaning = () => {
@@ -83,23 +83,20 @@ const AddAdvertisement = () => {
           console.log('OGŁOSZENIE DODANE');
         }
       })
-      .then(data => {
-        console.log(data);
-      })
       .catch(err => {
         console.log(err);
       });
   };
 
   const handleSubmit = event => {
-    sendFormAdvertisementDataToServer();
     // setError(StatusMessage.loginOk);
     event.preventDefault();
-    // console.log(title, description, phone, city, province, type, price, category);
-
+    console.log(title, phone, city, province, type, price, category);
     if (phone.length < 5) {
+      console.log('błąd numeru telefonu');
       return setErrorPhone(false);
     }
+    sendFormAdvertisementDataToServer();
     valueCleaning();
   };
 

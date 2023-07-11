@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { Container } from 'styles/Form.style';
 import { API, headers } from 'api/api';
 import { useEffect, useState } from 'react';
+import SingleAdvertisement from './SingleAdvertisement';
 
 export const Advertisement = () => {
-  const [advertisement, setAdvertisement] = useState([]);
+  const [advertisements, setAdvertisements] = useState([]);
 
   const getAdvertisementDataToServer = () => {
     fetch(API.getAdvertisement, {
@@ -18,26 +19,22 @@ export const Advertisement = () => {
       })
       .then(data => {
         console.log(3, data);
-        setAdvertisement(data);
+        setAdvertisements(data);
       });
-    console.log(advertisement);
+    console.log(advertisements);
   };
 
   useEffect(() => {
     getAdvertisementDataToServer();
   }, []);
 
+  const advertisementRender = advertisements.map(advertisement => (
+    <SingleAdvertisement key={advertisement._id} data={advertisement} />
+  ));
+
   return (
     <>
-      <Container>
-        <p>Tytuł ogłoszenia</p>
-        <p>kategoria</p>
-        <p>numer telefonu</p>
-        <p>miasto</p>
-        <p>województwo</p>
-        <p>price</p>
-        <p>opis</p>
-      </Container>
+      <div>{advertisementRender}</div>
     </>
   );
 };

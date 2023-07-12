@@ -53,9 +53,9 @@ const AddAdvertisement = () => {
     setPhone('+48');
     setCity('');
     setPrice('');
-    setType({ value: 'sellAnnouncement', label: 'Sprzedam' });
-    setProvince({ value: 'province1', label: 'Dolnośląskie' });
-    setCategory({ value: 'vegetables', label: 'Warzywa' });
+    setType('sellAnnouncement');
+    setProvince('province1');
+    setCategory('vegetables');
   };
 
   const sendFormAdvertisementDataToServer = () => {
@@ -67,14 +67,14 @@ const AddAdvertisement = () => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        title: title,
-        description: description,
-        phone: phone,
-        city: city,
-        province: province.value,
-        type: type.value,
-        price: price,
-        category: category.value,
+        title,
+        description,
+        phone,
+        city,
+        province,
+        type,
+        price,
+        category,
       }),
     })
       .then(response => {
@@ -89,11 +89,12 @@ const AddAdvertisement = () => {
   };
 
   const handleSubmit = event => {
-    // setError(StatusMessage.loginOk);
     event.preventDefault();
-    console.log(title, phone, city, province, type, price, category);
+    console.log(
+      ` PRZED WYSŁANIEM FORMULARZA
+      TYTUŁ: ${title}, TELEFON:${phone}, MIASTO:${city}, PROVINCE:${province}, TYP:${type},  CENA:${price}, KATEGIRUA:${category}`
+    );
     if (phone.length < 5) {
-      console.log('błąd numeru telefonu');
       return setErrorPhone(false);
     }
     sendFormAdvertisementDataToServer();

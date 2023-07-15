@@ -2,17 +2,15 @@ export const theme = {
   colors: {
     Font: '#2c2c2c',
     FontLight: '#ffffff',
-    FontError: '#5c0120',
+    FontError: '#56000d',
     FontSubmitHover: '#36743a',
 
-    Background: '#ffffff',
-    BackgroundNavigation: '#ecefe5',
-    BackgroundForm: '#fcfff6',
-    // BackgroundForm: '#fdfffa',
-    // BackgroundForm: '#fafafa',
+    Background: '#f3f3f3',
+    BackgroundNavigation: '#d7dccf',
+    BackgroundForm: '#ebebeb',
 
     BackgroundInput: '#ffffff',
-    BackgroundButton: '#f7f7f7',
+    BackgroundButton: '#f3f3f3',
     BackgroundSubmit: '#36743a',
     BackgroundButtonLogout: '#d3c314',
     BackgroundUserPanelBtn: '#36743a',
@@ -20,16 +18,13 @@ export const theme = {
     Border: '#c9c9c9',
     BorderLogout: '#edda0b',
     BorderUserPanel: '#1f3f21',
-
-    // Border: '#e0e0c9',
-    // Border: '#a09d64',
-    // Border: '#5c7537',
-
-    // BorderShadow: '#7b7b7b',
     BorderShadow: '#447a4896',
     BorderShadowLight: '#254b27c8',
     BorderShadowSell: '#254b27c8',
     BorderShadowBuy: '#254b27c8',
+
+    ShadowSell: '#56000d',
+    ShadowBay: '#134d25',
 
     GlassBackground: 'rgba(10, 10, 10, 0.5)',
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',

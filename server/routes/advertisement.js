@@ -24,7 +24,7 @@ router.get('/all-user', async (req, res) => {
 router.get('/all', async (req, res) => {
   const advertisements = await AdvertisementModel.find().exec()
 
-  if (advertisements.length === 0) res.json('No results')
+  if (advertisements.length === 0) res.json([])
   else res.json(advertisements)
 })
 

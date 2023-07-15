@@ -113,6 +113,26 @@ const AddAdvertisement = () => {
         <p>Dodaj Ogłoszenie</p>
       </FormTittle>
       <form onSubmit={handleSubmit}>
+        <Select
+          label={nameElement.type}
+          id='type_announcement'
+          value={type}
+          onChange={e => setType(e.target.value)}
+          placeholder={nameElement.type}
+          required
+          className='titleAnnouncementStyle'
+          options={selectOptionType}
+        />{' '}
+        <Select
+          label={nameElement.category}
+          id='category_announcement'
+          value={category}
+          onChange={e => setCategory(e.target.value)}
+          placeholder={nameElement.category}
+          required
+          className='titleAnnouncementStyle'
+          options={selectOptionCategory}
+        />
         <Input
           label={nameElement.titleAdvertisement}
           id='title_announcement'
@@ -123,26 +143,6 @@ const AddAdvertisement = () => {
           minlength='4'
           required
           className='titleAnnouncementStyle'
-        />
-        <Select
-          label={nameElement.type}
-          id='type_announcement'
-          value={type}
-          onChange={e => setType(e.target.value)}
-          placeholder={nameElement.type}
-          required
-          className='titleAnnouncementStyle'
-          options={selectOptionType}
-        />
-        <Select
-          label={nameElement.category}
-          id='category_announcement'
-          value={category}
-          onChange={e => setCategory(e.target.value)}
-          placeholder={nameElement.category}
-          required
-          className='titleAnnouncementStyle'
-          options={selectOptionCategory}
         />
         <p>{nameElement.numberPhone}</p>
         <PhoneInput

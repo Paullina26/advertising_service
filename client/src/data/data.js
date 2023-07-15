@@ -1,5 +1,5 @@
 export const nameElement = {
-  titleAdvertisement: 'Tytuł ogłoszenia:',
+  titleAdvertisement: 'Nazwa przedmoitu:',
   description: 'Opis:',
   numberPhone: 'Numer Telefonu:',
   city: 'Miasto:',
@@ -50,4 +50,7 @@ export const selectOptionProvince = [
 export const selectOptionCategory = [
   { value: 'vegetables', label: 'Warzywa' },
   { value: 'fruit', label: 'Owoce' },
+  { value: 'cereals', label: 'Zboża' },
+  { value: 'animal', label: 'Zwierzęce' },
+  { value: 'mushrooms', label: 'Grzyby' },
 ];

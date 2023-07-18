@@ -3,7 +3,9 @@ import MainMenu from './MainMenu';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
-import { UserPanelButton } from 'components/buttons/UserPanelBtn';
+// import { UserPanelButton, StyledLogoutIcon, StyledUserIcon } from 'components/buttons/UserPanelBtn';
+import Logout from 'components/buttons/Logout';
+import UserProfile from 'components/buttons/UserProfile';
 
 export const ContainerNav = styled.div`
   width: 100vw;
@@ -44,12 +46,8 @@ const Navigation = () => {
     <ContainerNav>
       <MainMenu />
       <ContainerBtn>
-        {isLogin && (
-          <UserPanelButton logout onClick={handleLogout}>
-            Wyloguj
-          </UserPanelButton>
-        )}
-        <UserPanelButton onClick={handleUserPanel}>Twoje Konto</UserPanelButton>
+        {isLogin && <Logout logout onClick={handleLogout} />}
+        <UserProfile onClick={handleUserPanel} />
       </ContainerBtn>
     </ContainerNav>
   );

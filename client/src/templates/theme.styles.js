@@ -14,6 +14,7 @@ export const theme = {
     BackgroundSubmit: '#36743a',
     BackgroundButtonLogout: '#d3c314',
     BackgroundUserPanelBtn: '#36743a',
+    BackgroundAdvertisement: '#ececec',
 
     Border: '#c9c9c9',
     BorderLogout: '#edda0b',
@@ -23,8 +24,8 @@ export const theme = {
     BorderShadowSell: '#254b27c8',
     BorderShadowBuy: '#254b27c8',
 
-    ShadowSell: '#56000d',
-    ShadowBay: '#134d25',
+    ShadowSell: '#b88d18',
+    ShadowBay: '#197035',
 
     GlassBackground: 'rgba(10, 10, 10, 0.5)',
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',

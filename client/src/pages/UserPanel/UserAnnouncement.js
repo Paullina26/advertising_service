@@ -12,7 +12,7 @@ const UserAnnouncement = () => {
       method: 'GET',
       headers: {
         ...headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: token ? `Bearer ${token}` : null,
       },
     })
       .then(response => {

@@ -30,7 +30,9 @@ router.get('/all', async (req, res) => {
 
 router.post('/add', async (req, res) => {
   const token = await req.headers.authorization.split(' ')[1]
-  const { id } = jwt.verify(token, 'abfewvsdvarebr')
+  console.log(token)
+  let id
+  if (token) id = jwt.verify(token, 'abfewvsdvarebr').id
 
   const newAdvertisement = new AdvertisementModel({
     ...req.body,

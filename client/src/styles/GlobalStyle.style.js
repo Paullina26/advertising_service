@@ -17,6 +17,8 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     background-color: ${({ theme }) => theme.colors.Background};
     color: ${({ theme }) => theme.colors.Font};
+    overflow-x: hidden;
+    width: 100vw;
   }
 
   a, button {

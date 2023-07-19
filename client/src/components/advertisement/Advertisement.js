@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-import { Container } from 'styles/Form.style';
 import { API, headers } from 'api/api';
 import { useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';

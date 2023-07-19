@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
+import { useState, useEffect, useContext } from 'react';
 import { selectOptionType, selectOptionCategory, selectOptionProvince } from 'data/data';
+
+import { Follow } from 'components/buttons/Follow';
 import {
   Container,
   ContainerClipElement,
@@ -15,6 +18,7 @@ import {
 } from 'styles/Advertisement.style';
 
 export const SingleAdvertisement = props => {
+  const { isLogin, setIsLogin } = useContext(GlobalContext);
   const foundProvince = selectOptionProvince.find(element => props.data.province === element.value);
   const foundType = selectOptionType.find(element => props.data.type === element.value);
   const type = `${foundType.label}: `;
@@ -27,11 +31,16 @@ export const SingleAdvertisement = props => {
   const typeBgc = props.data.type;
 
   return (
-    <Container color={typeBgc === 'sellAnnouncement' ? true : false}>
+    <Container isSell={typeBgc === 'sellAnnouncement'}>
       <ContainerClipElement>
-        <TypeAdvertisement>{type}</TypeAdvertisement>
-        <Title>{title}</Title>
+        <div className='follows'>
+          {' '}
+          <TypeAdvertisement>{type}</TypeAdvertisement>
+          <Title>{title}</Title>
+        </div>
+        {isLogin ? <Follow /> : ''}
       </ContainerClipElement>
+
       <Price>
         <StyledIconPrice />
         {price}

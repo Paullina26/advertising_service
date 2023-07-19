@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as PriceIcon } from '../assets/icon/coins-solid.svg';
 import { ReactComponent as LocationIcon } from '../assets/icon/location-dot-solid.svg';
 import { ReactComponent as PhoneIcon } from '../assets/icon/phone-solid.svg';
-import { ReactComponent as UserIcon } from '../assets/icon/user-solid.svg';
 
 export const Container = styled.div`
   text-align: center;
@@ -13,18 +12,25 @@ export const Container = styled.div`
   max-width: 600px;
   border-radius: 10px;
   box-shadow: 0px 2px 12px
-    ${({ theme, color }) => (color ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
+    ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
 `;
 export const ContainerClipElement = styled.div`
   text-align: left;
   padding: 5px;
   font-size: 20px;
+  margin-left: 0;
+  display: flex;
+  justify-content: space-between;
+  .follows {
+    display: inline;
+  }
 `;
 export const TypeAdvertisement = styled.div`
   display: inline;
 `;
 export const Title = styled.div`
   display: inline;
+  margin-right: auto;
 `;
 
 export const Price = styled.div`

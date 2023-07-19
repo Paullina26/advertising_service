@@ -64,7 +64,7 @@ const AddAdvertisement = () => {
       method: 'POST',
       headers: {
         ...headers,
-        Authorization: `Bearer ${token}`,
+        Authorization: token ? `Bearer ${token}` : null,
       },
       body: JSON.stringify({
         title,

@@ -17,7 +17,7 @@ router.get('/all-user', async (req, res) => {
     userId: id,
   }).exec()
 
-  if (advertisements.length === 0) res.json('No results')
+  if (advertisements.length === 0) res.json([])
   else res.json(advertisements)
 })
 
@@ -31,12 +31,13 @@ router.get('/all', async (req, res) => {
 router.post('/add', async (req, res) => {
   const token = await req.headers.authorization.split(' ')[1]
   console.log(token)
-  let id
+
+  let id = null
   if (token) id = jwt.verify(token, 'abfewvsdvarebr').id
 
   const newAdvertisement = new AdvertisementModel({
     ...req.body,
-    userId: id ?? null,
+    userId: id,
     createDate: new Date(),
   })
 

@@ -17,14 +17,12 @@ export const StyledDislikedIcon = styled(DislikedIcon)`
   width: 30px;
   fill: #8a2309;
   margin-right: 5px;
-  margin-bottom: -6px;
 `;
 
 export const StyledLikedIcon = styled(LikedIcon)`
   width: 30px;
   fill: #8a2309;
   margin-right: 5px;
-  margin-bottom: -6px;
 `;
 
 export const Follow = () => {

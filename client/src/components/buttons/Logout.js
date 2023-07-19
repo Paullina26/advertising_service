@@ -28,11 +28,9 @@ export const StyleButton = styled.button`
 
   cursor: pointer;
   :hover {
-    /* mask: url('../../assets/icon/logout.svg'); */
     color: ${({ theme }) => theme.colors.FontSubmitHover};
     background-color: ${({ theme }) => theme.colors.FontLight};
     box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadowLight};
-    /* fill: ${({ theme }) => theme.colors.FontSubmitHover}; */
     .hoverSVG {
       fill: ${({ theme }) => theme.colors.FontSubmitHover};
     }

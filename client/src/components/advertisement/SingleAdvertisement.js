@@ -18,7 +18,9 @@ import {
 } from 'styles/Advertisement.style';
 
 export const SingleAdvertisement = props => {
-  const { isLogin, setIsLogin } = useContext(GlobalContext);
+  // const { isLogin, setIsLogin } = useContext(GlobalContext);
+  const context = useContext(GlobalContext);
+
   const foundProvince = selectOptionProvince.find(element => props.data.province === element.value);
   const foundType = selectOptionType.find(element => props.data.type === element.value);
   const type = `${foundType.label}: `;
@@ -38,7 +40,7 @@ export const SingleAdvertisement = props => {
           <TypeAdvertisement>{type}</TypeAdvertisement>
           <Title>{title}</Title>
         </div>
-        {isLogin ? <Follow /> : ''}
+        {context.isLogin ? <Follow /> : ''}
       </ContainerClipElement>
 
       <Price>

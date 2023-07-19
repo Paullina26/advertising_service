@@ -8,7 +8,7 @@ export const Container = styled.div`
   margin: 40px auto;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.BackgroundAdvertisement};
-  min-width: 340px;
+  min-width: 300px;
   max-width: 600px;
   border-radius: 10px;
   box-shadow: 0px 2px 12px

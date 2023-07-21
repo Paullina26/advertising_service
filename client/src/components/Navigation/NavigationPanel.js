@@ -20,6 +20,10 @@ const NavigationUserPanel = () => {
       name: 'Twoje ogłoszenia',
     },
     {
+      to: '/userPanel/followAnnouncement',
+      name: 'Polubione',
+    },
+    {
       to: '/userPanel',
       name: 'Ustawienia',
     },

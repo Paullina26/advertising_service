@@ -9,6 +9,7 @@ import Signup from 'pages/Signup';
 import AddAdvertisement from 'components/advertisement/AddAdvertisement';
 import UserAnnouncement from 'pages/UserPanel/UserAnnouncement';
 import Settings from 'pages/UserPanel/Setting';
+import FollowAnnouncement from 'pages/UserPanel/FollowAnnouncement';
 
 const RoutesComponent = () => {
   const { isLogin } = useContext(GlobalContext);
@@ -29,6 +30,7 @@ const RoutesComponent = () => {
           <Route path='/userPanel' element={<UserPanel />}>
             <Route path='addAdvertisement' element={<AddAdvertisement />} />
             <Route path='userAnnouncement' element={<UserAnnouncement />} />
+            <Route path='followAnnouncement' element={<FollowAnnouncement />} />
             <Route path='/userPanel' element={<Settings />} />
           </Route>
         </>

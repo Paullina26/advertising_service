@@ -17,6 +17,7 @@ export const Advertisement = () => {
       })
       .then(data => {
         setAdvertisements(data);
+        // console.log(data);
       });
     // .finally() => //loading false;
   };

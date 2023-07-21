@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { API, headers } from 'api/api';
 import { ReactComponent as LikedIcon } from '../../assets/icon/subscribe.svg';
 import { ReactComponent as DislikedIcon } from '../../assets/icon/unsubscribe.svg';
 import { useState, useEffect, useContext } from 'react';
@@ -8,9 +9,6 @@ export const StyledContainer = styled.div`
   height: 30px;
   display: inline;
   cursor: pointer;
-  /* text-align: right;
-  margin-right: 0;
-  margin-left: auto; */
 `;
 
 export const StyledDislikedIcon = styled(DislikedIcon)`
@@ -25,11 +23,29 @@ export const StyledLikedIcon = styled(LikedIcon)`
   margin-right: 5px;
 `;
 
-export const Follow = () => {
+export const Follow = props => {
+  // console.log(props);
+  // console.log(props.id);
   const [isFollow, setIsFollow] = useState(false);
+
+  const postFavoriteAdvertisement = () => {
+    const token = localStorage.TOKEN;
+    fetch(API.postFavoriteAdvertisement, {
+      method: 'PUT',
+      headers: {
+        ...headers,
+        Authorization: token ? `Bearer ${token}` : null,
+      },
+      body: JSON.stringify({
+        advertisementId: props.id,
+      }),
+    });
+  };
 
   const changeFollow = () => {
     setIsFollow(prevState => !prevState);
+    postFavoriteAdvertisement();
+    console.log('ok');
   };
 
   return (
@@ -40,3 +56,6 @@ export const Follow = () => {
 };
 
 export default Follow;
+
+// PUT favorite/favorite - dodanie/usunięcie
+// GET favorite/user-favorites - pobranie wszystkich ulubionych usera

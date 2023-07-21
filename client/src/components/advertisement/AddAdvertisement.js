@@ -90,10 +90,6 @@ const AddAdvertisement = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(
-      ` PRZED WYSŁANIEM FORMULARZA
-      TYTUŁ: ${title}, TELEFON:${phone}, MIASTO:${city}, PROVINCE:${province}, TYP:${type},  CENA:${price}, KATEGIRUA:${category}`
-    );
     if (phone.length < 5) {
       return setErrorPhone(false);
     }

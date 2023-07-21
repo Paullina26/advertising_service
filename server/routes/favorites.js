@@ -19,10 +19,10 @@ router.get('/user-favorites', async (req, res) => {
   else res.json(favorites)
 })
 
-router.put('/favorite', async (req, res) => {
+router.put('/update', async (req, res) => {
   const token = await req.headers.authorization.split(' ')[1]
   if (!token) return res.status(401).json({ message: 'no logged user' })
-
+  console.log(token)
   const { id: userId } = jwt.verify(token, 'abfewvsdvarebr')
   const { advertisementId } = req.body
   console.log({ userId, advertisementId })
@@ -30,7 +30,7 @@ router.put('/favorite', async (req, res) => {
     userId,
     advertisementId,
   }).exec()
-
+  console.log(favorites)
   let newFav = null
 
   if (favorites) {

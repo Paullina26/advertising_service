@@ -19,6 +19,7 @@ import {
 
 export const SingleAdvertisement = props => {
   // const { isLogin, setIsLogin } = useContext(GlobalContext);
+  // console.log(props);
   const context = useContext(GlobalContext);
 
   const foundProvince = selectOptionProvince.find(element => props.data.province === element.value);
@@ -40,7 +41,7 @@ export const SingleAdvertisement = props => {
           <TypeAdvertisement>{type}</TypeAdvertisement>
           <Title>{title}</Title>
         </div>
-        {context.isLogin ? <Follow /> : ''}
+        {context.isLogin ? <Follow id={props.data._id} /> : ''}
       </ContainerClipElement>
 
       <Price>

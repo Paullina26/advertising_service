@@ -45,7 +45,7 @@ export const Follow = props => {
   const changeFollow = () => {
     setIsFollow(prevState => !prevState);
     postFavoriteAdvertisement();
-    console.log('ok');
+    console.log('serduszko');
   };
 
   return (
@@ -56,6 +56,3 @@ export const Follow = props => {
 };
 
 export default Follow;
-
-// PUT favorite/favorite - dodanie/usunięcie
-// GET favorite/user-favorites - pobranie wszystkich ulubionych usera

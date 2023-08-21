@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import SingleAdvertisement from '../../components/advertisement/SingleAdvertisement';
 
 const FollowAnnouncement = () => {
-  const [advertisementsUser, setAdvertisementsUser] = useState([]);
+  const [advertisementsFollowUser, setAdvertisementsFollowUser] = useState([]);
+  const [allAdvertisements, setAllAdvertisements] = useState([]);
 
   const getAdvertisementUserDataToServer = () => {
     const token = localStorage.TOKEN;
@@ -19,14 +20,14 @@ const FollowAnnouncement = () => {
         return response.json();
       })
       .then(data => {
-        setAdvertisementsUser(data);
+        setAdvertisementsFollowUser(data);
       });
-    console.log(advertisementsUser);
   };
 
   useEffect(() => {
     getAdvertisementUserDataToServer();
   }, []);
+  console.log(advertisementsFollowUser);
 
   return (
     <>

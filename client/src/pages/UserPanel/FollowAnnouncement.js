@@ -5,10 +5,10 @@ import SingleAdvertisement from '../../components/advertisement/SingleAdvertisem
 const FollowAnnouncement = () => {
   const [advertisementsFollowUser, setAdvertisementsFollowUser] = useState([]);
   const [allAdvertisements, setAllAdvertisements] = useState([]);
+  const [allAdvertisementsFollow, setAllAdvertisementsFollow] = useState([]);
 
-  const getAdvertisementUserDataToServer = () => {
+  const getAdvertisementFollowUserData = () => {
     const token = localStorage.TOKEN;
-
     fetch(API.getFavoriteAdvertisementUser, {
       method: 'GET',
       headers: {
@@ -24,14 +24,40 @@ const FollowAnnouncement = () => {
       });
   };
 
+  const getAdvertisementDataToServer = () => {
+    // loading true
+    fetch(API.getAdvertisement, {
+      method: 'GET',
+      headers,
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        setAllAdvertisements(data);
+        // console.log(data);
+      });
+    // .finally() => //loading false;
+  };
+
   useEffect(() => {
-    getAdvertisementUserDataToServer();
+    getAdvertisementFollowUserData();
+    getAdvertisementDataToServer();
   }, []);
-  console.log(advertisementsFollowUser);
+
+  // console.log('Follow', advertisementsFollowUser);
+  console.log('AllAd', allAdvertisements);
+  const advertisementsId = advertisementsFollowUser.map(id => id.advertisementId);
+  console.log('idAd', advertisementsId);
+  // const x = allAdvertisements.filter(adv => includes());
+  // const advertisementRender = advertisementsFollowUser.map(advertisement => (
+  //   <SingleAdvertisement key={advertisement._id} data={advertisement} />
+  // ));
 
   return (
     <>
-      <div>Polubione użytkownika</div>
+      {/* <div>{advertisementRender}</div> */}
+      <div>polubione</div>
     </>
   );
 };

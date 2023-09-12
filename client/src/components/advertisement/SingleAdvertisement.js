@@ -19,15 +19,15 @@ import {
 
 export const SingleAdvertisement = props => {
   // const { isLogin, setIsLogin } = useContext(GlobalContext);
-  // console.log(props);
+  // console.log('x', props);
   const context = useContext(GlobalContext);
 
   const foundProvince = selectOptionProvince.find(element => props.data.province === element.value);
   const foundType = selectOptionType.find(element => props.data.type === element.value);
-  const type = `${foundType.label}: `;
+  const type = `${foundType?.label}: `;
   const price = `${props.data.price}`;
   const title = props.data.title;
-  const province = foundProvince.label;
+  const province = foundProvince?.label;
   const city = props.data.city;
   const phone = `+${props.data.phone}`;
   const description = `Opis: ${props.data.description}`;

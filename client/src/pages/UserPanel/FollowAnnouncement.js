@@ -3,9 +3,8 @@ import { useEffect, useState } from 'react';
 import SingleAdvertisement from '../../components/advertisement/SingleAdvertisement';
 
 const FollowAnnouncement = () => {
-  const [advertisementsFollowUser, setAdvertisementsFollowUser] = useState([]);
+  const [advFollowUser, setAdvFollowUser] = useState([]);
   const [allAdvertisements, setAllAdvertisements] = useState([]);
-  const [allAdvertisementsFollow, setAllAdvertisementsFollow] = useState([]);
 
   const getAdvertisementFollowUserData = () => {
     const token = localStorage.TOKEN;
@@ -20,7 +19,7 @@ const FollowAnnouncement = () => {
         return response.json();
       })
       .then(data => {
-        setAdvertisementsFollowUser(data);
+        setAdvFollowUser(data);
       });
   };
 
@@ -45,19 +44,16 @@ const FollowAnnouncement = () => {
     getAdvertisementDataToServer();
   }, []);
 
-  // console.log('Follow', advertisementsFollowUser);
-  console.log('AllAd', allAdvertisements);
-  const advertisementsId = advertisementsFollowUser.map(id => id.advertisementId);
-  console.log('idAd', advertisementsId);
-  // const x = allAdvertisements.filter(adv => includes());
-  // const advertisementRender = advertisementsFollowUser.map(advertisement => (
-  //   <SingleAdvertisement key={advertisement._id} data={advertisement} />
-  // ));
+  const advIdFollow = advFollowUser.map(id => id.advertisementId);
+  const x = allAdvertisements.filter(adv => advIdFollow.includes(adv._id));
+
+  const advertisementRender = x.map(advertisement => (
+    <SingleAdvertisement key={advertisement._id} data={advertisement} />
+  ));
 
   return (
     <>
-      {/* <div>{advertisementRender}</div> */}
-      <div>polubione</div>
+      <div>{advertisementRender}</div>
     </>
   );
 };

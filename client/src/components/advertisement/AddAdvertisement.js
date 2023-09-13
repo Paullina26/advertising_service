@@ -78,7 +78,7 @@ const AddAdvertisement = () => {
       }),
     })
       .then(response => {
-        console.log(response.status);
+        // console.log(response.status);
         if (response.status === 200) {
           console.log('OGŁOSZENIE DODANE');
         }

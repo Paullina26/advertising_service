@@ -8,9 +8,9 @@ const UserPanel = () => {
 
   const checkIsLogin = () => {
     if (context.isLogin === true) {
-      console.log('zalogowny');
+      // console.log('zalogowny');
     } else if (context.isLogin === false) {
-      console.log('nie zalogowany');
+      // console.log('nie zalogowany');
     }
   };
   checkIsLogin();

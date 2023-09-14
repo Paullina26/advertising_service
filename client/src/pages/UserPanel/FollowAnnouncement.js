@@ -23,7 +23,7 @@ const FollowAnnouncement = () => {
       });
   };
 
-  const getAdvertisementDataToServer = () => {
+  const getAdvertisementData = () => {
     // loading true
     fetch(API.getAdvertisement, {
       method: 'GET',
@@ -34,26 +34,27 @@ const FollowAnnouncement = () => {
       })
       .then(data => {
         setAllAdvertisements(data);
-        // console.log(data);
       });
     // .finally() => //loading false;
   };
 
   useEffect(() => {
     getAdvertisementFollowUserData();
-    getAdvertisementDataToServer();
+    getAdvertisementData();
   }, []);
 
-  const advIdFollow = advFollowUser.map(id => id.advertisementId);
-  const x = allAdvertisements.filter(adv => advIdFollow.includes(adv._id));
+  const advIdFollow = advFollowUser.filter(adv => adv.isFav).map(adv => adv.advertisementId);
+  const advFollow = allAdvertisements.filter(adv => advIdFollow.includes(adv._id));
 
-  const advertisementRender = x.map(advertisement => (
-    <SingleAdvertisement key={advertisement._id} data={advertisement} />
+  const advertisementRender = advFollow.map(advertisement => (
+    <SingleAdvertisement key={advertisement._id} data={advertisement} isFollow />
   ));
 
   return (
     <>
-      <div>{advertisementRender}</div>
+      <div>
+        {advertisementRender.length === 0 ? 'Brak polubionych ogłoszeń' : advertisementRender}
+      </div>
     </>
   );
 };

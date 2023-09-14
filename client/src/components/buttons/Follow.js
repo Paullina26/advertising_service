@@ -26,7 +26,7 @@ export const StyledLikedIcon = styled(LikedIcon)`
 export const Follow = props => {
   // console.log(props);
   // console.log(props.id);
-  const [isFollow, setIsFollow] = useState(false);
+  const [isFollow, setIsFollow] = useState(props.isFollow);
 
   const postFavoriteAdvertisement = () => {
     const token = localStorage.TOKEN;
@@ -45,7 +45,7 @@ export const Follow = props => {
   const changeFollow = () => {
     setIsFollow(prevState => !prevState);
     postFavoriteAdvertisement();
-    console.log('serduszko');
+    // console.log('serduszko');
   };
 
   return (

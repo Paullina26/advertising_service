@@ -1,11 +1,14 @@
+// import { GlobalContext } from 'utils/GlobalContext';
 import { API, headers } from 'api/api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
+import { GlobalContext } from 'utils/GlobalContext';
 
 export const Advertisement = () => {
+  const { isLogin, isLoading } = useContext(GlobalContext);
   const [advertisements, setAdvertisements] = useState([]);
-  const [advFollowUser, setAdvFollowUser] = useState([]);
-  // const [isLoading]
+  const [advIdFollow, setAdvIdFollow] = useState([]);
+  // const context = useContext(GlobalContext);
 
   const getAdvertisementData = () => {
     // loading true
@@ -18,7 +21,6 @@ export const Advertisement = () => {
       })
       .then(data => {
         setAdvertisements(data);
-        // console.log('DataAdv', data);
       });
     // .finally() => //loading false;
   };
@@ -36,29 +38,23 @@ export const Advertisement = () => {
         return response.json();
       })
       .then(data => {
-        setAdvFollowUser(data);
+        setAdvIdFollow(data.filter(adv => adv.isFav).map(adv => adv.advertisementId));
+        getAdvertisementData();
       });
   };
 
   useEffect(() => {
-    getAdvertisementFollowUserData();
-    getAdvertisementData();
-  }, []);
-  // console.log('AllAdv', advertisements);
-  // console.log('Follow', advFollowUser);
+    if (isLoading) return;
 
-  const advIdFollow = advFollowUser.filter(adv => adv.isFav).map(adv => adv.advertisementId);
-  // console.log('ID', advIdFollow);
-  const advFollow = advertisements.filter(adv => advIdFollow.includes(adv._id));
-  // console.log('includes', advFollow);
-  const xID = advFollow.map(adv => adv._id);
+    if (isLogin) getAdvertisementFollowUserData();
+    else getAdvertisementData();
+  }, [isLoading]);
 
-  // console.log('testy', advertisements.map(adv => adv._id).includes(xID));
-  // console.log('testy', advertisements.map(adv => adv._id)xID.includes(adv._id));
+  const advertisementRender = advertisements.map(adv => {
+    const isFollow = advIdFollow.includes(adv._id);
 
-  const advertisementRender = advertisements.map(adv => (
-    <SingleAdvertisement key={adv._id} data={adv} isFollow={xID.includes(adv._id)} />
-  ));
+    return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
+  });
 
   return <div>{advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}</div>;
 };

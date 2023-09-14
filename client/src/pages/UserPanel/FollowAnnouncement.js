@@ -19,7 +19,7 @@ const FollowAnnouncement = () => {
         return response.json();
       })
       .then(data => {
-        setAdvFollowUser(data);
+        setAdvFollowUser(data.filter(adv => adv.isFav).map(adv => adv.advertisementId));
       });
   };
 
@@ -43,12 +43,11 @@ const FollowAnnouncement = () => {
     getAdvertisementData();
   }, []);
 
-  const advIdFollow = advFollowUser.filter(adv => adv.isFav).map(adv => adv.advertisementId);
-  const advFollow = allAdvertisements.filter(adv => advIdFollow.includes(adv._id));
-
-  const advertisementRender = advFollow.map(advertisement => (
-    <SingleAdvertisement key={advertisement._id} data={advertisement} isFollow />
-  ));
+  const advertisementRender = allAdvertisements
+    .filter(adv => advFollowUser.includes(adv._id))
+    .map(advertisement => (
+      <SingleAdvertisement key={advertisement._id} data={advertisement} isFollow />
+    ));
 
   return (
     <>

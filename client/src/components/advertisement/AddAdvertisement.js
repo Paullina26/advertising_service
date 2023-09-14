@@ -197,7 +197,7 @@ const AddAdvertisement = () => {
           onChange={e => setDescription(e.target.value)}
           cols='30'
           rows='10'
-          maxLength='100'
+          maxLength='200'
         />
         <Submit id='AddAnnouncement' type='submit' value={nameElement.submitAddAdvertisement} />
       </form>

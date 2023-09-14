@@ -24,9 +24,11 @@ export const StyledLikedIcon = styled(LikedIcon)`
 `;
 
 export const Follow = props => {
-  // console.log(props);
-  // console.log(props.id);
   const [isFollow, setIsFollow] = useState(false);
+
+  useEffect(() => {
+    setIsFollow(props.isFollow);
+  }, [props.isFollow]);
 
   const postFavoriteAdvertisement = () => {
     const token = localStorage.TOKEN;
@@ -45,7 +47,6 @@ export const Follow = props => {
   const changeFollow = () => {
     setIsFollow(prevState => !prevState);
     postFavoriteAdvertisement();
-    console.log('serduszko');
   };
 
   return (

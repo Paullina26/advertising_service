@@ -1,12 +1,16 @@
+// import { GlobalContext } from 'utils/GlobalContext';
 import { API, headers } from 'api/api';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
+import { GlobalContext } from 'utils/GlobalContext';
 
 export const Advertisement = () => {
+  const { isLogin, isLoading } = useContext(GlobalContext);
   const [advertisements, setAdvertisements] = useState([]);
-  // const [isLoading]
+  const [advIdFollow, setAdvIdFollow] = useState([]);
+  // const context = useContext(GlobalContext);
 
-  const getAdvertisementDataToServer = () => {
+  const getAdvertisementData = () => {
     // loading true
     fetch(API.getAdvertisement, {
       method: 'GET',
@@ -17,21 +21,42 @@ export const Advertisement = () => {
       })
       .then(data => {
         setAdvertisements(data);
-        // console.log(data);
       });
     // .finally() => //loading false;
   };
 
-  useEffect(() => {
-    getAdvertisementDataToServer();
-  }, []);
+  const getAdvertisementFollowUserData = () => {
+    const token = localStorage.TOKEN;
+    fetch(API.getFavoriteAdvertisementUser, {
+      method: 'GET',
+      headers: {
+        ...headers,
+        Authorization: token ? `Bearer ${token}` : null,
+      },
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        setAdvIdFollow(data.filter(adv => adv.isFav).map(adv => adv.advertisementId));
+        getAdvertisementData();
+      });
+  };
 
-  const advertisementRender = advertisements.map(advertisement => (
-    <SingleAdvertisement key={advertisement._id} data={advertisement} />
-  ));
+  useEffect(() => {
+    if (isLoading) return;
+
+    if (isLogin) getAdvertisementFollowUserData();
+    else getAdvertisementData();
+  }, [isLoading]);
+
+  const advertisementRender = advertisements.map(adv => {
+    const isFollow = advIdFollow.includes(adv._id);
+
+    return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
+  });
 
   return <div>{advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}</div>;
 };
 
 export default Advertisement;
- 

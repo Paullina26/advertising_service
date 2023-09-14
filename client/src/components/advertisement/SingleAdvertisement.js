@@ -18,7 +18,6 @@ import {
 } from 'styles/Advertisement.style';
 
 export const SingleAdvertisement = props => {
-  // const { isLogin, setIsLogin } = useContext(GlobalContext);
   // console.log('x', props);
   const context = useContext(GlobalContext);
 
@@ -41,7 +40,7 @@ export const SingleAdvertisement = props => {
           <TypeAdvertisement>{type}</TypeAdvertisement>
           <Title>{title}</Title>
         </div>
-        {context.isLogin ? <Follow id={props.data._id} /> : ''}
+        {context.isLogin ? <Follow id={props.data._id} isFollow={props.isFollow} /> : ''}
       </ContainerClipElement>
 
       <Price>

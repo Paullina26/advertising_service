@@ -25,6 +25,7 @@ const GlobalProvider = ({ children }) => {
     const token = localStorage.getItem('TOKEN');
     if (!token || isLogin) return;
 
+    setIsLoading(true);
     fetch('http://localhost:8080/api/auth/user', {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -39,7 +40,8 @@ const GlobalProvider = ({ children }) => {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (

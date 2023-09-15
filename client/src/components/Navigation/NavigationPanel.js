@@ -3,10 +3,11 @@ import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { Container, StyledLink } from 'styles/Navigation.style';
 import { useLocation } from 'react-router-dom';
+import FilterData from 'components/filter/FiterData';
 
 const NavigationUserPanel = () => {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const { isLogin, setIsLogin } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -54,7 +55,9 @@ const NavigationUserPanel = () => {
 
   return (
     <>
-      <Container>{navItemRender}</Container>
+      <Container>
+        {navItemRender} <FilterData />
+      </Container>
     </>
   );
 };

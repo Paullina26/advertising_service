@@ -1,14 +1,12 @@
-// import { GlobalContext } from 'utils/GlobalContext';
 import { API, headers } from 'api/api';
 import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
 import { GlobalContext } from 'utils/GlobalContext';
 
 export const Advertisement = () => {
-  const { isLogin, isLoading } = useContext(GlobalContext);
+  const { isLogin, isLoadingUser } = useContext(GlobalContext);
   const [advertisements, setAdvertisements] = useState([]);
   const [advIdFollow, setAdvIdFollow] = useState([]);
-  // const context = useContext(GlobalContext);
 
   const getAdvertisementData = () => {
     // loading true
@@ -44,19 +42,15 @@ export const Advertisement = () => {
   };
 
   useEffect(() => {
-    if (isLoading) return;
-
+    if (isLoadingUser) return;
     if (isLogin) getAdvertisementFollowUserData();
     else getAdvertisementData();
-  }, [isLoading]);
+  }, [isLoadingUser]);
 
   const advertisementRender = advertisements.map(adv => {
     const isFollow = advIdFollow.includes(adv._id);
-
     return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
   });
-
   return <div>{advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}</div>;
 };
-
 export default Advertisement;

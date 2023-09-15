@@ -3,20 +3,20 @@ import { createContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export const GlobalContext = createContext({
-  isLoading: false,
-  setIsLoading: () => {},
+  isLoadingUser: false,
+  setIsLoadingUser: () => {},
   isLogin: false,
   setIsLogin: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
 
   const values = {
-    isLoading,
-    setIsLoading,
+    isLoadingUser,
+    setIsLoadingUser,
     isLogin,
     setIsLogin,
   };
@@ -25,7 +25,7 @@ const GlobalProvider = ({ children }) => {
     const token = localStorage.getItem('TOKEN');
     if (!token || isLogin) return;
 
-    setIsLoading(true);
+    setIsLoadingUser(true);
     fetch('http://localhost:8080/api/auth/user', {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
@@ -41,7 +41,7 @@ const GlobalProvider = ({ children }) => {
       .catch(err => {
         console.log(err);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => setIsLoadingUser(false));
   }, []);
 
   return (

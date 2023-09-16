@@ -32,56 +32,22 @@ export const ContainerSelect = styled.div`
   padding: 10px;
 `;
 
-const FilterData = () => {
+const FilterData = ({ setFilterAdvertisement, advertisements }) => {
   const selectOptionProvinceNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionProvince];
   const selectOptionTypeNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionType];
   const selectOptionCategoryNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionCategory];
-
-  const [allAdvertisement, setAllAdvertisement] = useState([]);
-  const [filterAdvertisement, setFilterAdvertisement] = useState([]);
 
   const [province, setProvince] = useState('all');
   const [type, setType] = useState('all');
   const [category, setCategory] = useState('all');
 
-  const getAdvertisementData = () => {
-    // loading true
-    fetch(API.getAdvertisement, {
-      method: 'GET',
-      headers,
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        setAllAdvertisement(data);
-      });
-    // .finally() => //loading false;
-  };
-
-  useEffect(() => {
-    getAdvertisementData();
-  }, []);
-
   const handleSearch = () => {
-    if (type === 'all') {
-      setFilterAdvertisement(allAdvertisement);
-      console.log('FilterType', filterAdvertisement);
-    }
-    if (province === 'all') {
-      setFilterAdvertisement(allAdvertisement);
-      console.log('FilterProvince', filterAdvertisement);
-    }
-    if (category === 'all') {
-      setFilterAdvertisement(allAdvertisement);
-      console.log('FilterCategory', filterAdvertisement);
-    }
-    console.log('FilterFinish', filterAdvertisement);
+    const newArr = advertisements
+      .filter(adv => type === 'all' || adv.type === type)
+      .filter(adv => province === 'all' || adv.province === province)
+      .filter(adv => category === 'all' || adv.category === category);
+    setFilterAdvertisement(newArr);
   };
-
-  // console.log('All', allAdvertisement);
-  // console.log('Filter', filterAdvertisement);
-  // console.log(allAdvertisement.map(adv => adv.type));
 
   return (
     <>

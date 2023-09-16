@@ -3,7 +3,6 @@ import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { Container, StyledLink } from 'styles/Navigation.style';
 import { useLocation } from 'react-router-dom';
-import FilterData from 'components/filter/FiterData';
 
 const NavigationUserPanel = () => {
   const location = useLocation();
@@ -55,9 +54,7 @@ const NavigationUserPanel = () => {
 
   return (
     <>
-      <Container>
-        {navItemRender} <FilterData />
-      </Container>
+      <Container>{navItemRender}</Container>
     </>
   );
 };

@@ -7,12 +7,15 @@ export const Container = styled.div`
   text-align: center;
   margin: 40px auto;
   padding: 10px;
-  background-color: ${({ theme }) => theme.colors.BackgroundAdvertisement};
+  background-color: ${({ theme }) => theme.colors.GlassBorder};
   min-width: 300px;
   max-width: 600px;
   border-radius: 10px;
-  box-shadow: 0px 2px 12px
-    ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
+  /* box-shadow: 0px 2px 12px
+    ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)}; */
+  -webkit-box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
+  -moz-box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
+  box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
 `;
 export const ContainerClipElement = styled.div`
   text-align: left;

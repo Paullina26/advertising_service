@@ -5,15 +5,23 @@ import NavigationPanel from 'components/Navigation/NavigationPanel';
 
 export const Container = styled.div`
   width: 100vw;
-  margin-top: 55px;
+  padding-top: 250px;
+`;
+
+export const ContainerNavigation = styled.div`
+  margin-top: 0;
+  position: fixed;
+  background-color: #d7dbd7;
 `;
 
 const Layout = props => {
   return (
     <>
-      <Navigation />
-      <Banner />
-      <NavigationPanel />
+      <ContainerNavigation>
+        <Navigation />
+        <Banner />
+        <NavigationPanel />
+      </ContainerNavigation>
       <Container>{props.children}</Container>
     </>
   );

@@ -8,7 +8,6 @@ import UserProfile from 'components/buttons/UserProfile';
 
 export const ContainerNav = styled.div`
   width: 100vw;
-  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

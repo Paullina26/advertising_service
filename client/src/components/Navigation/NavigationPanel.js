@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container, StyledLink } from 'styles/Navigation.style';
 import { useLocation } from 'react-router-dom';
 
-const NavigationUserPanel = () => {
+const NavigationPanel = () => {
   const location = useLocation();
   // console.log(location);
   const { isLogin, setIsLogin } = useContext(GlobalContext);
@@ -59,4 +59,4 @@ const NavigationUserPanel = () => {
   );
 };
 
-export default NavigationUserPanel;
+export default NavigationPanel;

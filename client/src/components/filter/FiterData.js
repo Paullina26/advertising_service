@@ -11,25 +11,37 @@ import {
 } from 'data/data';
 
 export const ContainerFilter = styled.div`
+  width: 100vw;
+  position: fixed;
+  margin-left: -5vw;
+  justify-content: center;
+  /* background-color: #d7dccf; */
+  background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
+  box-shadow: 0px 10px 10px -5px ${({ theme }) => theme.colors.BorderShadow};
+  /* padding-top: 0; */
+  /* padding-top: 0; */
+  padding: 10px 0;
   display: flex;
   font-size: 15px;
-  align-items: start;
-  /* justify-content: space-between; */
-  padding: 10px;
 `;
 
 export const ContainerButtons = styled.div`
-  display: flex;
-  font-size: 15px;
-  align-items: start;
-  padding: 10px;
+  margin-left: 10px;
+  Button {
+    margin-right: 10px;
+  }
 `;
 
 export const ContainerSelect = styled.div`
   display: flex;
-  font-size: 15px;
-  align-items: start;
-  padding: 10px;
+  margin-right: 15px;
+  width: 45%;
+  justify-content: space-between;
+
+  Select {
+    margin: 0;
+    margin-right: 10px;
+  }
 `;
 
 const FilterData = ({ setFilterAdvertisement, advertisements }) => {

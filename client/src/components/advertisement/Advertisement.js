@@ -3,6 +3,15 @@ import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
 import { GlobalContext } from 'utils/GlobalContext';
 import FilterData from 'components/filter/FiterData';
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  padding-top: 0px;
+`;
+
+export const Container2 = styled.div`
+  padding-top: 70px;
+`;
 
 export const Advertisement = () => {
   const { isLogin, isLoadingUser } = useContext(GlobalContext);
@@ -55,10 +64,12 @@ export const Advertisement = () => {
     return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
   });
   return (
-    <div>
+    <Container>
       <FilterData setFilterAdvertisement={setFilterAdvertisement} advertisements={advertisements} />
-      {advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}
-    </div>
+      <Container2>
+        {advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}
+      </Container2>
+    </Container>
   );
 };
 export default Advertisement;

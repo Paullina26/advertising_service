@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import BannerPicture from '../../assets/BannerPicture.jpg';
 
 export const Container = styled.div`
-  max-width: 100vw;
+  width: 100vw;
   height: 150px;
   text-align: center;
-  margin-top: 55px;
+  /* background-color: white; */
+
   img {
     position: relative;
-    max-width: 100vw;
+    max-width: 100%;
     height: 150px;
     z-index: -1;
   }

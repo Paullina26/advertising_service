@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Button = styled.button`
   border-radius: 5px;
   font-size: 20px;
-  padding: 5px 15px;
+  padding: 3px 15px;
   /* margin-top: 20px; */
   margin-right: 0px;
   color: ${({ theme, logout }) => (logout ? theme.colors.Font : theme.colors.FontLight)};

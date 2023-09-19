@@ -24,7 +24,7 @@ export const theme = {
     BorderShadowSell: '#254b27c8',
     BorderShadowBuy: '#254b27c8',
 
-    ShadowSell: '#b88d18',
+    ShadowSell: 'rgb(184, 141, 24)',
     ShadowBay: '#197035',
 
     GlassBackground: 'rgba(10, 10, 10, 0.5)',

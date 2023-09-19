@@ -18,7 +18,6 @@ import {
 } from 'styles/Advertisement.style';
 
 export const SingleAdvertisement = props => {
-  // console.log('x', props);
   const context = useContext(GlobalContext);
 
   const foundProvince = selectOptionProvince.find(element => props.data.province === element.value);

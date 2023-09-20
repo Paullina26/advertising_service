@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100vw;
-  background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
-  box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
+  background-color: ${({ theme }) => theme.colors.Background};
+  box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
   margin-top: 0;
   padding: 10px;
   font-size: 20px;
@@ -19,7 +19,7 @@ export const StyledLink = styled(NavLink)`
   position: relative;
   color: ${({ theme }) => theme.colors.Font};
   margin: auto 15px;
-  font-size: 20px;
+  font-size: 2rem;
 
   &:hover {
     color: ${({ theme }) => theme.colors.BackgroundSubmit};

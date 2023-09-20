@@ -1,13 +1,8 @@
-import Login from '../components/Form/Login';
-import Registration from '../components/Form/Registration';
-import styled from 'styled-components';
+import Login from '../../components/Form/Login';
+import Registration from '../../components/Form/Registration';
 import { useState } from 'react';
 import { Button } from 'components/buttons/Button';
-
-export const WrapperSignup = styled.div`
-  padding: 15px;
-  text-align: center;
-`;
+import { WrapperSignup } from './StyleSignup';
 
 const Signup = () => {
   const [isActive, setIsActive] = useState(true);

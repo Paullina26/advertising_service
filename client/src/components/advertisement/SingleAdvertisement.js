@@ -1,11 +1,10 @@
 import { GlobalContext } from 'utils/GlobalContext';
 import { useState, useEffect, useContext } from 'react';
 import { selectOptionType, selectOptionCategory, selectOptionProvince } from 'data/data';
-
 import { Follow } from 'components/buttons/Follow';
 import {
-  Container,
-  ContainerClipElement,
+  WrapperSingleAdvertisement,
+  WrapperClipElement,
   TypeAdvertisement,
   Title,
   Price,
@@ -15,7 +14,7 @@ import {
   StyledIconPrice,
   StyledLocationIcon,
   StyledPhoneIcon,
-} from 'styles/Advertisement.style';
+} from './StyleAdvertisement';
 
 export const SingleAdvertisement = props => {
   const context = useContext(GlobalContext);
@@ -32,32 +31,32 @@ export const SingleAdvertisement = props => {
   const typeBgc = props.data.type;
 
   return (
-    <Container isSell={typeBgc === 'sellAnnouncement'}>
-      <ContainerClipElement>
+    <WrapperSingleAdvertisement isSell={typeBgc === 'sellAnnouncement'}>
+      <WrapperClipElement>
         <div className='follows'>
           {' '}
           <TypeAdvertisement>{type}</TypeAdvertisement>
           <Title>{title}</Title>
         </div>
         {context.isLogin ? <Follow id={props.data._id} isFollow={props.isFollow} /> : ''}
-      </ContainerClipElement>
+      </WrapperClipElement>
 
       <Price>
         <StyledIconPrice />
         {price}
       </Price>
-      <ContainerClipElement>
+      <WrapperClipElement>
         <Province>
           <StyledLocationIcon />
           {province}, {city}
         </Province>
-      </ContainerClipElement>
+      </WrapperClipElement>
       <PhoneNumber>
         <StyledPhoneIcon />
         {phone}
       </PhoneNumber>
       <Description>{description}</Description>
-    </Container>
+    </WrapperSingleAdvertisement>
   );
 };
 export default SingleAdvertisement;

@@ -4,16 +4,9 @@ import SingleAdvertisement from './SingleAdvertisement';
 import { GlobalContext } from 'utils/GlobalContext';
 import FilterData from 'components/filter/FiterData';
 import styled from 'styled-components';
+import { WrapperTableAdvertisements, WrapperAdvertisementsElements } from './StyleAdvertisement';
 
-export const Container = styled.div`
-  padding-top: 0px;
-`;
-
-export const Container2 = styled.div`
-  padding-top: 70px;
-`;
-
-export const Advertisement = () => {
+export const Advertisements = () => {
   const { isLogin, isLoadingUser } = useContext(GlobalContext);
   const [advertisements, setAdvertisements] = useState([]);
   const [advIdFollow, setAdvIdFollow] = useState([]);
@@ -64,12 +57,12 @@ export const Advertisement = () => {
     return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
   });
   return (
-    <Container>
+    <WrapperAdvertisementsElements>
       <FilterData setFilterAdvertisement={setFilterAdvertisement} advertisements={advertisements} />
-      <Container2>
+      <WrapperTableAdvertisements>
         {advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}
-      </Container2>
-    </Container>
+      </WrapperTableAdvertisements>
+    </WrapperAdvertisementsElements>
   );
 };
-export default Advertisement;
+export default Advertisements;

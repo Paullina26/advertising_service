@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { ReactComponent as PriceIcon } from '../assets/icon/coins-solid.svg';
-import { ReactComponent as LocationIcon } from '../assets/icon/location-dot-solid.svg';
-import { ReactComponent as PhoneIcon } from '../assets/icon/phone-solid.svg';
+import { ReactComponent as PriceIcon } from '../../assets/icon/coins-solid.svg';
+import { ReactComponent as LocationIcon } from '../../assets/icon/location-dot-solid.svg';
+import { ReactComponent as PhoneIcon } from '../../assets/icon/phone-solid.svg';
 
-export const Container = styled.div`
+//----Single Advertisement----//
+export const WrapperSingleAdvertisement = styled.div`
   text-align: center;
   margin: 40px auto;
   padding: 10px;
@@ -11,13 +12,10 @@ export const Container = styled.div`
   min-width: 300px;
   max-width: 600px;
   border-radius: 10px;
-  /* box-shadow: 0px 2px 12px
-    ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)}; */
-  -webkit-box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
-  -moz-box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
   box-shadow: inset 0px 0px 80px -50px ${({ theme, isSell }) => (isSell ? theme.colors.ShadowBay : theme.colors.ShadowSell)};
 `;
-export const ContainerClipElement = styled.div`
+
+export const WrapperClipElement = styled.div`
   text-align: left;
   padding: 5px;
   font-size: 20px;
@@ -79,4 +77,13 @@ export const StyledPhoneIcon = styled(PhoneIcon)`
   fill: #c92f08;
   margin-right: 5px;
   margin-bottom: -3px;
+`;
+
+//----Advertisements----//
+export const WrapperAdvertisementsElements = styled.div`
+  padding-top: 0px;
+`;
+
+export const WrapperTableAdvertisements = styled.div`
+  padding-top: 70px;
 `;

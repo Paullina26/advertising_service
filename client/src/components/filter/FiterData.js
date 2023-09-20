@@ -15,11 +15,7 @@ export const ContainerFilter = styled.div`
   position: fixed;
   margin-left: -5vw;
   justify-content: center;
-  /* background-color: #d7dccf; */
-  background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
-  box-shadow: 0px 10px 10px -5px ${({ theme }) => theme.colors.BorderShadow};
-  /* padding-top: 0; */
-  /* padding-top: 0; */
+  background-color: ${({ theme }) => theme.colors.Background};
   padding: 10px 0;
   display: flex;
   font-size: 15px;
@@ -35,9 +31,6 @@ export const ContainerButtons = styled.div`
 export const ContainerSelect = styled.div`
   display: flex;
   margin-right: 15px;
-  width: 45%;
-  justify-content: space-between;
-
   Select {
     margin: 0;
     margin-right: 10px;

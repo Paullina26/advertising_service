@@ -1,3 +1,9 @@
+// -----Information:-----
+// templates/GlobalStyle.style.js
+// 1rem = 10px
+// body backgraund: Background: '#f3f3f3',
+// font Color: Font: '#2c2c2c',
+
 export const theme = {
   colors: {
     Font: '#2c2c2c',
@@ -6,7 +12,7 @@ export const theme = {
     FontSubmitHover: '#36743a',
 
     Background: '#f3f3f3',
-    BackgroundNavigation: '#d7dccf',
+    // BackgroundNavigation: '#d7dccf',
     BackgroundForm: '#ebebeb',
 
     BackgroundInput: '#ffffff',
@@ -50,16 +56,11 @@ export const theme = {
   },
 };
 
-export const device = {
-  mobileS: `(max-width: 320px)`,
-  mobileM: `(max-width: 375px)`,
-  mobileL: `(max-width:425px)`,
-  tablet: `(max-width: 768px)`,
-  desktop: `(max-width: 1024px)`,
-  desktopL: `(max-width: 1440px)`,
-};
-
-// export const buttonStyle = {
-//   background: '#fd0d0d',
-//   border: '#7b7b7b',
+// export const device = {
+//   mobileS: `(max-width: 320px)`,
+//   mobileM: `(max-width: 375px)`,
+//   mobileL: `(max-width:425px)`,
+//   tablet: `(max-width: 768px)`,
+//   desktop: `(max-width: 1024px)`,
+//   desktopL: `(max-width: 1440px)`,
 // };

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
-import LayoutUserPanel from 'templates/LayoutUserPanel';
+import LayoutUserPanel from 'templates/layouts/LayoutUserPanel';
 import { GlobalContext } from 'utils/GlobalContext';
 
 const UserPanel = () => {

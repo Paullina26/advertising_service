@@ -13,8 +13,8 @@ export const ContainerNav = styled.div`
   align-items: center;
   top: 0;
   padding: 10px;
-  background-color: ${({ theme }) => theme.colors.BackgroundNavigation};
-  box-shadow: 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
+  background-color: ${({ theme }) => theme.colors.Background};
+  box-shadow: inset 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
   z-index: 1;
 `;
 

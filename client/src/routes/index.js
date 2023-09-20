@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from 'pages/Home';
-import UserPanel from 'pages/UserPanel';
+import HomePage from 'pages/home/Home';
+import UserPanel from 'pages/UserPanel/UserPanel';
 import Registration from 'components/Form/Registration';
 import Login from 'components/Form/Login';
 import { GlobalContext } from 'utils/GlobalContext';
-import Signup from 'pages/Signup';
+import Signup from 'pages/signup/Signup';
 import AddAdvertisement from 'components/advertisement/AddAdvertisement';
 import UserAnnouncement from 'pages/UserPanel/UserAnnouncement';
 import Settings from 'pages/UserPanel/Setting';

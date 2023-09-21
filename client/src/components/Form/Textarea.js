@@ -1,17 +1,4 @@
-import styled from 'styled-components';
-
-const LabelStyled = styled.label`
-  text-align: center;
-`;
-
-const TextAreaStyled = styled.textarea`
-  border-radius: 5px;
-  font-size: 15px;
-  padding: 5px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.colors.BackgroundInput};
-  border: 1px solid ${({ theme }) => theme.colors.Border};
-`;
+import { LabelStyle, TextAreaStyled } from './StyleForm';
 
 const Textarea = ({
   label,
@@ -26,7 +13,7 @@ const Textarea = ({
   className,
 }) => {
   return (
-    <LabelStyled htmlFor={id}>
+    <LabelStyle htmlFor={id}>
       {label}
       <TextAreaStyled
         placeholder={placeholder}
@@ -39,7 +26,7 @@ const Textarea = ({
         maxLength={maxLength}
         className={className}
       />
-    </LabelStyled>
+    </LabelStyle>
   );
 };
 

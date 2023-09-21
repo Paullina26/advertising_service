@@ -1,24 +1,4 @@
-import styled from 'styled-components';
-
-const LabelStyled = styled.label`
-  text-align: center;
-`;
-
-const InputStyled = styled.select`
-  display: block;
-  border-radius: 5px;
-  font-size: 15px;
-  border: 0px;
-  text-align: center;
-  margin: 0px auto;
-  margin-bottom: 15px;
-  margin-top: 5px;
-  width: 100%;
-  height: 35px;
-  padding: 5px;
-  background-color: ${({ theme }) => theme.colors.BackgroundInput};
-  border: 1px solid ${({ theme }) => theme.colors.Border};
-`;
+import { LabelStyle, SelectStyle } from './StyleForm';
 
 const Select = ({
   label,
@@ -34,9 +14,9 @@ const Select = ({
 }) => {
   return (
     <>
-      <LabelStyled htmlFor={id}>
+      <LabelStyle htmlFor={id}>
         {label}
-        <InputStyled
+        <SelectStyle
           id={id}
           value={value}
           onChange={onChange}
@@ -51,8 +31,8 @@ const Select = ({
               {option.label}
             </option>
           ))}
-        </InputStyled>
-      </LabelStyled>
+        </SelectStyle>
+      </LabelStyle>
     </>
   );
 };

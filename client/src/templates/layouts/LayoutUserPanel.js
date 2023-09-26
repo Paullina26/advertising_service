@@ -1,4 +1,4 @@
-import { WrapperLayoutUserPanel } from 'templates/layouts/StyleLayout';
+import { WrapperLayoutUserPanel } from 'templates/layouts/style/StyleLayout';
 
 const LayoutUserPanel = props => {
   return (

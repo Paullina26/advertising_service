@@ -1,32 +1,6 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
-
-export const WrapperNavigation = styled.div`
-  width: 50%;
-  height: 100%;
-`;
-
-export const StyledLink = styled(NavLink)`
-  width: 100%;
-  height: 100%;
-  font-weight: 500;
-  text-decoration: none;
-  position: relative;
-  color: ${({ theme }) => theme.colors.Font};
-  margin: auto 15px;
-  font-size: 20px;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.BackgroundSubmit};
-    transition: color 0.1s 0.1s linear;
-  }
-
-  &.active {
-    color: ${({ theme }) => theme.colors.BackgroundSubmit};
-  }
-`;
+import { WrapperMainMenu, StyledLink } from './Style/StyleNavigation';
 
 export const MainMenu = ({ open }) => {
   const { isLogin } = useContext(GlobalContext);
@@ -47,7 +21,7 @@ export const MainMenu = ({ open }) => {
     );
   });
 
-  return <WrapperNavigation open={open}>{navItemRender}</WrapperNavigation>;
+  return <WrapperMainMenu open={open}>{navItemRender}</WrapperMainMenu>;
 };
 
 export default MainMenu;

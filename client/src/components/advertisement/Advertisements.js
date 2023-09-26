@@ -3,8 +3,10 @@ import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
 import { GlobalContext } from 'utils/GlobalContext';
 import FilterData from 'components/filter/FiterData';
-import styled from 'styled-components';
-import { WrapperTableAdvertisements, WrapperAdvertisementsElements } from './StyleAdvertisement';
+import {
+  WrapperTableAdvertisements,
+  WrapperAdvertisementsElements,
+} from './Style/StyleAdvertisement';
 
 export const Advertisements = () => {
   const { isLogin, isLoadingUser } = useContext(GlobalContext);

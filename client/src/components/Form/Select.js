@@ -1,4 +1,4 @@
-import { LabelStyle, SelectStyle } from './StyleForm';
+import { LabelStyle, SelectStyle } from './Style/StyleForm';
 
 const Select = ({
   label,

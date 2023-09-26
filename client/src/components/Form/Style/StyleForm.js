@@ -51,15 +51,10 @@ export const WrapperRegistrationAndLogin = styled.div`
 export const FormTittle = styled.div`
   margin: 10px;
   p {
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: bold;
   }
 `;
-
-//----Textarea----//
-// export const LabelStyled = styled.label`
-//   text-align: center;
-// `;
 
 export const TextAreaStyled = styled.textarea`
   border-radius: 5px;
@@ -90,31 +85,3 @@ export const SubmitStyle = styled.input`
     box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadowLight};
   }
 `;
-
-//-----Select-----//
-
-// export const LabelStyledSelect = styled.label`
-//   text-align: center;
-// `;
-
-//-----Input-----//
-
-// export const LabelInInput = styled.label`
-//   text-align: center;
-// `;
-
-// export const InputInInput = styled.input`
-//   display: block;
-//   border-radius: 5px;
-//   font-size: 15px;
-//   border: 0px;
-//   text-align: center;
-//   margin: 0px auto;
-//   margin-bottom: 15px;
-//   margin-top: 5px;
-//   width: 100%;
-//   height: 35px;
-//   padding: 5px;
-//   background-color: ${({ theme }) => theme.colors.BackgroundInput};
-//   border: 1px solid ${({ theme }) => theme.colors.Border};
-// `;

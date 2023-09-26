@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Error } from 'components/Form/StyleError';
+import { Error } from 'components/Form/Style/StyleError';
 import { GlobalContext } from 'utils/GlobalContext';
 import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
 import { API, headers } from 'api/api';
-import { WrapperRegistrationAndLogin, FormTittle } from './StyleForm';
+import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
 
 const Login = () => {
   const navigate = useNavigate();

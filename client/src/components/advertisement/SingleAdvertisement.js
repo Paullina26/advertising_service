@@ -14,7 +14,7 @@ import {
   StyledIconPrice,
   StyledLocationIcon,
   StyledPhoneIcon,
-} from './StyleAdvertisement';
+} from './Style/StyleAdvertisement';
 
 export const SingleAdvertisement = props => {
   const context = useContext(GlobalContext);
@@ -40,7 +40,6 @@ export const SingleAdvertisement = props => {
         </div>
         {context.isLogin ? <Follow id={props.data._id} isFollow={props.isFollow} /> : ''}
       </WrapperClipElement>
-
       <Price>
         <StyledIconPrice />
         {price}

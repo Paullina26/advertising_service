@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Input from './Input';
 import Submit from 'components/Form/Submit';
-import { Error } from 'components/Form/StyleError';
+import { Error } from 'components/Form/Style/StyleError';
 import { nameElement, StatusMessage } from 'data/data';
-import { WrapperRegistrationAndLogin, FormTittle } from './StyleForm';
+import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
 
 const Registration = () => {
   const [mail, setMail] = useState('');

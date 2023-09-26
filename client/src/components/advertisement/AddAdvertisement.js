@@ -1,6 +1,4 @@
-import { FormTittle } from 'styles/Form.style';
 import { useState } from 'react';
-import styled from 'styled-components';
 import Input from 'components/Form/Input';
 import Submit from 'components/Form/Submit';
 import PhoneInput from 'react-phone-input-2';
@@ -14,27 +12,8 @@ import {
   selectOptionType,
 } from 'data/data';
 import { headers, API } from 'api/api';
-
-export const Container = styled.div`
-  text-align: center;
-  margin: 30px auto;
-  padding: 10px;
-  background-color: ${({ theme }) => theme.colors.BackgroundForm};
-  min-width: 340px;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
-  .titleAnnouncementStyle {
-    width: 300px;
-    text-align: start;
-  }
-  .containerClassPhone {
-    margin: auto;
-    width: 300px;
-    padding: 0;
-    margin-bottom: 15px;
-  }
-`;
+import { FormTittle } from 'components/Form/Style/StyleForm';
+import { WrapperAddAdvertisement } from './Style/StyleAdvertisement';
 
 const AddAdvertisement = () => {
   const [title, setTitle] = useState('');
@@ -104,7 +83,7 @@ const AddAdvertisement = () => {
   };
 
   return (
-    <Container>
+    <WrapperAddAdvertisement>
       <FormTittle>
         <p>Dodaj Ogłoszenie</p>
       </FormTittle>
@@ -201,7 +180,7 @@ const AddAdvertisement = () => {
         />
         <Submit id='AddAnnouncement' type='submit' value={nameElement.submitAddAdvertisement} />
       </form>
-    </Container>
+    </WrapperAddAdvertisement>
   );
 };
 

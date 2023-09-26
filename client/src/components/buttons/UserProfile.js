@@ -18,7 +18,7 @@ export const StyledUserIcon = styled(UserIcon)`
 
 export const StyleButton = styled.button`
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 2rem;
   padding: 5px 15px;
   border: 0px;
   margin-right: 10px;

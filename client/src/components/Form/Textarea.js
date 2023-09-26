@@ -1,4 +1,4 @@
-import { LabelStyle, TextAreaStyled } from './StyleForm';
+import { LabelStyle, TextAreaStyled } from './Style/StyleForm';
 
 const Textarea = ({
   label,

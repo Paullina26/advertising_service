@@ -1,4 +1,4 @@
-import { InputStyle, LabelStyle } from './StyleForm';
+import { InputStyle, LabelStyle } from './Style/StyleForm';
 
 const Input = ({
   label,

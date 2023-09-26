@@ -1,23 +1,22 @@
 import styled from 'styled-components';
 import { API, headers } from 'api/api';
-import { ReactComponent as LikedIcon } from '../../assets/icon/subscribe.svg';
-import { ReactComponent as DislikedIcon } from '../../assets/icon/unsubscribe.svg';
 import { useState, useEffect, useContext } from 'react';
+import { icons } from 'assets/icons';
 
-export const StyledContainer = styled.div`
+export const WrapperFollowIcon = styled.div`
   width: 30px;
   height: 30px;
   display: inline;
   cursor: pointer;
 `;
 
-export const StyledDislikedIcon = styled(DislikedIcon)`
+export const StyledDislikedIcon = styled(icons.dislikedIcon)`
   width: 30px;
   fill: #8a2309;
   margin-right: 5px;
 `;
 
-export const StyledLikedIcon = styled(LikedIcon)`
+export const StyledLikedIcon = styled(icons.likedIcon)`
   width: 30px;
   fill: #8a2309;
   margin-right: 5px;
@@ -50,9 +49,9 @@ export const Follow = props => {
   };
 
   return (
-    <StyledContainer onClick={changeFollow}>
+    <WrapperFollowIcon onClick={changeFollow}>
       {isFollow ? <StyledLikedIcon /> : <StyledDislikedIcon />}
-    </StyledContainer>
+    </WrapperFollowIcon>
   );
 };
 

@@ -1,4 +1,4 @@
-import Navigation from 'components/Navigation/Navigation';
+import Navigation from 'components/Navigation/Header';
 import Banner from 'components/Banners/Banner';
 import NavigationPanel from 'components/Navigation/NavigationPanel';
 import {

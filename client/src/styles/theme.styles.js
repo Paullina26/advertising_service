@@ -6,15 +6,30 @@
 
 export const theme = {
   colors: {
+    //-----DEFAULT----//
     Font: '#2c2c2c',
     FontLight: '#ffffff',
     FontError: '#56000d',
+    Background: '#f3f3f3',
     FontSubmitHover: '#36743a',
 
-    Background: '#f3f3f3',
-    // BackgroundNavigation: '#d7dccf',
-    BackgroundForm: '#ebebeb',
+    //-----ICON-----//
+    iconPrice: '#eeaf03',
+    iconLocation: ' #0f52ce',
+    iconPhone: '#3d943b',
 
+    //-----NAVIGATION-----//
+    navActiveFont: '#2c2c2c',
+    navActiveBorder: 'rgba(244, 246, 249, 0.573)',
+    navActiveBackground: '#f3f3f3',
+
+    //-----Statistics-----//
+    statBackground: '#ebebeb',
+    statBoxShadow: '#8d8c8c',
+    statSell: 'rgb(209, 104, 30)',
+    statBuy: 'rgb(24, 134, 59)',
+
+    BackgroundForm: '#ebebeb',
     BackgroundInput: '#ffffff',
     BackgroundButton: '#f3f3f3',
     BackgroundSubmit: '#36743a',

@@ -1,26 +1,10 @@
-import styled from 'styled-components';
 import MainMenu from './MainMenu';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import Logout from 'components/buttons/Logout';
 import UserProfile from 'components/buttons/UserProfile';
-
-export const ContainerNav = styled.div`
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  top: 0;
-  padding: 10px;
-  background-color: ${({ theme }) => theme.colors.Background};
-  box-shadow: inset 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
-  z-index: 1;
-`;
-
-export const ContainerBtn = styled.div`
-  justify-self: end;
-`;
+import { WrapperNavigation, WrapperButtonNav } from 'components/Navigation/Style/StyleNavigation';
 
 const Navigation = () => {
   const { isLogin, setIsLogin } = useContext(GlobalContext);
@@ -41,13 +25,13 @@ const Navigation = () => {
   };
 
   return (
-    <ContainerNav>
+    <WrapperNavigation>
       <MainMenu />
-      <ContainerBtn>
+      <WrapperButtonNav>
         {isLogin && <Logout logout onClick={handleLogout} />}
         <UserProfile onClick={handleUserPanel} />
-      </ContainerBtn>
-    </ContainerNav>
+      </WrapperButtonNav>
+    </WrapperNavigation>
   );
 };
 

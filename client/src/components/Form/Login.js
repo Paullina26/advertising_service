@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Container, FormTittle } from 'styles/Form.style';
-import { Error } from 'components/Form/Error.style';
+import { Error } from 'components/Form/Style/StyleError';
 import { GlobalContext } from 'utils/GlobalContext';
 import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
 import { API, headers } from 'api/api';
+import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <Container>
+    <WrapperRegistrationAndLogin>
       <FormTittle>
         <p>Logowanie</p>
       </FormTittle>
@@ -85,7 +85,7 @@ const Login = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={nameElement.submitLogin} />
       </form>
-    </Container>
+    </WrapperRegistrationAndLogin>
   );
 };
 

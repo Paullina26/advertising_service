@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Input from './Input';
 import Submit from 'components/Form/Submit';
-import { Container, FormTittle } from 'styles/Form.style';
-import { Error } from 'components/Form/Error.style';
+import { Error } from 'components/Form/Style/StyleError';
 import { nameElement, StatusMessage } from 'data/data';
+import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
 
 const Registration = () => {
   const [mail, setMail] = useState('');
@@ -48,7 +48,7 @@ const Registration = () => {
   };
 
   return (
-    <Container>
+    <WrapperRegistrationAndLogin>
       <FormTittle>
         <p>Rejestracja</p>
       </FormTittle>
@@ -65,7 +65,6 @@ const Registration = () => {
           minlength='4'
           required
         />
-
         <Input
           label={nameElement.nameUser}
           id='name_Registration'
@@ -78,7 +77,6 @@ const Registration = () => {
           pattern='[a-zA-Z0-9]+'
           required
         />
-
         <Input
           label={nameElement.password}
           id='password_Registration'
@@ -105,7 +103,7 @@ const Registration = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Registration' type='submit' value={nameElement.submitRegistration} />
       </form>
-    </Container>
+    </WrapperRegistrationAndLogin>
   );
 };
 

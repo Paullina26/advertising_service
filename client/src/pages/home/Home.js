@@ -1,5 +1,5 @@
 import Advertisement from 'components/advertisement/Advertisements';
-import { WrapperHome } from './StyleHome';
+import { WrapperHome } from './style/StyleHome';
 
 export const HomePage = () => {
   return (

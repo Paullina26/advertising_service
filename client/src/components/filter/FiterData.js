@@ -1,6 +1,4 @@
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
-import { API, headers } from 'api/api';
 import Select from 'components/Form/Select';
 import { Button } from 'components/buttons/Button';
 import {
@@ -9,33 +7,7 @@ import {
   selectOptionProvince,
   selectOptionType,
 } from 'data/data';
-
-export const ContainerFilter = styled.div`
-  width: 100vw;
-  position: fixed;
-  margin-left: -5vw;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.colors.Background};
-  padding: 10px 0;
-  display: flex;
-  font-size: 15px;
-`;
-
-export const ContainerButtons = styled.div`
-  margin-left: 10px;
-  Button {
-    margin-right: 10px;
-  }
-`;
-
-export const ContainerSelect = styled.div`
-  display: flex;
-  margin-right: 15px;
-  Select {
-    margin: 0;
-    margin-right: 10px;
-  }
-`;
+import { WrapperFilter, WrapperButtons, WrapperSelect } from './Style/StyleFilter';
 
 const FilterData = ({ setFilterAdvertisement, advertisements }) => {
   const selectOptionProvinceNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionProvince];
@@ -56,8 +28,8 @@ const FilterData = ({ setFilterAdvertisement, advertisements }) => {
 
   return (
     <>
-      <ContainerFilter>
-        <ContainerSelect>
+      <WrapperFilter>
+        <WrapperSelect>
           <Select
             // label={nameElement.province}
             id='province_filter'
@@ -88,13 +60,13 @@ const FilterData = ({ setFilterAdvertisement, advertisements }) => {
             className='titleAnnouncementStyle'
             options={selectOptionCategoryNew}
           />
-        </ContainerSelect>
+        </WrapperSelect>
 
-        <ContainerButtons>
+        <WrapperButtons>
           <Button onClick={handleSearch}>Filtruj</Button>
           <Button>Usuń filtry</Button>
-        </ContainerButtons>
-      </ContainerFilter>
+        </WrapperButtons>
+      </WrapperFilter>
     </>
   );
 };

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
-import { ReactComponent as LogoutIcon } from '../../assets/icon/logout.svg';
-import { ReactComponent as UserIcon } from '../../assets/icon/user-solid.svg';
+import { icons } from 'assets/icons';
 
-export const StyledLogoutIcon = styled(LogoutIcon)`
-  width: 20px;
+export const StyledLogoutIcon = styled(icons.locationIcon)`
+  width: 2rem;
   fill: white;
   margin-bottom: -3px;
   margin-left: 5px;
 `;
 
-export const StyledUserIcon = styled(UserIcon)`
-  width: 20px;
+export const StyledUserIcon = styled(icons.userSolid)`
+  width: 2rem;
   fill: white;
   margin-bottom: -3px;
   margin-left: 5px;
@@ -18,7 +17,7 @@ export const StyledUserIcon = styled(UserIcon)`
 
 export const StyleButton = styled.button`
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 2rem;
   padding: 5px 15px;
   border: 0px;
   margin-right: 10px;

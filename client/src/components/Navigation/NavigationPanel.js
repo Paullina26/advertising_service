@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
-import { Container, StyledLink } from 'styles/Navigation.style';
 import { useLocation } from 'react-router-dom';
+import { StyledLink, WrapperNavigationPanel } from 'components/Navigation/Style/StyleNavigation';
 
 const NavigationPanel = () => {
   const location = useLocation();
@@ -54,7 +54,7 @@ const NavigationPanel = () => {
 
   return (
     <>
-      <Container>{navItemRender}</Container>
+      <WrapperNavigationPanel>{navItemRender}</WrapperNavigationPanel>
     </>
   );
 };

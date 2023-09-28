@@ -59,23 +59,23 @@ export const Description = styled.div`
   padding: 5px 5px 10px 5px;
 `;
 
-export const StyledIconPrice = styled(icons.phoneIcon)`
+export const StyledIconPrice = styled(icons.priceIcon)`
   width: 20px;
-  fill: #f4b710;
+  fill: ${({ theme }) => theme.colors.iconPrice};
   margin-right: 5px;
   margin-bottom: -2px;
 `;
 
 export const StyledLocationIcon = styled(icons.locationIcon)`
   width: 18px;
-  fill: #266c25;
+  fill: ${({ theme }) => theme.colors.iconLocation};
   margin-right: 5px;
   margin-bottom: -3px;
 `;
 
 export const StyledPhoneIcon = styled(icons.phoneIcon)`
   width: 18px;
-  fill: #c92f08;
+  fill: ${({ theme }) => theme.colors.iconPhone};
   margin-right: 5px;
   margin-bottom: -3px;
 `;

@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-size: 1.6rem;
     position: relative;
     background-color: ${({ theme }) => theme.colors.Background};
     color: ${({ theme }) => theme.colors.Font};

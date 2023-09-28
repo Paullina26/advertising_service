@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const WrapperMainMenu = styled.div`
+export const WrapperLogo = styled.div`
   width: 50%;
   height: 100%;
+  h1 {
+    margin-left: 10px;
+    font-size: 2.5rem;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -15,18 +19,22 @@ export const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.Font};
   margin: auto 15px;
   font-size: 20px;
+  padding: 3px;
+  border: outset 2px transparent;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.BackgroundSubmit};
+    color: ${({ theme }) => theme.colors.navActiveFont};
     transition: color 0.1s 0.1s linear;
   }
 
   &.active {
-    color: ${({ theme }) => theme.colors.BackgroundSubmit};
+    color: ${({ theme }) => theme.colors.navActiveFont};
+    border: inset 7px ${({ theme }) => theme.colors.navActiveBorder};
+    background-color: ${({ theme }) => theme.colors.navActiveBackground};
   }
 `;
 
-export const WrapperNavigation = styled.div`
+export const WrapperHeader = styled.div`
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -38,7 +46,7 @@ export const WrapperNavigation = styled.div`
   z-index: 1;
 `;
 
-export const WrapperButtonNav = styled.div`
+export const WrapperButtonHeader = styled.div`
   justify-self: end;
 `;
 

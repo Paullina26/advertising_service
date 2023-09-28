@@ -38,6 +38,10 @@ const NavigationPanel = () => {
       to: '/',
       name: 'Ogłoszenia',
     },
+    {
+      to: '/statistics',
+      name: 'Statystyki',
+    },
   ];
 
   const navItemRender = (

@@ -1,12 +1,12 @@
-import MainMenu from './MainMenu';
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
+import { WrapperHeader, WrapperButtonHeader } from 'components/Navigation/Style/StyleNavigation';
+import Logo from './Logo';
 import Logout from 'components/buttons/Logout';
 import UserProfile from 'components/buttons/UserProfile';
-import { WrapperNavigation, WrapperButtonNav } from 'components/Navigation/Style/StyleNavigation';
 
-const Navigation = () => {
+const Header = () => {
   const { isLogin, setIsLogin } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -25,14 +25,14 @@ const Navigation = () => {
   };
 
   return (
-    <WrapperNavigation>
-      <MainMenu />
-      <WrapperButtonNav>
+    <WrapperHeader>
+      <Logo />
+      <WrapperButtonHeader>
         {isLogin && <Logout logout onClick={handleLogout} />}
         <UserProfile onClick={handleUserPanel} />
-      </WrapperButtonNav>
-    </WrapperNavigation>
+      </WrapperButtonHeader>
+    </WrapperHeader>
   );
 };
 
-export default Navigation;
+export default Header;

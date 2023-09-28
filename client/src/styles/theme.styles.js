@@ -26,8 +26,13 @@ export const theme = {
     //-----Statistics-----//
     statBackground: '#ebebeb',
     statBoxShadow: '#8d8c8c',
-    statSell: 'rgb(209, 104, 30)',
-    statBuy: 'rgb(24, 134, 59)',
+    statSell: 'rgb(30, 254, 5)',
+    statBuy: 'rgb(255, 153, 0)',
+    statVegetables: 'rgb(43, 255, 0)',
+    statFruit: 'rgb(255, 85, 0)',
+    statCereals: 'rgb(255, 242, 0)',
+    statAnimal: 'rgb(0, 255, 238)',
+    statMushrooms: 'rgb(0, 140, 255)',
 
     BackgroundForm: '#ebebeb',
     BackgroundInput: '#ffffff',

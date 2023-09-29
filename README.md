@@ -1,5 +1,5 @@
 # Serwis_ogloszeniowy
-<br><p>🔭🔭🔭Serwis ogłoszeniowy🔭🔭🔭</p>
+
 <br>[![My Skills](https://skillicons.dev/icons?i=html,js,react,styledcomponents,git)](https://skillicons.dev)
 <br>🌱Technologie: JavaScript, React, style-component 
 <br>👯Backend: [Zofia Janas](https://github.com/zoska91)

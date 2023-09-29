@@ -1,4 +1,4 @@
-import { LabelStyle, TextAreaStyled } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
 
 const Textarea = ({
   label,
@@ -13,9 +13,9 @@ const Textarea = ({
   className,
 }) => {
   return (
-    <LabelStyle htmlFor={id}>
+    <S.LabelStyle htmlFor={id}>
       {label}
-      <TextAreaStyled
+      <S.TextAreaStyled
         placeholder={placeholder}
         value={value}
         name={name}
@@ -26,7 +26,7 @@ const Textarea = ({
         maxLength={maxLength}
         className={className}
       />
-    </LabelStyle>
+    </S.LabelStyle>
   );
 };
 

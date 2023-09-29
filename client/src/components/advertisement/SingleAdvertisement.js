@@ -2,19 +2,7 @@ import { GlobalContext } from 'utils/GlobalContext';
 import { useState, useEffect, useContext } from 'react';
 import { selectOptionType, selectOptionCategory, selectOptionProvince } from 'data/data';
 import { Follow } from 'components/buttons/Follow';
-import {
-  WrapperSingleAdvertisement,
-  WrapperClipElement,
-  TypeAdvertisement,
-  Title,
-  Price,
-  PhoneNumber,
-  Province,
-  Description,
-  StyledIconPrice,
-  StyledLocationIcon,
-  StyledPhoneIcon,
-} from './Style/StyleAdvertisement';
+import * as S from './Style/StyleAdvertisement';
 
 export const SingleAdvertisement = props => {
   const context = useContext(GlobalContext);
@@ -31,31 +19,31 @@ export const SingleAdvertisement = props => {
   const typeBgc = props.data.type;
 
   return (
-    <WrapperSingleAdvertisement isSell={typeBgc === 'sellAnnouncement'}>
-      <WrapperClipElement>
+    <S.WrapperSingleAdvertisement isSell={typeBgc === 'sellAnnouncement'}>
+      <S.WrapperClipElement>
         <div className='follows'>
           {' '}
-          <TypeAdvertisement>{type}</TypeAdvertisement>
-          <Title>{title}</Title>
+          <S.TypeAdvertisement>{type}</S.TypeAdvertisement>
+          <S.Title>{title}</S.Title>
         </div>
         {context.isLogin ? <Follow id={props.data._id} isFollow={props.isFollow} /> : ''}
-      </WrapperClipElement>
-      <Price>
-        <StyledIconPrice />
+      </S.WrapperClipElement>
+      <S.Price>
+        <S.StyledIconPrice />
         {price}
-      </Price>
-      <WrapperClipElement>
-        <Province>
-          <StyledLocationIcon />
+      </S.Price>
+      <S.WrapperClipElement>
+        <S.Province>
+          <S.StyledLocationIcon />
           {province}, {city}
-        </Province>
-      </WrapperClipElement>
-      <PhoneNumber>
-        <StyledPhoneIcon />
+        </S.Province>
+      </S.WrapperClipElement>
+      <S.PhoneNumber>
+        <S.StyledPhoneIcon />
         {phone}
-      </PhoneNumber>
-      <Description>{description}</Description>
-    </WrapperSingleAdvertisement>
+      </S.PhoneNumber>
+      <S.Description>{description}</S.Description>
+    </S.WrapperSingleAdvertisement>
   );
 };
 export default SingleAdvertisement;

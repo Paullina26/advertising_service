@@ -1,7 +1,7 @@
-import { SubmitStyle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
 
 const Submit = ({ id, type, value, onClick }) => {
-  return <SubmitStyle id={id} type={type} value={value} onClick={onClick} />;
+  return <S.SubmitStyle id={id} type={type} value={value} onClick={onClick} />;
 };
 
 export default Submit;

@@ -1,11 +1,11 @@
-import { WrapperLogo } from './Style/StyleNavigation';
+import * as S from './Style/StyleNavigation';
 
 export const Logo = ({ open }) => {
   return (
     <>
-      <WrapperLogo open={open}>
+      <S.WrapperLogo open={open}>
         <h1>Logo</h1>
-      </WrapperLogo>
+      </S.WrapperLogo>
     </>
   );
 };

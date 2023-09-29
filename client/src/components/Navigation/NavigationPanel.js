@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { StyledLink, WrapperNavigationPanel } from 'components/Navigation/Style/StyleNavigation';
+import * as S from 'components/Navigation/Style/StyleNavigation';
 
 const NavigationPanel = () => {
   const location = useLocation();
@@ -50,15 +50,15 @@ const NavigationPanel = () => {
       : navItemsHomePage
   ).map(item => {
     return (
-      <StyledLink key={item.name} to={item.to}>
+      <S.StyledLink key={item.name} to={item.to}>
         {item.name}
-      </StyledLink>
+      </S.StyledLink>
     );
   });
 
   return (
     <>
-      <WrapperNavigationPanel>{navItemRender}</WrapperNavigationPanel>
+      <S.WrapperNavigationPanel>{navItemRender}</S.WrapperNavigationPanel>
     </>
   );
 };

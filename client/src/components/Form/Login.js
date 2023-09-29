@@ -7,7 +7,7 @@ import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
 import { API, headers } from 'api/api';
-import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -53,10 +53,10 @@ const Login = () => {
   };
 
   return (
-    <WrapperRegistrationAndLogin>
-      <FormTittle>
+    <S.WrapperRegistrationAndLogin>
+      <S.FormTittle>
         <p>Logowanie</p>
-      </FormTittle>
+      </S.FormTittle>
 
       <form onSubmit={handleSubmit}>
         <Input
@@ -85,7 +85,7 @@ const Login = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={nameElement.submitLogin} />
       </form>
-    </WrapperRegistrationAndLogin>
+    </S.WrapperRegistrationAndLogin>
   );
 };
 

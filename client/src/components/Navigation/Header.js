@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
-import { WrapperHeader, WrapperButtonHeader } from 'components/Navigation/Style/StyleNavigation';
+import * as S from 'components/Navigation/Style/StyleNavigation';
 import Logo from './Logo';
 import Logout from 'components/buttons/Logout';
 import UserProfile from 'components/buttons/UserProfile';
@@ -25,13 +25,13 @@ const Header = () => {
   };
 
   return (
-    <WrapperHeader>
+    <S.WrapperHeader>
       <Logo />
-      <WrapperButtonHeader>
+      <S.WrapperButtonHeader>
         {isLogin && <Logout logout onClick={handleLogout} />}
         <UserProfile onClick={handleUserPanel} />
-      </WrapperButtonHeader>
-    </WrapperHeader>
+      </S.WrapperButtonHeader>
+    </S.WrapperHeader>
   );
 };
 

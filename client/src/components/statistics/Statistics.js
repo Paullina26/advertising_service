@@ -12,6 +12,17 @@ const Statistics = () => {
   const [cerealsAdvertisements, setCerealsAdvertisements] = useState([]);
   const [animalAdvertisements, setAnimalAdvertisements] = useState([]);
   const [mushroomsAdvertisements, setMushroomsAdvertisements] = useState([]);
+  const [test, setTest] = useState([
+    {
+      name: 'vegetables',
+      data: [],
+    },
+    {
+      name: 'fruits',
+      data: [],
+    },
+  ]);
+
   const baseValue = allAdvertisements.length;
 
   const dataToFilter = [

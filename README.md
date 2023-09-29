@@ -29,4 +29,4 @@
 <br> Widok mobilny
 <br> Ustawienia użytkownika: umożliwić zmiany hasła, 
 <br> Rozszerzenie staatystyk: województwa, sprzedaż/kupno w danej kategorii. 
-<span>![Paulina GitHub stats](https://starchart.cc/Paullina26/Serwis_ogloszeniowy.svg)</span>
+<span>![Paulina GitHub stats](https://starchart.cc/Paullina26/Serwis_ogloszeniowy/tree/main.svg)</span>

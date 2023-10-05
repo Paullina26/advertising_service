@@ -1,23 +1,22 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { device } from 'styles/theme.styles';
 
 export const WrapperLogo = styled.div`
-  width: 50%;
-  height: 100%;
+  height: 4rem;
   h1 {
-    margin-left: 10px;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 `;
 
 export const StyledLink = styled(NavLink)`
+  display: block;
   width: 100%;
   height: 100%;
   font-weight: 500;
   text-decoration: none;
   position: relative;
   color: ${({ theme }) => theme.colors.Font};
-  margin: auto 15px;
   font-size: 20px;
   padding: 3px;
   border: outset 2px transparent;
@@ -36,14 +35,17 @@ export const StyledLink = styled(NavLink)`
 
 export const WrapperHeader = styled.div`
   width: 100vw;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 0;
   padding: 10px;
+  display: flex;
+  top: 0;
   background-color: ${({ theme }) => theme.colors.Background};
   box-shadow: inset 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
-  z-index: 1;
+
+  //desktop
+  /* width: 100vw;
+  z-index: 1; */
 `;
 
 export const WrapperButtonHeader = styled.div`
@@ -51,6 +53,8 @@ export const WrapperButtonHeader = styled.div`
 `;
 
 export const WrapperNavigationPanel = styled.div`
+  position: relative;
+  z-index: 9;
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.Background};
   box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
@@ -58,3 +62,13 @@ export const WrapperNavigationPanel = styled.div`
   padding: 10px;
   font-size: 20px;
 `;
+
+//desktop
+// export const WrapperNavigationPanel = styled.div`
+//   width: 100vw;
+//   background-color: ${({ theme }) => theme.colors.Background};
+//   box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
+//   margin-top: 0;
+//   padding: 10px;
+//   font-size: 20px;
+// `;

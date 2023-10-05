@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { icons } from 'assets/icons';
 
-export const StyledLogoutIcon = styled(icons.locationIcon)`
+export const StyledLogoutIcon = styled(icons.logout)`
   width: 2rem;
   fill: white;
   margin-bottom: -3px;
@@ -20,7 +20,6 @@ export const StyleButton = styled.button`
   font-size: 2rem;
   padding: 5px 15px;
   border: 0px;
-  margin-right: 10px;
   color: ${({ theme }) => theme.colors.FontLight};
   background-color: ${({ theme }) => theme.colors.BackgroundUserPanelBtn};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};

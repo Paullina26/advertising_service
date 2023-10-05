@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import { ReactComponent as LogoutIcon } from '../../assets/icon/logout.svg';
-import { ReactComponent as UserIcon } from '../../assets/icon/user-solid.svg';
+import { icons } from 'assets/icons';
 
-export const StyledLogoutIcon = styled(LogoutIcon)`
+export const StyledLogoutIcon = styled(icons.logout)`
   width: 20px;
   fill: white;
   margin-bottom: -3px;
   margin-left: 5px;
 `;
 
-export const StyledUserIcon = styled(UserIcon)`
+export const StyledUserIcon = styled(icons.userSolid)`
   width: 20px;
   fill: white;
   margin-bottom: -3px;
@@ -21,7 +20,6 @@ export const StyleButton = styled.button`
   font-size: 2rem;
   padding: 5px 15px;
   border: 0px;
-  margin-right: 10px;
   color: ${({ theme }) => theme.colors.FontLight};
   background-color: ${({ theme }) => theme.colors.BackgroundUserPanelBtn};
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
@@ -37,14 +35,14 @@ export const StyleButton = styled.button`
   }
 `;
 
-const UserProfile = ({ onClick }) => {
+const Login = ({ onClick }) => {
   return (
     <>
       <StyleButton onClick={onClick}>
-        Twoje Konto <StyledUserIcon className='hoverSVG' />
+        Zaloguj <StyledUserIcon className='hoverSVG' />
       </StyleButton>
     </>
   );
 };
 
-export default UserProfile;
+export default Login;

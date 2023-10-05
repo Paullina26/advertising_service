@@ -13,8 +13,8 @@ const Signup = () => {
 
   return (
     <WrapperSignup>
-      <Button onClick={handleActive}>{isActive ? `Rejestracja` : `Logowanie`}</Button>
-      {isActive ? <Login /> : <Registration />}
+      {isActive ? <Login onClick={handleActive} /> : <Registration onClick={handleActive} />}
+      {/* <Button onClick={handleActive}>{isActive ? `Rejestracja` : `Logowanie`}</Button> */}
     </WrapperSignup>
   );
 };

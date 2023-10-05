@@ -1,4 +1,4 @@
-import { LabelStyle, SelectStyle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
 
 const Select = ({
   label,
@@ -14,9 +14,9 @@ const Select = ({
 }) => {
   return (
     <>
-      <LabelStyle htmlFor={id}>
+      <S.LabelStyle htmlFor={id}>
         {label}
-        <SelectStyle
+        <S.SelectStyle
           id={id}
           value={value}
           onChange={onChange}
@@ -31,8 +31,8 @@ const Select = ({
               {option.label}
             </option>
           ))}
-        </SelectStyle>
-      </LabelStyle>
+        </S.SelectStyle>
+      </S.LabelStyle>
     </>
   );
 };

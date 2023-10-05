@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'styles/theme.styles';
 
 export const WrapperSingleStatistics = styled.div`
   text-align: center;
@@ -22,6 +23,10 @@ export const WrapperStatistics = styled.div`
   border-radius: 10px;
   border: outset 2px ${({ theme }) => theme.colors.BorderAdv};
   box-shadow: inset 0px 0px 80px -50px ${({ theme }) => theme.colors.statBoxShadow};
+  @media ${device.mobileM} {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
 `;
 
 export const Tittle = styled.div`

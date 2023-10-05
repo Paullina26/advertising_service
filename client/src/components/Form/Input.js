@@ -1,4 +1,4 @@
-import { InputStyle, LabelStyle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
 
 const Input = ({
   label,
@@ -17,9 +17,9 @@ const Input = ({
   cols,
 }) => {
   return (
-    <LabelStyle htmlFor={id}>
+    <S.LabelStyle htmlFor={id}>
       {label}
-      <InputStyle
+      <S.InputStyle
         id={id}
         type={type}
         value={value}
@@ -34,7 +34,7 @@ const Input = ({
         rows={rows}
         cols={cols}
       />
-    </LabelStyle>
+    </S.LabelStyle>
   );
 };
 

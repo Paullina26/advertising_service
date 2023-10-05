@@ -3,10 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import SingleAdvertisement from './SingleAdvertisement';
 import { GlobalContext } from 'utils/GlobalContext';
 import FilterData from 'components/filter/FiterData';
-import {
-  WrapperTableAdvertisements,
-  WrapperAdvertisementsElements,
-} from './Style/StyleAdvertisement';
+import * as S from './Style/StyleAdvertisement';
 
 export const Advertisements = () => {
   const { isLogin, isLoadingUser } = useContext(GlobalContext);
@@ -59,12 +56,12 @@ export const Advertisements = () => {
     return <SingleAdvertisement key={adv._id} data={adv} isFollow={isFollow} />;
   });
   return (
-    <WrapperAdvertisementsElements>
+    <S.WrapperAdvertisementsElements>
       <FilterData setFilterAdvertisement={setFilterAdvertisement} advertisements={advertisements} />
-      <WrapperTableAdvertisements>
+      <S.WrapperTableAdvertisements>
         {advertisementRender.length === 0 ? 'Brak ogłoszeń' : advertisementRender}
-      </WrapperTableAdvertisements>
-    </WrapperAdvertisementsElements>
+      </S.WrapperTableAdvertisements>
+    </S.WrapperAdvertisementsElements>
   );
 };
 export default Advertisements;

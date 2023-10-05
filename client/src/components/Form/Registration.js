@@ -3,9 +3,10 @@ import Input from './Input';
 import Submit from 'components/Form/Submit';
 import { Error } from 'components/Form/Style/StyleError';
 import { nameElement, StatusMessage } from 'data/data';
-import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
+import { Button } from 'components/buttons/Button';
 
-const Registration = () => {
+const Registration = ({ onClick }) => {
   const [mail, setMail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -48,11 +49,11 @@ const Registration = () => {
   };
 
   return (
-    <WrapperRegistrationAndLogin>
-      <FormTittle>
+    <S.WrapperRegistrationAndLogin>
+      <Button onClick={onClick}>Logowanie</Button>
+      <S.FormTittle>
         <p>Rejestracja</p>
-      </FormTittle>
-
+      </S.FormTittle>
       <form onSubmit={handleSubmit}>
         <Input
           label={nameElement.email}
@@ -103,7 +104,7 @@ const Registration = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Registration' type='submit' value={nameElement.submitRegistration} />
       </form>
-    </WrapperRegistrationAndLogin>
+    </S.WrapperRegistrationAndLogin>
   );
 };
 

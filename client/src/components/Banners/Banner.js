@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import BannerPicture from '../../assets/BannerPicture.jpg';
 
 export const Container = styled.div`
+  display: none;
   width: 100vw;
   height: 150px;
   text-align: center;
-  /* background-color: white; */
 
   img {
     position: relative;

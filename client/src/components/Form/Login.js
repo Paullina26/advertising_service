@@ -7,9 +7,10 @@ import Submit from 'components/Form/Submit';
 import { useNavigate } from 'react-router-dom';
 import { nameElement, StatusMessage } from 'data/data';
 import { API, headers } from 'api/api';
-import { WrapperRegistrationAndLogin, FormTittle } from './Style/StyleForm';
+import * as S from './Style/StyleForm';
+import { Button } from 'components/buttons/Button';
 
-const Login = () => {
+const Login = ({ onClick }) => {
   const navigate = useNavigate();
   const { setIsLogin } = useContext(GlobalContext);
   const [mail, setMail] = useState('');
@@ -53,11 +54,11 @@ const Login = () => {
   };
 
   return (
-    <WrapperRegistrationAndLogin>
-      <FormTittle>
+    <S.WrapperRegistrationAndLogin>
+      <Button onClick={onClick}>Rejestracja</Button>
+      <S.FormTittle>
         <p>Logowanie</p>
-      </FormTittle>
-
+      </S.FormTittle>
       <form onSubmit={handleSubmit}>
         <Input
           label={nameElement.email}
@@ -85,7 +86,7 @@ const Login = () => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={nameElement.submitLogin} />
       </form>
-    </WrapperRegistrationAndLogin>
+    </S.WrapperRegistrationAndLogin>
   );
 };
 

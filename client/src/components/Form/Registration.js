@@ -4,8 +4,9 @@ import Submit from 'components/Form/Submit';
 import { Error } from 'components/Form/Style/StyleError';
 import { nameElement, StatusMessage } from 'data/data';
 import * as S from './Style/StyleForm';
+import { Button } from 'components/buttons/Button';
 
-const Registration = () => {
+const Registration = ({ onClick }) => {
   const [mail, setMail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -49,10 +50,10 @@ const Registration = () => {
 
   return (
     <S.WrapperRegistrationAndLogin>
+      <Button onClick={onClick}>Logowanie</Button>
       <S.FormTittle>
         <p>Rejestracja</p>
       </S.FormTittle>
-
       <form onSubmit={handleSubmit}>
         <Input
           label={nameElement.email}

@@ -7,9 +7,10 @@ import {
   selectOptionProvince,
   selectOptionType,
 } from 'data/data';
-import { WrapperFilter, WrapperButtons, WrapperSelect } from './Style/StyleFilter';
+import * as S from './Style/StyleFilter';
 
 const FilterData = ({ setFilterAdvertisement, advertisements }) => {
+  const [isOpenFilter, setIsOpenFilter] = useState(false);
   const selectOptionProvinceNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionProvince];
   const selectOptionTypeNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionType];
   const selectOptionCategoryNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionCategory];
@@ -24,50 +25,63 @@ const FilterData = ({ setFilterAdvertisement, advertisements }) => {
       .filter(adv => province === 'all' || adv.province === province)
       .filter(adv => category === 'all' || adv.category === category);
     setFilterAdvertisement(newArr);
+    setIsOpenFilter(!isOpenFilter);
+  };
+
+  const handleFilter = () => {
+    setIsOpenFilter(!isOpenFilter);
   };
 
   return (
-    <>
-      <WrapperFilter>
-        <WrapperSelect>
-          <Select
-            // label={nameElement.province}
-            id='province_filter'
-            value={province}
-            onChange={e => setProvince(e.target.value)}
-            placeholder={nameElement.province}
-            required
-            className='titleAnnouncementStyle'
-            options={selectOptionProvinceNew}
-          />
-          <Select
-            // label={nameElement.type}
-            id='type_filter'
-            value={type}
-            onChange={e => setType(e.target.value)}
-            placeholder={nameElement.type}
-            required
-            className='titleAnnouncementStyle'
-            options={selectOptionTypeNew}
-          />
-          <Select
-            // label={nameElement.category}
-            id='category_filter'
-            value={category}
-            onChange={e => setCategory(e.target.value)}
-            placeholder={nameElement.category}
-            required
-            className='titleAnnouncementStyle'
-            options={selectOptionCategoryNew}
-          />
-        </WrapperSelect>
+    <S.Wrapper>
+      <S.WrapperFilterIcon>
+        <Button onClick={handleFilter}>
+          <p>Filtry</p>
+          <S.StyledIconFilter />
+        </Button>
+      </S.WrapperFilterIcon>
+      {isOpenFilter && (
+        <S.WrapperFilter>
+          <S.WrapperSelect>
+            <Select
+              // label={nameElement.province}
+              id='province_filter'
+              value={province}
+              onChange={e => setProvince(e.target.value)}
+              placeholder={nameElement.province}
+              required
+              className='titleAnnouncementStyle'
+              options={selectOptionProvinceNew}
+            />
+            <Select
+              // label={nameElement.type}
+              id='type_filter'
+              value={type}
+              onChange={e => setType(e.target.value)}
+              placeholder={nameElement.type}
+              required
+              className='titleAnnouncementStyle'
+              options={selectOptionTypeNew}
+            />
+            <Select
+              // label={nameElement.category}
+              id='category_filter'
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+              placeholder={nameElement.category}
+              required
+              className='titleAnnouncementStyle'
+              options={selectOptionCategoryNew}
+            />
+          </S.WrapperSelect>
 
-        <WrapperButtons>
-          <Button onClick={handleSearch}>Filtruj</Button>
-          <Button>Usuń filtry</Button>
-        </WrapperButtons>
-      </WrapperFilter>
-    </>
+          <S.WrapperButtons>
+            <Button onClick={handleSearch}>Filtruj</Button>
+            <Button>Usuń filtry</Button>
+          </S.WrapperButtons>
+        </S.WrapperFilter>
+      )}
+    </S.Wrapper>
   );
 };
 export default FilterData;

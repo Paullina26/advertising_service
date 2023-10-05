@@ -3,21 +3,17 @@ import styled from 'styled-components';
 export const Button = styled.button`
   border-radius: 5px;
   font-size: 2rem;
-  padding: 3px 15px;
-  margin-right: 0px;
-  color: ${({ theme, logout }) => (logout ? theme.colors.Font : theme.colors.FontLight)};
-  background-color: ${({ theme, logout }) =>
-    logout ? theme.colors.BackgroundButtonLogout : theme.colors.BackgroundSubmit};
-  border: 2px solid
-    ${({ theme, logout }) => (logout ? theme.colors.BorderLogout : theme.colors.Border)};
-  box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
-
+  padding: 5px 20px;
+  border: 0px;
+  margin: 5px auto;
+  margin-top: 5px;
+  color: ${({ theme }) => theme.colors.FontLight};
+  background-color: ${({ theme }) => theme.colors.BackgroundSubmit};
+  box-shadow: 0px 0px 12px ${({ theme }) => theme.colors.BorderShadow};
   cursor: pointer;
   :hover {
-    color: ${({ theme, logout }) =>
-      logout ? theme.colors.FontLight : theme.colors.FontSubmitHover};
-    background-color: ${({ theme, logout }) =>
-      logout ? theme.colors.BackgroundSubmit : theme.colors.BackgroundButton};
-    border: 2px solid ${({ theme, logout }) => (logout ? theme.colors.Border : theme.colors.Border)};
+    color: ${({ theme }) => theme.colors.FontSubmitHover};
+    background-color: ${({ theme }) => theme.colors.FontLight};
+    box-shadow: 0px 0px 20px ${({ theme }) => theme.colors.BorderShadowLight};
   }
 `;

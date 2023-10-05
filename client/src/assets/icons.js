@@ -6,6 +6,8 @@ import { ReactComponent as DislikedIcon } from 'assets/icon/unsubscribe.svg';
 import { ReactComponent as UserSolid } from 'assets/icon/user-solid.svg';
 import { ReactComponent as Logout } from 'assets/icon/logout.svg';
 import { ReactComponent as Filter } from 'assets/icon/filter.svg';
+import { ReactComponent as Burger } from 'assets/icon/burger.svg';
+import { ReactComponent as CloseBurger } from 'assets/icon/closeBurger.svg';
 
 export const icons = {
   priceIcon: PriceIcon,
@@ -16,4 +18,6 @@ export const icons = {
   logout: Logout,
   userSolid: UserSolid,
   filter: Filter,
+  burger: Burger,
+  closeBurger: CloseBurger,
 };

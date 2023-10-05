@@ -7,18 +7,24 @@ export const GlobalContext = createContext({
   setIsLoadingUser: () => {},
   isLogin: false,
   setIsLogin: () => {},
+  isOpenMenu: false,
+  setIsOpenMenu: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
   const location = useLocation();
+  // console.log(location);
   const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const values = {
     isLoadingUser,
     setIsLoadingUser,
     isLogin,
     setIsLogin,
+    isOpenMenu,
+    setIsOpenMenu,
   };
 
   useEffect(() => {
@@ -43,6 +49,10 @@ const GlobalProvider = ({ children }) => {
       })
       .finally(() => setIsLoadingUser(false));
   }, []);
+
+  useEffect(() => {
+    setIsOpenMenu(false);
+  }, [location.pathname]);
 
   return (
     <GlobalContext.Provider value={values}>

@@ -2,9 +2,10 @@ import { useContext } from 'react';
 import { GlobalContext } from 'utils/GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import * as S from 'components/Navigation/Style/StyleNavigation';
-import Logo from './Logo';
+import Burger from './Burger';
 import Logout from 'components/buttons/Logout';
-import UserProfile from 'components/buttons/UserProfile';
+import Login from 'components/buttons/Login';
+import Logo from './Logo';
 
 const Header = () => {
   const { isLogin, setIsLogin } = useContext(GlobalContext);
@@ -26,10 +27,10 @@ const Header = () => {
 
   return (
     <S.WrapperHeader>
+      <Burger />
       <Logo />
       <S.WrapperButtonHeader>
-        {isLogin && <Logout logout onClick={handleLogout} />}
-        <UserProfile onClick={handleUserPanel} />
+        {isLogin ? <Logout logout onClick={handleLogout} /> : <Login onClick={handleUserPanel} />}
       </S.WrapperButtonHeader>
     </S.WrapperHeader>
   );

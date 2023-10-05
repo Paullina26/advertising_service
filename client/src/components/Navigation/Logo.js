@@ -1,9 +1,9 @@
-import * as S from './Style/StyleNavigation';
+import * as S from 'components/Navigation/Style/StyleNavigation';
 
-export const Logo = ({ open }) => {
+export const Logo = () => {
   return (
     <>
-      <S.WrapperLogo open={open}>
+      <S.WrapperLogo>
         <h1>Logo</h1>
       </S.WrapperLogo>
     </>

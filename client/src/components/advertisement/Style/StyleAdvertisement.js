@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 import { icons } from 'assets/icons';
+import { device } from 'styles/theme.styles';
 
 //----Single Advertisement----//
 export const WrapperSingleAdvertisement = styled.div`
+  /* @media ${device.mobileS} {
+    width: 280px;
+    height: 100px;
+  }
+
+  @media ${device.desktop} {
+    width: 280px;
+    height: 100px;
+  } */
   text-align: center;
   margin: 40px auto;
   padding: 10px;
@@ -82,11 +92,11 @@ export const StyledPhoneIcon = styled(icons.phoneIcon)`
 
 //----Advertisements----//
 export const WrapperAdvertisementsElements = styled.div`
-  padding-top: 0px;
+  /* background-color: red; */
 `;
 
 export const WrapperTableAdvertisements = styled.div`
-  padding-top: 70px;
+  /* padding-top: 70px; */
 `;
 
 //-----AddAdvertisement-----//
@@ -109,5 +119,10 @@ export const WrapperAddAdvertisement = styled.div`
     width: 300px;
     padding: 0;
     margin-bottom: 15px;
+  }
+
+  @media ${device.mobileM} {
+    min-width: 90vw;
+    max-width: 90vw;
   }
 `;

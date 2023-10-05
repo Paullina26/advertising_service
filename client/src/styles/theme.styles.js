@@ -20,7 +20,7 @@ export const theme = {
 
     //-----NAVIGATION-----//
     navActiveFont: '#2c2c2c',
-    navActiveBorder: 'rgba(244, 246, 249, 0.573)',
+    navActiveBorder: 'rgba(49, 105, 43, 0.573)',
     navActiveBackground: '#f3f3f3',
 
     //-----Statistics-----//
@@ -58,30 +58,26 @@ export const theme = {
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',
     GlassShadow: 'rgba(2, 4, 24, 1)',
     GlassBorder: 'rgba(255, 255, 255, 0.09)',
-  },
-  fonts: {
-    s: '0.8rem',
-    m: '1rem',
-  },
-  padding: {
-    button: '4px 16px',
-    bigButton: '10px 32px',
-  },
-  device: {
-    mobileS: `(max-width: 320px)`,
-    mobileM: `(max-width: 375px)`,
-    mobileL: `(max-width:425px)`,
-    tablet: `(max-width: 768px)`,
-    desktop: `(max-width: 1024px)`,
-    desktopL: `(max-width: 1440px)`,
+
+    // BorderAaadv: 'rgb(29, 201, 103)',
   },
 };
 
-// export const device = {
-//   mobileS: `(max-width: 320px)`,
-//   mobileM: `(max-width: 375px)`,
-//   mobileL: `(max-width:425px)`,
-//   tablet: `(max-width: 768px)`,
-//   desktop: `(max-width: 1024px)`,
-//   desktopL: `(max-width: 1440px)`,
-// };
+export const device = {
+  mobileS: `(min-width: 320px)`,
+  mobileM: `(min-width: 375px)`,
+  mobileL: `(min-width:425px)`,
+  tablet: `(min-width: 768px)`,
+  desktop: `(min-width: 1024px)`,
+  desktopL: `(min-width: 1440px)`,
+};
+
+export const fonts = {
+  s: '0.8rem',
+  m: '1rem',
+};
+
+export const padding = {
+  button: '4px 16px',
+  bigButton: '10px 32px',
+};

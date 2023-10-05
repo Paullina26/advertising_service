@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'styles/theme.styles';
 
 export const LabelStyle = styled.label`
   text-align: center;
@@ -46,6 +47,10 @@ export const WrapperRegistrationAndLogin = styled.div`
   width: 40vw;
   border-radius: 10px;
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
+  @media ${device.mobileM} {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
 `;
 
 export const FormTittle = styled.div`

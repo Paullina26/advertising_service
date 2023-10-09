@@ -1,12 +1,16 @@
 import { API, headers } from 'api/api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
+
 import SingleAdvertisement from '../../components/advertisement/SingleAdvertisement';
 
 const UserAnnouncement = () => {
+  const { setIsLoadingOpen } = useContext(GlobalContext);
   const [advertisementsUser, setAdvertisementsUser] = useState([]);
 
   const getAdvertisementUserDataToServer = () => {
     const token = localStorage.TOKEN;
+    setIsLoadingOpen(true);
 
     fetch(API.getAdvertisementUser, {
       method: 'GET',
@@ -20,6 +24,9 @@ const UserAnnouncement = () => {
       })
       .then(data => {
         setAdvertisementsUser(data);
+      })
+      .finally(() => {
+        setIsLoadingOpen(false);
       });
   };
 

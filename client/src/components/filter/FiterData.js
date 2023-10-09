@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Select from 'components/Form/Select';
+import { GlobalContext } from 'utils/GlobalContext';
+
 import { Button } from 'components/buttons/Button';
 import {
   nameElement,
@@ -10,6 +12,7 @@ import {
 import * as S from './Style/StyleFilter';
 
 const FilterData = ({ setFilterAdvertisement, advertisements }) => {
+  const { setIsLoadingOpen } = useContext(GlobalContext);
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const selectOptionProvinceNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionProvince];
   const selectOptionTypeNew = [{ value: 'all', label: 'Wszystko' }, ...selectOptionType];
@@ -20,12 +23,14 @@ const FilterData = ({ setFilterAdvertisement, advertisements }) => {
   const [category, setCategory] = useState('all');
 
   const handleSearch = () => {
+    setIsLoadingOpen(true);
     const newArr = advertisements
       .filter(adv => type === 'all' || adv.type === type)
       .filter(adv => province === 'all' || adv.province === province)
       .filter(adv => category === 'all' || adv.category === category);
     setFilterAdvertisement(newArr);
     setIsOpenFilter(!isOpenFilter);
+    setIsLoadingOpen(false);
   };
 
   const handleFilter = () => {

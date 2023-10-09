@@ -1,8 +1,10 @@
 import { API, headers } from 'api/api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
 import SingleAdvertisement from '../../components/advertisement/SingleAdvertisement';
 
 const FollowAnnouncement = () => {
+  const { setIsLoadingOpen } = useContext(GlobalContext);
   const [advFollowUser, setAdvFollowUser] = useState([]);
   const [allAdvertisements, setAllAdvertisements] = useState([]);
 
@@ -24,7 +26,7 @@ const FollowAnnouncement = () => {
   };
 
   const getAdvertisementData = () => {
-    // loading true
+    setIsLoadingOpen(true);
     fetch(API.getAdvertisement, {
       method: 'GET',
       headers,
@@ -34,8 +36,10 @@ const FollowAnnouncement = () => {
       })
       .then(data => {
         setAllAdvertisements(data);
+      })
+      .finally(() => {
+        setIsLoadingOpen(false);
       });
-    // .finally() => //loading false;
   };
 
   useEffect(() => {

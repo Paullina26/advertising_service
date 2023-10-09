@@ -1,3 +1,4 @@
+import Loading from 'components/loading/Loading';
 import { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -9,6 +10,8 @@ export const GlobalContext = createContext({
   setIsLogin: () => {},
   isOpenMenu: false,
   setIsOpenMenu: () => {},
+  isLoadingOpen: false,
+  setIsLoadingOpen: () => {},
 });
 
 const GlobalProvider = ({ children }) => {
@@ -17,6 +20,7 @@ const GlobalProvider = ({ children }) => {
   const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isLoadingOpen, setIsLoadingOpen] = useState(false);
 
   const values = {
     isLoadingUser,
@@ -25,6 +29,8 @@ const GlobalProvider = ({ children }) => {
     setIsLogin,
     isOpenMenu,
     setIsOpenMenu,
+    isLoadingOpen,
+    setIsLoadingOpen,
   };
 
   useEffect(() => {
@@ -57,7 +63,7 @@ const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider value={values}>
       {children}
-      {/* {isLoading && <Loader />} */}
+      {isLoadingOpen && <Loading />}
     </GlobalContext.Provider>
   );
 };

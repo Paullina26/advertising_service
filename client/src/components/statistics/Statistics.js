@@ -1,9 +1,11 @@
 import { API, headers } from 'api/api';
 import * as S from './style/StyleStatistics';
 import { useContext, useEffect, useState } from 'react';
+import { GlobalContext } from 'utils/GlobalContext';
 import ProgressBar from './ProgressBarr';
 
 const Statistics = () => {
+  const { setIsLoadingOpen } = useContext(GlobalContext);
   const [allAdvertisements, setAllAdvertisements] = useState([]);
   const [sellAdvertisements, setSellAdvertisements] = useState([]);
   const [buyAdvertisements, setBuyAdvertisements] = useState([]);
@@ -105,7 +107,7 @@ const Statistics = () => {
   ];
 
   const getAdvertisementData = () => {
-    // loading true
+    setIsLoadingOpen(true);
     fetch(API.getAdvertisement, {
       method: 'GET',
       headers,
@@ -118,8 +120,10 @@ const Statistics = () => {
         dataToFilter.forEach(el => {
           filterData(data, el.filterName, el.value, el.cb);
         });
+      })
+      .finally(() => {
+        setIsLoadingOpen(false);
       });
-    // .finally() => //loading false;
   };
 
   useEffect(() => {

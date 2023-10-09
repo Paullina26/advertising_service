@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { device } from 'styles/theme.styles';
 
 export const WrapperSingleStatistics = styled.div`
@@ -41,8 +41,19 @@ export const ProgressBarWrapper = styled.div`
   border-radius: 0 20px 20px 0;
 `;
 
+const animationProgressBar = keyframes`
+  from {
+    width: 0;
+  }
+
+  to {
+    width: ${({ value }) => `${value}%`};
+  }
+`;
+
 export const ProgressBar = styled.div`
   height: 100%;
+  animation: ${animationProgressBar} linear 1s;
   width: ${({ value }) => `${value}%`};
   background-color: ${({ bgcColor }) => bgcColor};
   border-radius: 0 20px 20px 0;

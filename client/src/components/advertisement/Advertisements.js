@@ -6,13 +6,13 @@ import FilterData from 'components/filter/FiterData';
 import * as S from './Style/StyleAdvertisement';
 
 export const Advertisements = () => {
-  const { isLogin, isLoadingUser } = useContext(GlobalContext);
+  const { isLogin, isLoadingUser, setIsLoadingOpen } = useContext(GlobalContext);
   const [advertisements, setAdvertisements] = useState([]);
   const [advIdFollow, setAdvIdFollow] = useState([]);
   const [filterAdvertisement, setFilterAdvertisement] = useState([]);
 
   const getAdvertisementData = () => {
-    // loading true
+    setIsLoadingOpen(true);
     fetch(API.getAdvertisement, {
       method: 'GET',
       headers,
@@ -23,8 +23,10 @@ export const Advertisements = () => {
       .then(data => {
         setAdvertisements(data);
         setFilterAdvertisement(data);
+      })
+      .finally(() => {
+        setIsLoadingOpen(false);
       });
-    // .finally() => //loading false;
   };
 
   const getAdvertisementFollowUserData = () => {

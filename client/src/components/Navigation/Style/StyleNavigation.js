@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { device } from 'styles/theme.styles';
 
@@ -11,25 +11,32 @@ export const WrapperLogo = styled.div`
 
 export const StyledLink = styled(NavLink)`
   display: block;
-  width: 100%;
+  max-width: 250px;
   height: 100%;
   font-weight: 500;
   text-decoration: none;
   position: relative;
   color: ${({ theme }) => theme.colors.Font};
-  font-size: 20px;
-  padding: 3px;
-  border: outset 2px transparent;
+  font-size: 2rem;
+  padding: 5px 15px;
+  /* @media ${device.desktop} {
+    width: 30%;
+  } */
+
+  p {
+    /* text-align: center; */
+  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.navActiveFont};
-    transition: color 0.1s 0.1s linear;
+    /* transition: color 0.1s 0.1s linear; */
   }
 
   &.active {
-    color: ${({ theme }) => theme.colors.navActiveFont};
-    border: inset 7px ${({ theme }) => theme.colors.navActiveBorder};
-    background-color: ${({ theme }) => theme.colors.navActiveBackground};
+    color: ${({ theme }) => theme.colors.FontLight};
+    /* background-color: ${({ theme }) => theme.colors.FontSubmitHover}; */
+    background: linear-gradient(90deg, rgba(54, 116, 58, 1) 2%, #1dc528 70%, #42ec56 100%);
+    border-radius: 10px;
   }
 `;
 
@@ -39,13 +46,8 @@ export const WrapperHeader = styled.div`
   align-items: center;
   padding: 10px;
   display: flex;
-  top: 0;
   background-color: ${({ theme }) => theme.colors.Background};
   box-shadow: inset 0px 2px 20px ${({ theme }) => theme.colors.BorderShadow};
-
-  //desktop
-  /* width: 100vw;
-  z-index: 1; */
 `;
 
 export const WrapperButtonHeader = styled.div`
@@ -53,14 +55,16 @@ export const WrapperButtonHeader = styled.div`
 `;
 
 export const WrapperNavigationPanel = styled.div`
-  position: relative;
-  z-index: 9;
+  position: absolute;
+  transform: translateY(${({ isOpenMenu }) => (isOpenMenu ? 0 : '-150%')});
+  z-index: -9;
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.Background};
   box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
   margin-top: 0;
   padding: 10px;
   font-size: 20px;
+  transition: 0.3s;
 `;
 
 //desktop

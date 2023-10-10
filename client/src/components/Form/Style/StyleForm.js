@@ -40,17 +40,14 @@ export const SelectStyle = styled.select`
 
 //----Registration/Login----//
 export const WrapperRegistrationAndLogin = styled.div`
+  width: 90vw;
+  max-width: 400px;
   text-align: center;
   margin: 30px auto;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.BackgroundForm};
-  width: 40vw;
   border-radius: 10px;
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
-  @media ${device.mobileM} {
-    min-width: 90vw;
-    max-width: 90vw;
-  }
 `;
 
 export const FormTittle = styled.div`

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { icons } from 'assets/icons';
+import { device } from 'styles/theme.styles';
 
 export const Wrapper = styled.div`
   z-index: 9;
@@ -48,9 +49,17 @@ export const WrapperButtons = styled.div`
 `;
 
 export const WrapperSelect = styled.div`
-  /* margin-right: 15px; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media ${device.desktop} {
+    flex-direction: row;
+  }
   select {
-    margin: 15px 0;
-    /* margin-right: 10px; */
+    margin: 10px auto;
+    width: 200px;
+    @media ${device.desktop} {
+      margin: 10px 20px;
+    }
   }
 `;

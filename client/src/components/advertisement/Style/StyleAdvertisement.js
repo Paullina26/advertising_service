@@ -102,12 +102,12 @@ export const WrapperTableAdvertisements = styled.div`
 //-----AddAdvertisement-----//
 
 export const WrapperAddAdvertisement = styled.div`
+  width: 90vw;
+  max-width: 400px;
   text-align: center;
   margin: 30px auto;
   padding: 10px;
   background-color: ${({ theme }) => theme.colors.BackgroundForm};
-  min-width: 340px;
-  max-width: 400px;
   border-radius: 10px;
   box-shadow: 0px 2px 12px ${({ theme }) => theme.colors.BorderShadow};
   .titleAnnouncementStyle {
@@ -119,10 +119,5 @@ export const WrapperAddAdvertisement = styled.div`
     width: 300px;
     padding: 0;
     margin-bottom: 15px;
-  }
-
-  @media ${device.mobileM} {
-    min-width: 90vw;
-    max-width: 90vw;
   }
 `;

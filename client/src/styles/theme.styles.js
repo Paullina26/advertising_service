@@ -58,8 +58,6 @@ export const theme = {
     GlassBackgroundMobile: 'rgba(10, 10, 10, 0.801)',
     GlassShadow: 'rgba(2, 4, 24, 1)',
     GlassBorder: 'rgba(255, 255, 255, 0.09)',
-
-    // BorderAaadv: 'rgb(29, 201, 103)',
   },
 };
 
@@ -72,12 +70,12 @@ export const device = {
   desktopL: `(min-width: 1440px)`,
 };
 
-export const fonts = {
-  s: '0.8rem',
-  m: '1rem',
-};
+// export const fonts = {
+//   s: '0.8rem',
+//   m: '1rem',
+// };
 
-export const padding = {
-  button: '4px 16px',
-  bigButton: '10px 32px',
-};
+// export const padding = {
+//   button: '4px 16px',
+//   bigButton: '10px 32px',
+// };

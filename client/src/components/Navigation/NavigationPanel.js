@@ -58,12 +58,21 @@ const NavigationPanel = () => {
     (isLogin ? navItemsUser : navItemsHomePage).map(item => {
       return (
         <S.StyledLink key={item.name} to={item.to}>
-          {item.name}
+          <p>{item.name}</p>
         </S.StyledLink>
       );
     });
 
-  return <>{isOpenMenu && <S.WrapperNavigationPanel>{navItemRender}</S.WrapperNavigationPanel>}</>;
+  return (
+    <>
+      {
+        <S.WrapperNavigationPanel isOpenMenu={isOpenMenu}>
+          {' '}
+          {navItemRender}
+        </S.WrapperNavigationPanel>
+      }
+    </>
+  );
 };
 
 export default NavigationPanel;

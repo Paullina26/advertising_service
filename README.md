@@ -21,12 +21,9 @@
 <br>  Zarządzanie stanem komponentu 
 <br>  Zapytania do bazy danych.
 <br>  Stylowanie za pomocą style-component. 
-<br>
-<br>⚡Obecnie pracuje nad:
-<br> 14.09.2023 - Spójnością nazewnictwa komponentów i refaktoryzacją kodu. Chciałabym zapewnić lepszą czytelność kodu jak i reużywalność komponentów. 
-<br>
-<br>⚡Planowane prace:
-<br> Widok mobilny
-<br> Ustawienia użytkownika: umożliwić zmiany hasła, 
-<br> Rozszerzenie staatystyk: województwa, sprzedaż/kupno w danej kategorii. 
+<br>  Obsługa używtkownika zalogowanego, logowanie, rejestracja, dodawanie ogłoszeń do polubionych, sprawdzanie dodanych ogłoszeń. 
+
+
+
+
 

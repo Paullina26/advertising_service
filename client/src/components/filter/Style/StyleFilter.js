@@ -3,6 +3,7 @@ import { icons } from 'assets/icons';
 import { device } from 'styles/theme.styles';
 
 export const Wrapper = styled.div`
+  padding: 0 20px;
   z-index: 9;
   background-color: ${({ theme }) => theme.colors.Background};
   position: sticky;

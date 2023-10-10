@@ -19,13 +19,6 @@ export const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.Font};
   font-size: 2rem;
   padding: 5px 15px;
-  /* @media ${device.desktop} {
-    width: 30%;
-  } */
-
-  p {
-    /* text-align: center; */
-  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.navActiveFont};
@@ -51,6 +44,7 @@ export const WrapperHeader = styled.div`
 `;
 
 export const WrapperButtonHeader = styled.div`
+  margin-right: 10px;
   justify-self: end;
 `;
 
@@ -66,13 +60,3 @@ export const WrapperNavigationPanel = styled.div`
   font-size: 20px;
   transition: 0.3s;
 `;
-
-//desktop
-// export const WrapperNavigationPanel = styled.div`
-//   width: 100vw;
-//   background-color: ${({ theme }) => theme.colors.Background};
-//   box-shadow: inset 0px 0px 20px ${({ theme }) => theme.colors.BorderShadow};
-//   margin-top: 0;
-//   padding: 10px;
-//   font-size: 20px;
-// `;

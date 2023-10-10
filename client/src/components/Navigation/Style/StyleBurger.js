@@ -15,6 +15,7 @@ export const StyledCloseBurgerIcon = styled(icons.closeBurger)`
 `;
 
 export const BurgerWrapper = styled.button`
+  margin-left: 10px;
   border: none;
   width: 4rem;
   height: 4rem;

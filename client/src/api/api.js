@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://localhost:8080/api/';
+export const API_BASE_URL = 'adv-server-paullina26-paulinas-projects-d76507c2.vercel.app/api/';
 
 export const headers = {
   Accept: 'application.json',
@@ -6,7 +6,9 @@ export const headers = {
 };
 
 export const API = {
+  register: `${API_BASE_URL}auth/register`,
   login: `${API_BASE_URL}auth/login`,
+  user: `${API_BASE_URL}auth/user`,
   postAdvertisement: `${API_BASE_URL}advertisement/add`,
   getAdvertisement: `${API_BASE_URL}advertisement/all`,
   getAdvertisementUser: `${API_BASE_URL}advertisement/all-user`,

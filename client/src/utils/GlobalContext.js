@@ -1,3 +1,4 @@
+import { API } from 'api/api';
 import Loading from 'components/loading/Loading';
 import { useEffect, useState } from 'react';
 import { createContext } from 'react';
@@ -38,7 +39,7 @@ const GlobalProvider = ({ children }) => {
     if (!token || isLogin) return;
 
     setIsLoadingUser(true);
-    fetch('http://localhost:8080/api/auth/user', {
+    fetch(API.user, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         Authorization: `Bearer ${token}`,

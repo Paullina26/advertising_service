@@ -5,6 +5,7 @@ import { Error } from 'components/Form/Style/StyleError';
 import { nameElement, StatusMessage } from 'data/data';
 import * as S from './Style/StyleForm';
 import { Button } from 'components/buttons/Button';
+import { API } from 'api/api';
 
 const Registration = ({ onClick }) => {
   const [mail, setMail] = useState('');
@@ -14,7 +15,7 @@ const Registration = ({ onClick }) => {
   const [error, setError] = useState(null);
 
   const sendRegistrationDataToServer = () => {
-    fetch('http://localhost:8080/api/auth/register', {
+    fetch(API.register, {
       method: 'POST',
       headers: {
         Accept: 'application.json',

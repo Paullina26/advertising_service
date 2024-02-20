@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Input from 'components/Form/Input';
 import Submit from 'components/Form/Submit';
 import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import Textarea from 'components/Form/Textarea';
 import Select from 'components/Form/Select';
 import {

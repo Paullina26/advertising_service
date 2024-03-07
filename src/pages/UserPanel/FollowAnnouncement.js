@@ -21,7 +21,7 @@ const FollowAnnouncement = () => {
         return response.json();
       })
       .then(data => {
-        setAdvFollowUser(data.filter(adv => adv.isFav).map(adv => adv.advertisementId));
+        setAdvFollowUser(data?.filter(adv => adv.isFav).map(adv => adv.advertisementId));
       });
   };
 

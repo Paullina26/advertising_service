@@ -131,7 +131,7 @@ const Statistics = () => {
   }, []);
 
   const filterData = (data, filterName, value, cb) => {
-    const newArr = data.filter(adv => adv[filterName] === `${value}`);
+    const newArr = data?.filter(adv => adv[filterName] === `${value}`);
     cb(newArr);
   };
 

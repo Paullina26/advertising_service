@@ -86,6 +86,11 @@ const Login = ({ onClick }) => {
         {error && <Error>{error}</Error>}
         <Submit id='Login' type='submit' value={nameElement.submitLogin} />
       </form>
+      <div>
+        <p>Dane logowania:</p>
+        <p>test@test.pl</p>
+        <p>test</p>
+      </div>
     </S.WrapperRegistrationAndLogin>
   );
 };

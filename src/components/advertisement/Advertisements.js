@@ -42,7 +42,7 @@ export const Advertisements = () => {
         return response.json();
       })
       .then(data => {
-        setAdvIdFollow(data.filter(adv => adv.isFav).map(adv => adv.advertisementId));
+        setAdvIdFollow(data?.filter(adv => adv.isFav).map(adv => adv.advertisementId));
         getAdvertisementData();
       });
   };

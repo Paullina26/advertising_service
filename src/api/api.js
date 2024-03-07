@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'adv-server-paullina26-paulinas-projects-d76507c2.vercel.app/api/';
+export const API_BASE_URL = 'https://server-advertisements.vercel.app/api/';
 
 export const headers = {
   Accept: 'application.json',
